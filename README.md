@@ -60,7 +60,23 @@ User accounts and progress are stored in:
 /data/lockstep-users.json
 ```
 
-## Checklist Data
+## Docker Data Persistence
+
+User accounts, password hashes, profile settings, and checklist progress are stored on the server in the file configured by `PSC_SETTINGS_FILE`.
+
+The Docker image defaults to:
+
+```text
+PSC_SETTINGS_FILE=/data/lockstep-users.json
+```
+
+Run the container with a mounted volume so user data survives container restarts and image updates:
+
+```bash
+docker run -p 4174:4174 -v lockstep-data:/data lockstep
+```
+
+Keep only one running container instance while using the JSON file storage. For multiple instances, move storage to a database such as PostgreSQL.`r`n`r`n## Checklist Data
 
 Checklist content is stored in:
 
@@ -81,3 +97,5 @@ npm run lint
 ## License
 
 See `LICENSE`.
+
+
