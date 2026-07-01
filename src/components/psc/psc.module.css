@@ -1,0 +1,36 @@
+
+.container {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+}
+
+.checklistItemDescription {
+  a {
+    text-decoration: underline;
+  }
+}
+
+.progressOverview p {
+  max-width: none !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.progressOverview span {
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.progressOverview .block {
+  display: block !important;
+}
+
+.progressOverview .flex {
+  display: flex !important;
+}
+
+.progressOverview .grid {
+  display: grid !important;
+}

@@ -1,0 +1,45 @@
+{
+  "name": "lockstep",
+  "private": true,
+  "license": "CC-BY-4.0",
+  "scripts": {
+    "build": "npm run build.types && npm run build.client && npm run build.server && npm run lint",
+    "build.client": "vite build",
+    "build.server": "vite build -c adapters/node-server/vite.config.mts",
+    "build.types": "tsc --incremental --noEmit",
+    "fmt": "prettier --write .",
+    "fmt.check": "prettier --check .",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "serve": "node serve.mjs",
+    "qwik": "qwik"
+  },
+  "devDependencies": {
+    "@builder.io/qwik-city": "^1.20.0",
+    "@eslint/js": "^10.0.1",
+    "@tailwindcss/postcss": "^4.3.1",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^26.0.1",
+    "@typescript-eslint/eslint-plugin": "^8.62.0",
+    "@typescript-eslint/parser": "^8.62.0",
+    "daisyui": "^5.6.3",
+    "eslint": "^10.6.0",
+    "eslint-plugin-qwik": "^1.20.0",
+    "globals": "^17.7.0",
+    "js-yaml": "^5.2.0",
+    "postcss": "^8.5.16",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.0",
+    "undici": "^8.5.0",
+    "vite": "^7.3.6",
+    "vite-plugin-static-copy": "^4.1.1",
+    "vite-tsconfig-paths": "^6.1.1"
+  },
+  "dependencies": {
+    "@builder.io/qwik": "^1.20.0",
+    "@tailwindcss/typography": "^0.5.20",
+    "marked": "^18.0.5",
+    "qwik-transition": "^0.0.7",
+    "sharp": "^0.35.2"
+  }
+}

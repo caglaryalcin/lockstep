@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@900&family=Poppins&display=swap');
+
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 100%;
+  min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  background: #1a2028 !important;
+}
+
+body {
+  background: var(--color-base-100, #1a2028) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Catamaran', sans-serif;
+}
+
+p, a, li, span {
+  font-family: 'Poppins', sans-serif;
+}
+
+.soft-hover {
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.soft-hover:hover,
+.soft-hover:focus-visible,
+:where(.btn-ghost):hover,
+:where(.btn-ghost):focus-visible,
+:where(.menu li > a):hover,
+:where(.menu li > details > summary):hover {
+  background-color: color-mix(in oklab, currentColor 7%, transparent) !important;
+  border-color: color-mix(in oklab, currentColor 14%, transparent) !important;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 12%);
+}
+
+.soft-hover:focus-visible,
+:where(.btn-ghost):focus-visible,
+:where(.menu li > a):focus-visible,
+:where(.menu li > details > summary):focus-visible {
+  outline: 2px solid color-mix(in oklab, currentColor 35%, transparent);
+  outline-offset: 3px;
+}

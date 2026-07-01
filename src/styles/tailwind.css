@@ -1,0 +1,87 @@
+@import "tailwindcss" source("../");
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, night, cupcake, bumblebee, corporate, synthwave, retro, valentine, halloween, aqua, lofi, fantasy, dracula;
+}
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-front: hsl(var(--front, 0deg 0% 60% / 10%));
+  --color-back: hsl(var(--back, 212 14% 10% / 1));
+}
+
+@source inline("{hover:,}{bg,border,outline,text}-{blue,cyan,emerald,fuchsia,indigo,lime,pink,purple,red,teal,violet,yellow}-{400,500,600}");
+@source inline("{badge,bg,toggle}-{info,success,neutral,warning,error}");
+@source inline("{checked:,hover:}checkbox-{info,success,neutral,warning,error}");
+@source inline("hover:bg-{info,success,neutral,warning,error}");
+
+[data-theme="light"] {
+  --front: 237 9% 86% / 0.75;
+  --back: 237 9% 86% / 1;
+}
+
+[data-theme="dark"] {
+  --front: 217 14% 17%;
+  --back: 212 14% 10%;
+}
+
+[data-theme="night"] {
+  --front: 220 45% 9%;
+  --back: 219 38% 13%;
+}
+
+[data-theme="cupcake"] {
+  --front: 297 77% 90%;
+  --back: 303 60% 94%;
+}
+
+[data-theme="bumblebee"] {
+  --front: 76 40% 87%;
+  --back: 60 23% 92%;
+}
+
+[data-theme="corporate"] {
+  --front: 212 44% 84%;
+  --back: 212 26% 90%;
+}
+
+[data-theme="synthwave"] {
+  --front: 253 58% 12%;
+  --back: 254 48% 17%;
+}
+
+[data-theme="retro"] {
+  --front: 42 37% 72%;
+  --back: 43 36% 87%;
+}
+
+[data-theme="valentine"] {
+  --front: 320 71% 85%;
+  --back: 322 61% 94%;
+}
+
+[data-theme="halloween"] {
+  --front: 0 0% 9%;
+  --back: 0 0% 17%;
+}
+
+[data-theme="aqua"] {
+  --front: 231 41% 27%;
+  --back: 231 34% 23%;
+}
+
+[data-theme="lofi"] {
+  --front: 228 12% 92%;
+  --back: 228 12% 92% / 0.75;
+}
+
+[data-theme="fantasy"] {
+  --front: 231 34% 23%;
+  --back: 210 2% 83%;
+}
+
+[data-theme="dracula"] {
+  --front: 210 2% 83% / 0.03;
+  --back: 228 20% 15%;
+}

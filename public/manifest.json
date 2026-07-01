@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "Lockstep",
+  "short_name": "Lockstep",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#14b8a6",
+  "description": "A personal security checklist for tightening your digital life."
+}
