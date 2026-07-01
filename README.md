@@ -29,37 +29,67 @@ The app runs on:
 http://127.0.0.1:4174
 ```
 
-To use a custom port:
+Use `PORT` to run on a custom port:
 
 ```bash
 PORT=4174 npm run serve
-```
-
-On PowerShell:
-
-```powershell
-$env:PORT="4174"
-npm run serve
-```
+``r
 
 ## Docker
 
-Build the image:
+Run directly from the published image:
+
+```bash
+docker run -d \
+  --name lockstep \
+  -p 4174:4174 \
+  -v lockstep-data:/data \
+  ghcr.io/caglaryalcin/lockstep:latest
+```
+
+Then open:
+
+```text
+http://127.0.0.1:4174
+```
+
+Build locally only if you want to create your own image:
 
 ```bash
 docker build -t lockstep .
+docker run -d --name lockstep -p 4174:4174 -v lockstep-data:/data lockstep
 ```
 
-Run it with persistent user data:
+## Docker Stack
+
+Example `stack.yml`:
+
+```yaml
+version: "3.8"
+
+services:
+  lockstep:
+    image: ghcr.io/caglaryalcin/lockstep:latest
+    ports:
+      - "4174:4174"
+    environment:
+      PORT: "4174"
+      PSC_SETTINGS_FILE: /data/lockstep-users.json
+    volumes:
+      - lockstep-data:/data
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+
+volumes:
+  lockstep-data:
+```
+
+Deploy it:
 
 ```bash
-docker run -p 4174:4174 -v lockstep-data:/data lockstep
-```
-
-User accounts and progress are stored in:
-
-```text
-/data/lockstep-users.json
+docker stack deploy -c stack.yml lockstep
 ```
 
 ## Docker Data Persistence
@@ -72,13 +102,11 @@ The Docker image defaults to:
 PSC_SETTINGS_FILE=/data/lockstep-users.json
 ```
 
-Run the container with a mounted volume so user data survives container restarts and image updates:
+Mount `/data` as a Docker volume so user data survives container restarts and image updates.
 
-```bash
-docker run -p 4174:4174 -v lockstep-data:/data lockstep
-```
+Keep only one running container or stack replica while using the JSON file storage. For multiple instances, move storage to a database such as PostgreSQL.
 
-Keep only one running container instance while using the JSON file storage. For multiple instances, move storage to a database such as PostgreSQL.`r`n`r`n## Checklist Data
+## Checklist Data
 
 Checklist content is stored in:
 
@@ -99,5 +127,4 @@ npm run lint
 ## License
 
 See `LICENSE`.
-
 
