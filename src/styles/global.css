@@ -40,15 +40,18 @@ p, a, li, span {
 :where(.btn-ghost):focus-visible,
 :where(.menu li > a):hover,
 :where(.menu li > details > summary):hover {
-  background-color: color-mix(in oklab, currentColor 7%, transparent) !important;
-  border-color: color-mix(in oklab, currentColor 14%, transparent) !important;
-  box-shadow: 0 10px 28px rgb(0 0 0 / 12%);
+  background-color: color-mix(in oklab, var(--color-base-content, #e5eef8) 7%, transparent) !important;
+  border-color: color-mix(in oklab, var(--color-base-content, #e5eef8) 13%, transparent) !important;
+  box-shadow:
+    0 12px 30px rgb(0 0 0 / 14%),
+    inset 0 1px 0 rgb(255 255 255 / 6%);
 }
 
 .soft-hover:focus-visible,
 :where(.btn-ghost):focus-visible,
 :where(.menu li > a):focus-visible,
 :where(.menu li > details > summary):focus-visible {
-  outline: 2px solid color-mix(in oklab, currentColor 35%, transparent);
+  outline: 2px solid color-mix(in oklab, var(--color-base-content, #e5eef8) 28%, transparent);
   outline-offset: 3px;
 }
+
