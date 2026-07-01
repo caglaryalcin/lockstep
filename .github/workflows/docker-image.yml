@@ -1,4 +1,4 @@
-name: 🐳 Build Docker image
+name: Build Docker image
 
 on:
   workflow_dispatch:
@@ -9,14 +9,32 @@ on:
       - "Dockerfile"
       - ".dockerignore"
       - "personal-security-checklist.yml"
-      - "web/**"
+      - "adapters/**"
+      - "lib/**"
+      - "public/**"
+      - "src/**"
+      - "package.json"
+      - "package-lock.json"
+      - "postcss.config.js"
+      - "serve.mjs"
+      - "tsconfig.json"
+      - "vite.config.mts"
       - ".github/workflows/docker-image.yml"
   pull_request:
     paths:
       - "Dockerfile"
       - ".dockerignore"
       - "personal-security-checklist.yml"
-      - "web/**"
+      - "adapters/**"
+      - "lib/**"
+      - "public/**"
+      - "src/**"
+      - "package.json"
+      - "package-lock.json"
+      - "postcss.config.js"
+      - "serve.mjs"
+      - "tsconfig.json"
+      - "vite.config.mts"
       - ".github/workflows/docker-image.yml"
 
 permissions:
