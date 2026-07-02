@@ -1,9 +1,9 @@
 import type { RequestHandler } from '@builder.io/qwik-city';
 
+import { sanitizeUsername } from '~/lib/account';
 import {
   authenticateUser,
   registerUser,
-  sanitizeUsername,
   updateUserAccount,
 } from '~/lib/server/settings-store';
 
@@ -44,9 +44,21 @@ export const onPost: RequestHandler = async ({ cookie, headers, json, request })
 
     setUserCookie(cookie, user.id);
     json(200, { user });
-  } catch {
-    json(action === 'register' ? 409 : 401, {
-      error: action === 'register' ? 'USER_EXISTS' : 'INVALID_CREDENTIALS',
+  } catch (error) {
+    const message = error instanceof Error ? error.message : '';
+    const registerStatus = message === 'User already exists'
+      ? 409
+      : message === 'Invalid credentials'
+        ? 400
+        : 500;
+    const registerError = message === 'User already exists'
+      ? 'USER_EXISTS'
+      : message === 'Invalid credentials'
+        ? 'INVALID_INPUT'
+        : 'REGISTER_FAILED';
+
+    json(action === 'register' ? registerStatus : 401, {
+      error: action === 'register' ? registerError : 'INVALID_CREDENTIALS',
     });
   }
 };

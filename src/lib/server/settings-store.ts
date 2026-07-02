@@ -3,6 +3,7 @@ import { pbkdf2, randomBytes, timingSafeEqual } from 'node:crypto';
 import { dirname, resolve } from 'node:path';
 import { promisify } from 'node:util';
 
+import { sanitizeUsername } from '~/lib/account';
 import type { LockstepUser } from '~/lib/user-session';
 
 export type SettingsStore = Record<string, unknown>;
@@ -59,13 +60,6 @@ const makeInitials = (name: string) => {
     .join('')
     .slice(0, 2);
 };
-
-export const sanitizeUsername = (username: string | null | undefined) =>
-  (username || '')
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9_-]/g, '')
-    .slice(0, 32);
 
 const makeUserProfile = (
   username: string,

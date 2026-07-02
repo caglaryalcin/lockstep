@@ -3,6 +3,7 @@ import { $, component$, Slot, useSignal, useStore, useVisibleTask$ } from "@buil
 import { brand } from "~/brand";
 import BrandLogo from "~/components/furniture/brand-logo";
 import { translate, useI18n, type TranslationKey } from "~/i18n";
+import { sanitizeUsername } from "~/lib/account";
 import {
   getStoredUser,
   saveStoredUser,
@@ -31,7 +32,7 @@ export default component$(() => {
   });
 
   const submit = $(async () => {
-    const username = form.username.trim();
+    const username = sanitizeUsername(form.username);
     const password = form.password;
     const name = form.name.trim() || username;
 
@@ -57,9 +58,12 @@ export default component$(() => {
     }).catch(() => null);
 
     if (!response?.ok) {
-      form.error = mode.value === "register"
-        ? translate(language.value, "auth.registerError")
-        : translate(language.value, "auth.loginError");
+      const result = await response?.json().catch(() => null);
+      form.error = mode.value === "register" && result?.error === "INVALID_INPUT"
+        ? translate(language.value, "auth.usernameError")
+        : mode.value === "register"
+          ? translate(language.value, "auth.registerError")
+          : translate(language.value, "auth.loginError");
       return;
     }
 

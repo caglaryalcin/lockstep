@@ -5,6 +5,7 @@ import { brand } from "~/brand";
 import Icon from "~/components/core/icon";
 import { useLocalStorage } from "~/hooks/useLocalStorage";
 import { translate, useI18n } from "~/i18n";
+import { sanitizeUsername } from "~/lib/account";
 import {
   getSettingsHeaders,
   getStoredUser,
@@ -89,9 +90,15 @@ export default component$(() => {
   const updateAccount = $(async () => {
     accountForm.error = "";
     accountForm.success = "";
+    const username = sanitizeUsername(accountForm.username);
 
     if (!accountForm.currentPassword || accountForm.currentPassword.length < 6) {
       accountForm.error = translate(language.value, "userProfile.currentPasswordError");
+      return;
+    }
+
+    if (username.length < 3) {
+      accountForm.error = translate(language.value, "auth.usernameError");
       return;
     }
 
@@ -108,7 +115,7 @@ export default component$(() => {
         currentPassword: accountForm.currentPassword,
         name: accountForm.name,
         newPassword: accountForm.newPassword || undefined,
-        username: accountForm.username,
+        username,
       }),
     }).catch(() => null);
 
