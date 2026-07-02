@@ -387,7 +387,7 @@ export default component$((props: { section: Section }) => {
                   )}
                 </td>
                 <td>
-                  <div class={`badge gap-2 badge-${item.badgeColor}`}>
+                  <div class={[`badge gap-2 badge-${item.badgeColor}`, styles.priorityBadge]}>
                     {translatePriority(language.value, item.priorityKey)}
                   </div>
                 </td>

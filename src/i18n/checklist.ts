@@ -1,21 +1,27 @@
 import type { Language } from "~/i18n";
 import type { Checklist, Section, Sections } from "~/types/PSC";
+import trGeneratedSections from "./checklist.tr.generated.json";
 
-type ChecklistTranslation = {
+export type ChecklistTranslation = {
   point?: string;
   details?: string;
 };
 
-type SectionTranslation = {
+export type SectionTranslation = {
   title?: string;
   description?: string;
   intro?: string;
   items?: Record<string, ChecklistTranslation>;
 };
 
+type ChecklistTranslationBundle = {
+  generated?: Partial<Record<string, SectionTranslation>>;
+  overrides?: Partial<Record<string, SectionTranslation>>;
+};
+
 const makeItemId = (point: string) => point.toLowerCase().replace(/\s+/g, "-");
 
-const trSections: Record<string, SectionTranslation> = {
+const trSectionOverrides: Record<string, SectionTranslation> = {
   authentication: {
     title: "Kimlik Doğrulama",
     description: "Çevrimiçi hesap giriş bilgilerini güvenceye alma",
@@ -218,10 +224,45 @@ const trSections: Record<string, SectionTranslation> = {
   },
 };
 
-const translations: Record<Language, Partial<Record<string, SectionTranslation>>> = {
-  en: {},
-  tr: trSections,
+const mergeSectionTranslations = (
+  base: Partial<Record<string, SectionTranslation>>,
+  overrides: Partial<Record<string, SectionTranslation>>
+): Record<string, SectionTranslation> => {
+  return Array.from(new Set([...Object.keys(base), ...Object.keys(overrides)])).reduce(
+    (sections, slug) => {
+      const baseSection = base[slug] || {};
+      const overrideSection = overrides[slug] || {};
+      sections[slug] = {
+        ...baseSection,
+        ...overrideSection,
+        items: {
+          ...baseSection.items,
+          ...overrideSection.items,
+        },
+      };
+      return sections;
+    },
+    {} as Record<string, SectionTranslation>
+  );
 };
+
+const buildSectionTranslations = (bundle: ChecklistTranslationBundle): Record<string, SectionTranslation> => {
+  return mergeSectionTranslations(bundle.generated || {}, bundle.overrides || {});
+};
+
+const checklistTranslationBundles: Partial<Record<Language, ChecklistTranslationBundle>> = {
+  tr: {
+    generated: trGeneratedSections as Record<string, SectionTranslation>,
+    overrides: trSectionOverrides,
+  },
+};
+
+const translations = Object.fromEntries(
+  Object.entries(checklistTranslationBundles).map(([language, bundle]) => [
+    language,
+    buildSectionTranslations(bundle),
+  ])
+) as Partial<Record<Language, Record<string, SectionTranslation>>>;
 
 const localizeItem = (item: Checklist, sectionTranslation?: SectionTranslation): Checklist => {
   const id = item.id || makeItemId(item.point);
@@ -234,7 +275,7 @@ const localizeItem = (item: Checklist, sectionTranslation?: SectionTranslation):
 };
 
 const localizeSection = (section: Section, language: Language): Section => {
-  const sectionTranslation = translations[language][section.slug];
+  const sectionTranslation = translations[language]?.[section.slug];
   return {
     ...section,
     title: sectionTranslation?.title || section.title,

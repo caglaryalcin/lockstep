@@ -1,0 +1,1322 @@
+{
+  "authentication": {
+    "items": {
+      "use-a-secure-password-manager": {
+        "point": "Güvenli Parola Yöneticisi kullanın",
+        "details": "Çoğu insan için yüzlerce güçlü ve benzersiz şifreyi hatırlamak neredeyse imkansız olacak. Parola yöneticisi, oturum açma kimlik bilgilerinizi sizin için oluşturan, saklayan ve otomatik olarak dolduran bir uygulamadır. Tüm şifreleriniz 1 ana şifre ile şifrelenecektir (bunu hatırlamanız gerekir ve bu şifre çok güçlü olmalıdır). Çoğu şifre yöneticisinin tarayıcı uzantıları ve mobil uygulamaları vardır; dolayısıyla hangi cihazı kullanırsanız kullanın şifreleriniz otomatik olarak doldurulabilir. Çok yönlü iyi bir çözüm, [Bitwarden](https://awesome-privacy.xyz/essentials/password-managers/bitwarden) veya bkz. [Önerilen Şifre Yöneticileri](https://awesome-privacy.xyz/essentials/password-managers)."
+      },
+      "enable-2-factor-authentication": {
+        "point": "2 Faktörlü Kimlik Doğrulamayı Etkinleştir",
+        "details": "2FA, oturum açmak için hem bildiğiniz bir şeyi (şifre) hem de sahip olduğunuz bir şeyi (telefonunuzdaki kod gibi) sağlamanız gereken yerdir. Bu, herhangi birinin şifrenizi ele geçirmesi durumunda (ör. kimlik avı, kötü amaçlı yazılım veya veri ihlali yoluyla) hesabınıza giriş yapamayacağı anlamına gelir. Başlamak kolaydır, telefonunuza bir kimlik doğrulama uygulaması indirin ve ardından hesap güvenlik ayarlarınıza gidip 2FA'yı etkinleştirme adımlarını izleyin. Bir dahaki sefere yeni bir cihazda oturum açtığınızda, telefonunuzdaki uygulamada görüntülenen kodu girmeniz istenecektir (internet olmadan çalışır ve kod genellikle her 30 saniyede bir değişir)."
+      },
+      "avoid-sharing-passwords": {
+        "point": "Şifreleri Paylaşmaktan Kaçının",
+        "details": "Bir hesaba erişimi başka bir kişiyle paylaşmanız gerekebilecek zamanlar olsa da, hesabın ele geçirilmesini kolaylaştıracağı için genellikle bunu yapmaktan kaçınmalısınız. Bir şifreyi kesinlikle paylaşmanız gerekiyorsa (örneğin, paylaşılan bir hesapla bir ekipte çalışırken) bu, şifre yöneticisinde yerleşik özellikler aracılığıyla yapılmalıdır."
+      },
+      "do-not-share-mfa-codes-or-approve-unexpected-prompts": {
+        "point": "MFA Kodlarını Paylaşmayın veya Beklenmeyen İstemleri Onaylamayın",
+        "details": "Tek kullanımlık kodları, anlık onayları ve şifre istemlerini şifre gibi kullanın. Sizi arayan veya mesaj atan birine asla kod okumayın ve kendi başlatmadığınız herhangi bir giriş istemini reddetmeyin. Beklenmedik istemler alırsanız hesap şifrenizi değiştirin, etkin oturumları inceleyin ve tanımadığınız cihazları kaldırın."
+      },
+      "use-a-strong-password": {
+        "point": "Güçlü Bir Şifre Kullanın",
+        "details": "Parolanız çok kısaysa veya sözlük sözcükleri, yerler veya adlar içeriyorsa, kaba kuvvetle kolayca kırılabilir veya birileri tarafından tahmin edilebilir. Güçlü bir şifre oluşturmanın en kolay yolu, onu uzun (12+ karakter) yapmaktır; birçok kelimeden oluşan bir 'parola' kullanmayı düşünün. Alternatif olarak, uzun, güçlü, rastgele bir şifre oluşturmak için bir şifre oluşturucu kullanın. Yaygın kullanılan şifrelerin ne kadar hızlı kırılabileceğine dair bir fikir edinmek için [Security.org'un Şifrem Ne Kadar Güvenli?](https://security.org/how-secure-is-my-password/) adlı makalesini inceleyin. Güçlü şifreler oluşturma hakkında daha fazlasını okuyun: [securityinabox.org](https://securityinabox.org/en/passwords/passwords/)."
+      },
+      "don't-reuse-passwords": {
+        "point": "Şifreleri Tekrar Kullanmayın",
+        "details": "Birisi bir şifreyi yeniden kullanırsa ve hesabının bulunduğu bir site sızıntıya maruz kalırsa, bir suçlu kolaylıkla diğer hesaplara yetkisiz erişim sağlayabilir. Bu genellikle büyük ölçekli otomatik oturum açma istekleri aracılığıyla yapılır ve buna Kimlik Bilgisi Doldurma adı verilir. Ne yazık ki, bunların hepsi çok yaygındır, ancak bunlara karşı korunmak kolaydır; çevrimiçi hesaplarınızın her biri için farklı bir şifre kullanın."
+      },
+      "keep-backup-codes-safe": {
+        "point": "Yedekleme Kodlarını Güvende Tutun",
+        "details": "Çok faktörlü kimlik doğrulamayı etkinleştirdiğinizde, genellikle 2FA yönteminizin kaybolması, bozulması veya kullanılamaması durumunda kullanabileceğiniz birkaç kod verilecektir. Kaybolmasını veya yetkisiz erişimi önlemek için bu kodları güvenli bir yerde saklayın. Bunları kağıt üzerinde veya diskte güvenli bir yerde (örneğin, çevrimdışı depolamada veya şifrelenmiş bir dosyada/sürücüde) saklamalısınız. 2FA kaynakları ve şifrelerin ayrı tutulması gerektiğinden bunları şifre yöneticinizde saklamayın."
+      },
+      "sign-up-for-breach-alerts": {
+        "point": "İhlal Uyarıları için Kaydolun",
+        "details": "Bir web sitesi önemli bir veri ihlaline maruz kaldıktan sonra sızdırılan veriler genellikle internete düşer. Birkaç web sitesi sızdırılan bu kayıtları toplar ve listelerinden herhangi birinde olup olmadığınızı kontrol etmek için e-posta adresinizi aramanıza olanak tanır. [Firefox Monitor](https://monitor.firefox.com), [Have I Been Pwned](https://haveibeenpwned.com) ve [DeHashed](https://dehashed.com) izleme için kaydolmanıza olanak tanır; burada e-posta adresiniz herhangi bir yeni veri kümesinde görünürse sizi bilgilendireceklerdir. Etkilenen hesapların şifrelerini değiştirebilmeniz için, bunun ne zaman gerçekleştiğini mümkün olan en kısa sürede bilmeniz yararlı olacaktır. [Pwned oldum](https://awesome-privacy.xyz/security-tools/online-tools/have-i-been-pwned) ayrıca alan adı çapında bir bildirime sahiptir; burada alan adınızın tamamı altında herhangi bir e-posta adresi göründüğünde uyarı alabilirsiniz (anonim yönlendirme için takma adlar kullanıyorsanız kullanışlıdır)."
+      },
+      "update-critical-passwords-periodically": {
+        "point": "Kritik Şifreleri Periyodik Olarak Güncelleyin",
+        "details": "Veritabanı sızıntıları ve ihlalleri yaygındır ve muhtemelen şifrelerinizden bazıları zaten çevrimiçi bir yerdedir. Güvenlik açısından kritik hesapların parolalarının ara sıra güncellenmesi bu durumu hafifletmeye yardımcı olabilir. Ancak tüm şifrelerinizin uzun, güçlü ve benzersiz olması koşuluyla bunu çok sık yapmanıza gerek yoktur; yıllık olarak yeterli olacaktır. Kuruluşlarda şifre değişikliklerinin zorunlu kılınması [artık önerilmez](https://duo.com/decipher/microsoft-will-no-longer-recommend-forcing-periodic-password-changes), çünkü bu, iş arkadaşlarını daha zayıf şifreler seçmeye teşvik eder."
+      },
+      "avoid-logging-in-on-someone-else’s-device": {
+        "point": "Başka Birinin Cihazında Oturum Açmaktan Kaçının",
+        "details": "Sistemlerinin temiz olduğundan emin olamayacağınız için başkalarının bilgisayarlarında oturum açmaktan kaçının. Kötü amaçlı yazılım ve izleme burada daha yaygın olduğundan, halka açık makinelere karşı özellikle dikkatli olun. Başka birinin cihazını kullanmak özellikle çevrimiçi bankacılık gibi kritik hesaplarda tehlikelidir. Başka birinin makinesini kullanırken özel/gizli bir oturumda olduğunuzdan emin olun (Ctrl+Shift+N/ Cmd+Shift+N tuşlarını kullanın). Bu, tarayıcının kimlik bilgilerinizi, çerezlerinizi ve tarama geçmişinizi kaydetmemesini isteyecektir."
+      },
+      "don’t-save-your-password-in-browsers": {
+        "point": "Şifrenizi Tarayıcılara Kaydetmeyin",
+        "details": "Çoğu modern tarayıcı, bir siteye giriş yaptığınızda kimlik bilgilerinizi kaydetmeyi önerir. Her zaman şifrelenmediklerinden ve birisinin hesaplarınıza erişmesine izin verebileceğinden buna izin vermeyin. Bunun yerine, şifrelerinizi saklamak (ve otomatik olarak doldurmak) için özel bir şifre yöneticisi kullanın."
+      },
+      "shield-your-password/pin": {
+        "point": "Şifrenizi/PIN'inizi koruyun",
+        "details": "Şifrenizi halka açık yerlerde yazarken, CCTV kameranın doğrudan görüş alanında olmadığınızdan ve kimsenin omzunuzun üzerinden göremediğinden emin olun. Yazarken parolanızı veya pin kodunuzu örtün ve düz metin parolalarınızı ekranınızda göstermeyin."
+      },
+      "avoid-password-hints": {
+        "point": "Şifre İpuçlarından Kaçının",
+        "details": "Bazı siteler şifre ipuçlarını ayarlamanıza izin verir. Çoğu zaman cevapları tahmin etmek çok kolaydır. Şifre ipuçlarının zorunlu olduğu durumlarda rastgele yanıtlar kullanın ve bunları şifre yöneticinize (`Name of the first school: 6D-02-8B-!a-E8-8F-81`) kaydedin."
+      },
+      "don’t-use-a-4-digit-pin": {
+        "point": "4 Haneli PIN Kullanmayın",
+        "details": "Akıllı telefonunuza veya bilgisayarınıza erişmek için kısa PIN kullanmayın. Bunun yerine metin şifresi veya çok daha uzun bir PIN kullanın. Sayısal parolaların kırılması kolaydır (4 basamaklı bir pinin 10.000 kombinasyonu vardır; 4 karakterli bir alfa-sayısal kod için bu sayı 7,4 milyondur)."
+      },
+      "avoid-using-your-pm-to-generate-otps": {
+        "point": "OTP Oluşturmak İçin parola yöneticinizi Kullanmaktan Kaçının",
+        "details": "Birçok şifre yöneticisi aynı zamanda 2FA kodları da oluşturabilir. Birincil şifre yöneticinizi 2FA kimlik doğrulayıcınız olarak kullanmamanız en iyisidir, çünkü bu, ele geçirildiğinde tek bir hata noktası haline gelir. Bunun yerine telefonunuzda veya dizüstü bilgisayarınızda özel bir kimlik doğrulama uygulaması kullanın."
+      },
+      "never-answer-online-security-questions-truthfully": {
+        "point": "Çevrimiçi Güvenlik Sorularını Asla Doğru Yanıtlamayın",
+        "details": "Bir site güvenlik soruları soruyorsa (doğum yeri, annenin kızlık soyadı veya ilk arabası vb.) gerçek yanıtlar vermeyin. Bilgisayar korsanlarının bu bilgileri çevrimiçi olarak veya sosyal mühendislik yoluyla bulmaları önemsiz bir görevdir. Bunun yerine hayali bir yanıt oluşturun ve bunu şifre yöneticinizde saklayın. [Burada açıklandığı gibi](https://news.ycombinator.com/item?id=29244870) gibi, gerçek sözcükleri kullanmak rastgele karakterlerden daha iyidir."
+      },
+      "avoid-face-unlock": {
+        "point": "Yüz Tanıma Kilidini Engelleme",
+        "details": "Çoğu telefon ve dizüstü bilgisayar, yüzünüzün anlık görüntüsünü depolanan karma ile karşılaştırmak için kamerayı kullanan bir yüz tanıma kimlik doğrulama özelliği sunar. Çok kullanışlı olabilir, ancak [onu kandırmanın](https://www.forbes.com/sites/jvchamary/2017/09/18/security-apple-face-id-iphone-x/) ve dijital fotoğraflar ve CCTV görüntülerinden yeniden yapılandırmalar yoluyla cihaza erişim sağlamanın birçok yolu vardır. Şifrenizden farklı olarak internette yüzünüzün fotoğrafları ve güvenlik kameraları tarafından kaydedilen videolar olması muhtemeldir."
+      },
+      "avoid-using-sms-for-2fa": {
+        "point": "2FA için SMS Kullanmaktan Kaçının",
+        "details": "Çok faktörlü kimlik doğrulamayı etkinleştirirken uygulama tabanlı kodları veya destekleniyorsa donanım belirtecini tercih edin. SMS, [SIM değiştirme](https://www.maketecheasier.com/sim-card-hijacking) ve [müdahale](https://secure-voice.com/ss7_attacks) gibi birçok yaygın tehdide karşı hassastır. Ayrıca telefon numaranızın ne kadar güvenli bir şekilde saklanacağına veya başka ne için kullanılacağına dair de hiçbir garanti yoktur. Pratik açıdan bakıldığında, SMS yalnızca sinyaliniz olduğunda çalışır ve yavaş olabilir. Bir web sitesi veya hizmet, kurtarma için bir SMS numarasının kullanılmasını gerektiriyorsa, bu durumlarda yalnızca hesap kurtarma için kullanılan ikinci bir ön ödemeli telefon numarası satın almayı düşünün."
+      },
+      "watch-out-for-keyloggers": {
+        "point": "Keylogger'lara dikkat edin",
+        "details": "Donanım [keylogger](https://en.wikipedia.org/wiki/Hardware_keylogger), klavyeniz ile USB bağlantı noktası arasına yerleştirilen, tüm tuş vuruşlarını engelleyen ve bazen verileri uzaktaki bir sunucuya aktaran fiziksel bir cihazdır. Bir bilgisayar korsanının parolalar da dahil olmak üzere yazılan her şeye erişmesini sağlar. Korunmanın en iyi yolu, bilgisayarınız başında olmadığında USB bağlantınızı kontrol etmektir. Klavye muhafazasının içine keylogger'ların yerleştirilmesi de mümkündür; bu nedenle, kasanın kurcalandığına dair herhangi bir işaret olup olmadığına bakın ve çalışmak için kendi klavyenizi getirmeyi düşünün. Sanal klavyede yazılan, panoya yapıştırılan veya parola yöneticisi tarafından otomatik olarak doldurulan veriler, donanımsal tuş kaydedici tarafından ele geçirilemez."
+      },
+      "prefer-phishing-resistant-mfa": {
+        "point": "Kimlik avına karşı dayanıklı MFA'yı tercih edin",
+        "details": "Kritik hesaplar için SMS, e-posta kodları veya salt-anlık MFA yerine passkey'leri veya FIDO2/WebAuthn güvenlik anahtarlarını tercih edin. Bu yöntemler, oturum açma bilgilerini kriptografik olarak gerçek web sitesine bağlayarak kimlik avı, ortadaki rakip saldırıları ve tekrar saldırılarını çok daha zorlaştırır. Kayıp bir cihazın sizi kilitlememesi için en az iki kayıtlı kimlik doğrulayıcıyı veya kurtarma yöntemini saklayın."
+      },
+      "keep-a-backup-security-key": {
+        "point": "Yedek Güvenlik Anahtarını Saklayın",
+        "details": "Donanım güvenlik anahtarları kullanıyorsanız önemli hesaplara en az iki anahtarı kaydedin: biri yanınızda, diğeri güvenli bir yerde saklanıyor. Kayıt olduktan sonra her iki anahtarı da test edin, hesap adını açığa çıkarmadan etiketleyin ve kayıp anahtarları hesaptan hemen kaldırın. Bu, tek bir fiziksel hata noktası oluşturmadan, kimlik avına karşı dayanıklı oturum açma olanağı sağlar."
+      },
+      "consider-unique-usernames": {
+        "point": "Benzersiz Kullanıcı Adlarını Düşünün",
+        "details": "Her hesap için farklı parolalara sahip olmak iyi bir ilk adımdır, ancak oturum açmak için aynı zamanda benzersiz bir kullanıcı adı, e-posta veya telefon numarası kullanırsanız, yetkisiz erişim elde etmeye çalışan herkes için bu çok daha zor olacaktır. Birden fazla e-posta için en kolay yöntem, anonim posta yönlendirme için otomatik olarak oluşturulan takma adların kullanılmasıdır. Burası [herhangi bir şey]@alanadınız.com'un gelen kutunuza ulaşacağı yerdir ve her hesap için farklı bir e-posta kullanmanıza olanak tanır (bkz. Posta Takma Ad Sağlayıcıları). Kullanıcı adlarını oluşturmak, saklamak ve otomatik olarak doldurmak için parola yöneticinizi kullanabildiğiniz için kullanıcı adları daha kolaydır. VOIP sağlayıcınız aracılığıyla sanal telefon numaraları oluşturulabilir."
+      },
+      "consider-offline-password-manager": {
+        "point": "Çevrimdışı Şifre Yöneticisini Düşünün",
+        "details": "Daha fazla güvenlik için, şifrelenmiş bir çevrimdışı şifre yöneticisi, verileriniz üzerinde size tam kontrol sağlayacaktır. [KeePass](https://awesome-privacy.xyz/essentials/password-managers/keepass), çok sayıda [eklenti](https://keepass.info/plugins.html) ve ek uyumluluk ve işlevselliğe sahip topluluk çatalları ile popüler bir seçimdir. Popüler istemciler arasında şunlar bulunur: [KeePassXC](https://keepassxc.org) (masaüstü), [KeePassDX](https://www.keepassdx.com) (Android) ve [StrongBox](https://apps.apple.com/us/app/strongbox-password-safe/id897283731) (iOS). Dezavantajı, bazıları için biraz daha az kullanışlı olabilmesi ve onu yedeklemenin ve güvenli bir şekilde saklamanın size kalmış olmasıdır."
+      }
+    }
+  },
+  "web-browsing": {
+    "items": {
+      "watch-out-for-browser-malware": {
+        "point": "Tarayıcı Kötü Amaçlı Yazılımlarına dikkat edin",
+        "details": "Sisteminiz veya tarayıcınız casus yazılımlar, madenciler, tarayıcı korsanları, kötü amaçlı yönlendirmeler, reklam yazılımları vb. tarafından tehlikeye atılabilir. Genellikle aşağıdakileri yaparak korunmayı sürdürebilirsiniz: pop-up'ları göz ardı ederek, tıkladığınız şeye karşı dikkatli olun, tarayıcınız kötü amaçlı olabileceği konusunda sizi uyarıyorsa bir web sitesine gitmeyin. Tarayıcı kötü amaçlı yazılımlarının yaygın belirtileri şunlardır: varsayılan arama motoru veya ana sayfanın değiştirilmiş olması, araç çubukları, tanıdık olmayan uzantılar veya simgeler, önemli ölçüde daha fazla reklam, hata ve sayfaların normalden çok daha yavaş yüklenmesi. Heimdal'ın bu makaleleri [tarayıcı kötü amaçlı yazılım belirtileri](https://heimdalsecurity.com/blog/warning-signs-operating-system-infected-malware), [tarayıcılara nasıl virüs bulaştığını](https://heimdalsecurity.com/blog/practical-online-protection-where-malware-hides) ve [tarayıcı kötü amaçlı yazılımlarının nasıl kaldırılacağını](https://heimdalsecurity.com/blog/malware-removal) açıklamaktadır."
+      },
+      "ensure-website-is-legitimate": {
+        "point": "Web Sitesinin Yasal Olduğundan Emin Olun",
+        "details": "Kulağa çok açık gelebilir ancak herhangi bir çevrimiçi hesaba giriş yaptığınızda URL'nin doğruluğunu bir kez daha kontrol edin. Sık ziyaret edilen siteleri yer işaretlerinize kaydetmek, URL'nin kolayca bulunmasını sağlamanın iyi bir yoludur. Yeni web sitelerini ziyaret ederken, bu sitelerin güvenli olmadığına dair genel işaretleri arayın: Tarayıcı uyarıları, yönlendirmeler, site içi spam ve pop-up'lar. Emin değilseniz, bir web sitesini şu gibi bir araç kullanarak da kontrol edebilirsiniz: [Virüs Toplamı](https://awesome-privacy.xyz/security-tools/online-tools/virus-total), [IsLegitSite](https://www.islegitsite.com), [Google Güvenli Tarama Durumu](https://transparencyreport.google.com/safe-browsing/search)."
+      },
+      "block-ads": {
+        "point": "Reklamları Engelle",
+        "details": "Bir reklam engelleyici kullanmak, reklamların uyguladığı izleyicileri engelleyerek gizliliğinizi artırmanıza yardımcı olabilir. [uBlock Origin](https://awesome-privacy.xyz/networking/ad-blockers/ublock-origin), Raymond Hill tarafından geliştirilen, çok verimli ve açık kaynaklı bir tarayıcı eklentisidir. Üçüncü taraf reklamları bir web sayfasında görüntülendiğinde, sizi takip etme, sizin ve alışkanlıklarınız hakkında kişisel bilgiler toplama, daha sonra satılma veya size daha hedefli reklamlar göstermek için kullanılma olanağına sahiptirler ve bazı reklamlar açıkça kötü niyetli veya sahtedir. Reklamların engellenmesi aynı zamanda sayfaların daha hızlı yüklenmesini sağlar, daha az veri kullanır ve daha az karmaşık bir deneyim sağlar."
+      },
+      "remove-unnecessary-browser-addons": {
+        "point": "Gereksiz Tarayıcı Eklentilerini Kaldır",
+        "details": "Uzantılar, tarayıcıda yaptığınız her şeyi görebilir, günlüğe kaydedebilir veya değiştirebilir ve bazı masum görünen tarayıcı uygulamalarının kötü niyetleri vardır. Web siteleri hangi uzantıları yüklediğinizi görebilir ve bunu parmak izinizi geliştirmek, sizi daha doğru bir şekilde tanımlamak/izlemek için kullanabilir. Hem [Firefox](https://awesome-privacy.xyz/essentials/browsers/firefox) hem de Chrome web mağazaları, bir uzantıyı yüklemeden önce hangi izinlerin/erişim haklarının gerekli olduğunu kontrol etmenize olanak tanır. İncelemeleri kontrol edin. Yalnızca gerçekten ihtiyacınız olan uzantıları yükleyin ve bir süredir kullanmadığınız uzantıları kaldırın."
+      },
+      "check-for-https": {
+        "point": "HTTPS'yi kontrol edin",
+        "details": "HTTPS olmayan bir web sitesine bilgi girerseniz, bu veriler şifrelenmeden aktarılır ve bu nedenle onu ele geçiren herkes tarafından okunabilir. HTTPS olmayan bir web sitesine herhangi bir veri girmeyin, ancak yeşil asma kilidin size yanlış bir güvenlik hissi vermesine de izin vermeyin, bir web sitesinin SSL sertifikasına sahip olması onun meşru veya güvenilir olduğu anlamına gelmez. [HTTPS-Everywhere](https://www.eff.org/https-everywhere) ([EFF](https://www.eff.org/) tarafından geliştirilmiştir) eskiden web sitelerinde HTTPS'yi otomatik olarak etkinleştiren bir tarayıcı uzantısı/eklentisiydi, ancak 2022 itibarıyla artık kullanımdan kaldırılmıştır. EFF, [bilgi makalesinde](https://www.eff.org/) çoğu tarayıcının artık bu tür korumaları entegre ettiğini açıklıyor. Ayrıca, [Firefox](https://awesome-privacy.xyz/essentials/browsers/firefox), Chrome, Edge ve Safari tarayıcılarına yönelik, HTTPS güvenli korumalarının nasıl etkinleştirileceğine ilişkin talimatlar sağlar."
+      },
+      "use-a-privacy-respecting-browser": {
+        "point": "Gizliliğe Saygılı Bir Tarayıcı Kullanın",
+        "details": "[Firefox](https://awesome-privacy.xyz/essentials/browsers/firefox) (birkaç ayarlamayla) ve [Brave](https://awesome-privacy.xyz/essentials/browsers/brave-browser) güvenli, gizliliğe saygılı tarayıcılardır. Her ikisi de hızlıdır, açık kaynaklıdır, kullanıcı dostudur ve tüm önemli işletim sistemlerinde mevcuttur. Tarayıcınızın çevrimiçi yaptığınız her şeye erişimi vardır; bu nedenle mümkünse Google Chrome, Edge ve Safari'den (doğru yapılandırma olmadan) üçünden de kaçının, kullanım verilerini toplayın, evi arayın ve istilacı izlemeye izin verin. Firefox'ta optimum güvenliği sağlamak için birkaç değişiklik yapılması gerekiyor; örneğin - [arkenfox](https://github.com/arkenfox/user.js/wiki) veya [12byte](https://12bytes.org/firefox-configuration-guide-for-privacy-freaks-and-performance-buffs/)'in user.js yapılandırmaları. Daha fazlasını görün: Gizlilik Tarayıcıları."
+      },
+      "use-dns-over-https": {
+        "point": "HTTPS üzerinden DNS kullan",
+        "details": "Geleneksel DNS, herkesin görmesi için düz metin halinde isteklerde bulunur. Ortadaki adam saldırıları yoluyla DNS verilerinin gizlice dinlenmesine ve değiştirilmesine olanak tanır. HTTPS üzerinden DNS, DNS çözümlemesini HTTPS protokolü aracılığıyla gerçekleştirir; bu, sizinle DNS çözümleyiciniz arasındaki verilerin şifrelendiği anlamına gelir. Popüler bir seçenek [CloudFlare](https://awesome-privacy.xyz/networking/dns-providers/cloudflare)'nin [1.1.1.1](https://awesome-privacy.xyz/security-tools/mobile-apps/1.1.1.1)'sidir veya sağlayıcıları karşılaştırın; tarayıcıda etkinleştirmek kolaydır. DoH'un çoğunlukla web filtrelemeyi engelleyen kendi sorunlarıyla birlikte geldiğini unutmayın."
+      },
+      "use-a-private-search-engine": {
+        "point": "Özel Arama Motoru Kullanın",
+        "details": "Gizliliği koruyan, takip etmeyen bir arama motoru kullanmak, arama terimlerinizin günlüğe kaydedilmemesi veya size karşı kullanılmaması riskini azaltacaktır. [DuckDuckGo](https://awesome-privacy.xyz/essentials/search-engines/duckduckgo) veya [Qwant](https://awesome-privacy.xyz/essentials/search-engines/qwant) seçeneğini düşünün. Google, bazı [inanılmaz derecede istilacı](https://hackernoon.com/data-privacy-concerns-with-google-b946f2b7afea) izleme politikaları uygulamaktadır ve [önyargılı arama sonuçları](https://www.businessinsider.com/evidence-that-google-search-results-are-biased-2014-10) görüntüleme geçmişine sahiptir. Bu nedenle Google, Bing, Baidu, Yahoo ve Yandex ile birlikte gizliliğini korumak isteyen hiç kimseyle uyumlu değildir. [Tarayıcıların varsayılan aramasını](https://duckduckgo.com/install) gizliliğe saygılı bir arama motoruyla güncellemeniz önerilir."
+      },
+      "keep-browser-up-to-date": {
+        "point": "Tarayıcıyı Güncel Tutun",
+        "details": "Tarayıcıdaki güvenlik açıkları sürekli olarak [keşfediliyor](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=browser) ve yamalanıyor, bu nedenle sıfır gün istismarından kaçınmak için bunları güncel tutmak önemlidir. Nasıl güncelleme yapılacağına ilişkin talimatlar için [burada hangi tarayıcı sürümünü kullandığınızı görebilir](https://www.whatismybrowser.com/) veya [bu kılavuzu](https://www.whatismybrowser.com/guides/how-to-update-your-browser/) takip edebilirsiniz. Bazı tarayıcılar en son kararlı sürüme otomatik olarak güncellenir."
+      },
+      "use-incognito": {
+        "point": "Gizli Modu Kullan",
+        "details": "Başka birinin makinesini kullanırken özel/gizli oturumda olduğunuzdan emin olun. Bu, tarayıcı geçmişinin, çerezlerin ve bazı verilerin kaydedilmesini önleyecektir, ancak kusursuz değildir; yine de izlenebilirsiniz."
+      },
+      "manage-cookies": {
+        "point": "Çerezleri Yönet",
+        "details": "Çerezleri düzenli olarak temizlemek, web sitelerinin sizi izlemesini azaltmaya yardımcı olmak için atabileceğiniz adımlardan biridir. Çerezler ayrıca oturum belirtecinizi de saklayabilir; bu belirteç yakalanırsa, birisinin kimlik bilgileri olmadan hesaplarınıza erişmesine olanak tanır. Bunu azaltmak için çerezleri sık sık temizlemelisiniz."
+      },
+      "block-third-party-trackers": {
+        "point": "Üçüncü Taraf Takipçileri Engelle",
+        "details": "İzleyicileri engellemek, web sitelerinin, reklamverenlerin, analizlerin ve daha fazlasının sizi arka planda izlemesini engellemeye yardımcı olacaktır. [Privacy Badger](https://awesome-privacy.xyz/security-tools/browser-extensions/privacy-badger), [DuckDuckGo Privacy Essentials](https://awesome-privacy.xyz/security-tools/browser-extensions/privacy-essentials), [uBlock Origin](https://awesome-privacy.xyz/networking/ad-blockers/ublock-origin) ve uMatrix (gelişmiş), tüm büyük tarayıcılarda kullanılabilen çok etkili, açık kaynaklı izleyici engelleyicilerdir."
+      },
+      "block-third-party-cookies": {
+        "point": "Üçüncü Taraf Çerezlerini Engelle",
+        "details": "Ziyaret ettiğiniz web sitesi dışında bir web sitesi tarafından cihazınıza yerleştirilen üçüncü taraf çerezleri. Üçüncü bir varlık mevcut oturumunuzdan veri toplayabildiğinden bu durum gizlilik riski oluşturur. Bu kılavuzda 3. taraf çerezlerini nasıl devre dışı bırakabileceğiniz açıklanmaktadır ve bunun işe yarayıp yaramadığını buradan kontrol edebilirsiniz."
+      },
+      "understand-your-browser-fingerprint": {
+        "point": "Tarayıcı Parmak İzinizi Anlayın",
+        "details": "Tarayıcı Parmak İzi, bir web sitesinin sizi cihaz bilgilerinize göre tanımladığı inanılmaz derecede hassas bir izleme yöntemidir. Parmak izinizi amiunique.org adresinden görüntüleyebilirsiniz. Amaç mümkün olduğunca benzersiz olmamaktır."
+      },
+      "multi-[session](https://awesome-privacy.xyz/communication/encrypted-messaging/session)-containers": {
+        "point": "Çoklu [Oturum](https://awesome-privacy.xyz/communication/encrypted-messaging/session) Kapsayıcılar",
+        "details": "Bölümlere ayırma, gezinmenizin farklı yönlerini ayrı tutmak için gerçekten önemlidir. Örneğin, iş, genel gezinme, sosyal medya, çevrimiçi alışveriş vb. için farklı profiller kullanmak, veri komisyoncularının size bağlantı verebileceği ilişkilendirmelerin sayısını azaltacaktır. Seçeneklerden biri, tam olarak bu amaç için tasarlanmış olan [Firefox Konteynerlerini](https://awesome-privacy.xyz/security-tools/browser-extensions/firefox-multi-account-containers) kullanmaktır. Alternatif olarak, farklı görevler için farklı tarayıcılar kullanabilirsiniz ([Brave](https://awesome-privacy.xyz/essentials/browsers/brave-browser), [Firefox](https://awesome-privacy.xyz/essentials/browsers/firefox), [Tor](https://awesome-privacy.xyz/networking/mix-networks/tor) vb.)."
+      },
+      "beware-of-redirects": {
+        "point": "Yönlendirmelere Dikkat Edin",
+        "details": "Bazı yönlendirmeler zararsız olsa da, Doğrulanmamış yönlendirmeler gibi diğerleri kimlik avı saldırılarında kullanılır ve kötü amaçlı bir bağlantının meşru görünmesine neden olabilir. Bir yönlendirme URL'sinden emin değilseniz, RedirectDetective gibi bir araçla nereye yönlendirildiğini kontrol edebilirsiniz."
+      },
+      "avoid-g-translate-for-webpages": {
+        "point": "Web Sayfaları için G Translate'den Kaçının",
+        "details": "Yabancı dilde yazılmış bir web sayfasını ziyaret ettiğinizde Google Çeviri uzantısını yüklemeniz istenebilir. Google'ın, mevcut kullanıcının ayrıntılarıyla birlikte tüm verileri (giriş alanları dahil) topladığını unutmayın. Bunun yerine tarayıcınıza bağlı olmayan bir çeviri hizmeti kullanın."
+      },
+      "disable-web-notifications": {
+        "point": "Web Bildirimlerini Devre Dışı Bırak",
+        "details": "Tarayıcı anlık bildirimleri, kaynağı yanıltmak kolay olduğundan, suçluların sizi kendi bağlantılarına tıklamaya teşvik etmek için kullandığı yaygın bir yöntemdir. Bunun farkında olun ve tarayıcı bildirimlerini devre dışı bırakma talimatları için bu makaleye bakın."
+      },
+      "disable-automatic-downloads": {
+        "point": "Otomatik İndirmeleri Devre Dışı Bırak",
+        "details": "Drive-by indirmeler, zararlı dosyaların bir kullanıcının cihazına aktarılmasının yaygın bir yöntemidir. Otomatik dosya indirmeleri devre dışı bırakılarak bu durum azaltılabilir ve beklenmedik bir şekilde dosyaları indirmenizi isteyen web sitelerine karşı dikkatli olun."
+      },
+      "disallow-access-to-sensors": {
+        "point": "Sensörlere Erişime İzin Verme",
+        "details": "Mobil web siteleri, sormadan cihazınızın sensörlerine erişebilir. Bu izinleri tarayıcınıza bir kez verirseniz, tüm web siteleri bu yetenekleri izin veya bildirim gerektirmeden kullanabilir."
+      },
+      "disallow-prediction-services": {
+        "point": "Tahmin Hizmetlerine İzin Verme",
+        "details": "Bazı tarayıcılar, gerçek zamanlı arama sonuçlarını veya otomatik URL doldurmayı aldığınız tahmin hizmetlerine izin verir. Bu etkinleştirilirse veriler, enter tuşuna basmak yerine her tuşa basıldığında Google'a (veya varsayılan arama motorunuza) gönderilir."
+      },
+      "do-not-sign-into-your-browser": {
+        "point": "Tarayıcınızda Oturum Açmayın",
+        "details": "Birçok tarayıcı, geçmişi, yer işaretlerini ve diğer tarama verilerini cihazlar arasında senkronize etmek için oturum açmanıza olanak tanır. Ancak bu yalnızca daha fazla veri toplanmasına izin vermekle kalmaz, aynı zamanda kötü niyetli bir aktörün kişisel bilgileri ele geçirmesi için başka bir yol sağlayarak saldırı yüzeyini de artırır."
+      },
+      "disable-browser-autofill": {
+        "point": "Tarayıcı Otomatik Doldurmayı Devre Dışı Bırak",
+        "details": "Gizli veya kişisel ayrıntılar için otomatik doldurmayı kapatın. Tarayıcınızın herhangi bir şekilde güvenliği ihlal edilirse bu özellik zararlı olabilir. Bunun yerine şifre yöneticinizin Notlar özelliğini kullanmayı düşünün."
+      },
+      "disallow-location": {
+        "point": "Konuma İzin Verme",
+        "details": "Konum Hizmetleri, sitelerin deneyiminizi geliştirmek için fiziksel konumunuzu istemesine olanak tanır. Bu, ayarlarda devre dışı bırakılmalıdır. Yaklaşık konumunuzu belirlemenin başka yöntemlerinin de bulunduğunu unutmayın."
+      },
+      "disable-browser-password-saves": {
+        "point": "Tarayıcı Şifre Kayıtlarını Devre Dışı Bırak",
+        "details": "Tarayıcınızın kullanıcı adlarını ve şifreleri saklamasına izin vermeyin. Bunlar kolayca görüntülenebilir veya erişilebilir. Bunun yerine bir şifre yöneticisi kullanın."
+      },
+      "disallow-camera/-microphone-access": {
+        "point": "Kamera/Mikrofon erişimine izin verme",
+        "details": "Hiçbir web sitesine web kamerası veya mikrofona erişim izni verilmediğinden emin olmak için tarayıcı ayarlarını kontrol edin. Web kamerası kapağı ve mikrofon engelleyici gibi fiziksel korumaların kullanılması da faydalı olabilir."
+      },
+      "protect-from-exfil-attack": {
+        "point": "Exfil Saldırısından Koruyun",
+        "details": "CSS Exfiltrate saldırısı, kimlik bilgilerinin ve diğer hassas ayrıntıların yalnızca saf CSS ile ele geçirilebildiği bir yöntemdir. [CSS Exfil Koruması](https://awesome-privacy.xyz/security-tools/browser-extensions/css-exfil-protection) eklentisiyle korunmaya devam edebilirsiniz."
+      },
+      "spoof-html5-canvas-sig": {
+        "point": "Sahte HTML5 Kanvas İmzası",
+        "details": "Canvas Fingerprinting, web sitelerinin kullanıcıları çok doğru bir şekilde tanımlamasına ve izlemesine olanak tanır. Parmak izinizi taklit etmek için Canvas-Fingerprint-Blocker uzantısını kullanabilir veya [Tor](https://awesome-privacy.xyz/networking/mix-networks/tor) kullanabilirsiniz."
+      },
+      "deactivate-activex": {
+        "point": "ActiveX'i devre dışı bırakın",
+        "details": "ActiveX, Microsoft IE'de yerleşik ve varsayılan olarak etkinleştirilmiş bir tarayıcı uzantısı API'sidir. Artık yaygın olarak kullanılmıyor, ancak eklentilere gizli erişim hakları verdiği ve tehlikeli olabileceği için onu devre dışı bırakmalısınız."
+      },
+      "disable-webrtc": {
+        "point": "WebRTC'yi devre dışı bırakın",
+        "details": "WebRTC, doğrudan tarayıcıdan yüksek kaliteli ses/görüntü iletişimine ve eşler arası dosya paylaşımına olanak tanır. Ancak gizlilik sızıntısı gibi görünebilir. Daha fazlasını öğrenmek için bu kılavuza göz atın."
+      },
+      "disregard-dnt": {
+        "point": "DNT'yi dikkate almayın",
+        "details": "Pek çok web sitesi buna saygı göstermediği veya uymadığı için Do Not Track'in etkinleştirilmesinin etkisi çok sınırlıdır. Nadiren kullanıldığı için imzanıza da katkıda bulunarak sizi daha benzersiz kılabilir."
+      },
+      "prevent-hsts-tracking": {
+        "point": "HSTS Takibini Önleyin",
+        "details": "HSTS, web sitelerinin güvenliğini sağlamaya yardımcı olmak için tasarlandı, ancak site operatörlerinin süper çerezler yerleştirmesine izin verdiği için gizlilik endişeleri arttı. Chromium tabanlı tarayıcılarda chrome://net-internals/#hsts adresini ziyaret ederek devre dışı bırakabilirsiniz."
+      },
+      "spoof-user-agent": {
+        "point": "Sahte Kullanıcı Aracısı",
+        "details": "Kullanıcı aracısı web sitesine hangi cihazı, tarayıcıyı ve sürümü kullandığınızı bildirir. Kullanıcı aracısını periyodik olarak değiştirmek, daha az benzersiz olmak için atabileceğiniz küçük bir adımdır."
+      },
+      "strip-tracking-params-from-urls": {
+        "point": "URL'lerden İzleme Parametrelerini Çıkarma",
+        "details": "Web siteleri genellikle kaynak/yönlendiren gibi bilgileri tanımlamak için tıkladığınız URL'lere ek GET parametreleri ekler. URL'lerdeki izleme verilerini otomatik olarak kaldırmak için manuel olarak temizleyebilir veya [ClearURLs](https://awesome-privacy.xyz/security-tools/browser-extensions/clearurls) gibi bir uzantı kullanabilirsiniz."
+      },
+      "prevent-automatic-browser-connections": {
+        "point": "Otomatik Tarayıcı Bağlantılarını Önleyin",
+        "details": "Tarayıcınızı kullanmadığınızda bile, kullanım etkinliği, analizler ve teşhisler hakkında rapor vermek için evinizi arayabilir. Ayarlar aracılığıyla yapılabilecek bunlardan bazılarını devre dışı bırakmak isteyebilirsiniz."
+      },
+      "disable-javascript": {
+        "point": "JavaScript'i devre dışı bırak",
+        "details": "Birçok modern web uygulaması JavaScript tabanlıdır, bu nedenle onu devre dışı bırakmak, tarama deneyiminizi büyük ölçüde azaltacaktır. Ancak gerçekten sonuna kadar gitmek istiyorsanız, o zaman bu gerçekten saldırı yüzeyinizi azaltacaktır."
+      },
+      "use-the-tor-browser": {
+        "point": "Tor Tarayıcıyı Kullanın",
+        "details": "[Tor](https://awesome-privacy.xyz/networking/mix-networks/tor) Projesi, trafiğinizi şifreleyen ve birden fazla düğüm üzerinden yönlendiren, kullanıcıları müdahale ve takipten koruyan bir tarayıcı sağlar. Başlıca dezavantajları hız ve kullanıcı deneyimidir."
+      },
+      "first-launch-security": {
+        "point": "İlk Başlatma Güvenliği",
+        "details": "Bir web tarayıcısını yükledikten sonra, onu ilk kez başlattığınızda (gizlilik ayarlarını yapılandırmadan önce), çoğu tarayıcı evinizi arayacaktır. Bu nedenle tarayıcı kurduktan sonra öncelikle internet bağlantınızı devre dışı bırakmalı, ardından internet bağlantınızı yeniden etkinleştirmeden önce gizlilik seçeneklerini yapılandırmalısınız."
+      },
+      "enable-1st-party-isolation": {
+        "point": "1. Taraf İzolasyonunu Etkinleştir",
+        "details": "[Birinci Taraf İzolasyonu](https://awesome-privacy.xyz/security-tools/browser-extensions/first-party-isolation), tüm tanımlayıcı kaynakların ve tarayıcı durumunun URL çubuğu etki alanı kullanılarak kapsamının belirlendiği anlamına gelir; bu, izlemeyi büyük ölçüde azaltabilir."
+      }
+    }
+  },
+  "email": {
+    "items": {
+      "disable-automatic-loading-of-remote-content": {
+        "point": "Uzak İçeriğin Otomatik Yüklenmesini Devre Dışı Bırak",
+        "details": "E-posta mesajları, genellikle sunucudan otomatik olarak yüklenen resimler veya stil sayfaları gibi uzak içerikleri içerebilir. IP adresinizi ve cihaz bilgilerinizi açığa çıkardığı ve sıklıkla izleme amacıyla kullanıldığı için bunu devre dışı bırakmalısınız. Daha fazla bilgi için [bu makaleye](https://www.theverge.com/2019/7/3/20680903/email-pixel-trackers-how-to-stop-images-automatic-download) bakın."
+      },
+      "use-plaintext": {
+        "point": "Düz Metin Kullan",
+        "details": "İnternette iki ana e-posta türü vardır: düz metin ve HTML. HTML mesajları genellikle bağlantılarda ve satır içi resimlerde kullanım ve kişisel verileri toplayabilen tanımlayıcılar içerdiğinden, gizlilik ve güvenlik açısından birincisi şiddetle tercih edilir. Ayrıca, posta istemcinizin HTML ayrıştırıcısını hedef alan uzaktan kod yürütmenin çok sayıda riski vardır ve düz metin kullanıyorsanız bu riskten yararlanamazsınız. Daha fazla bilgi ve posta sağlayıcınıza yönelik kurulum talimatları için bkz. [UsePlaintext.email](https://useplaintext.email/)."
+      },
+      "keep-your-account-secure": {
+        "point": "Hesabınızı Güvende Tutun",
+        "details": "Uzun ve benzersiz bir şifre kullanın, 2FA'yı etkinleştirin ve giriş yaparken dikkatli olun. E-posta hesabınız, bir saldırganın diğer tüm çevrimiçi hesaplarınıza kolay bir giriş noktası sağlar."
+      },
+      "keep-email-address-private": {
+        "point": "E-posta Adresini Gizli Tutun",
+        "details": "Çoğu kimlik avı saldırısının başlangıç ​​noktası genellikle posta adresleri olduğundan birincil e-postanızı herkese açık olarak paylaşmayın."
+      },
+      "have-more-than-one-email-address": {
+        "point": "Birden fazla e-posta adresine sahip olmak",
+        "details": "Haber bültenleri gibi önemsiz postalardan güvenlik açısından kritik iletişimler için farklı bir e-posta adresi kullanmayı düşünün. Bu bölümlendirme, veri ihlalinden kaynaklanan hasar miktarını azaltabilir ve aynı zamanda güvenliği ihlal edilmiş bir hesabın kurtarılmasını kolaylaştırabilir."
+      },
+      "consider-switching-to-a-secure-mail-provider": {
+        "point": "Güvenli Posta Sağlayıcısına Geçmeyi Düşünün",
+        "details": "[E-postayı İlet](https://awesome-privacy.xyz/communication/encrypted-email/forward-email), [ProtonMail](https://awesome-privacy.xyz/communication/mail-forwarding/protonmail) ve [Tutanota](https://awesome-privacy.xyz/communication/encrypted-email/tuta) gibi güvenli ve saygın e-posta sağlayıcıları, uçtan uca şifrelemeye, tam gizliliğe ve daha fazla güvenlik odaklı özelliğe olanak tanır. Tipik e-posta sağlayıcılarının aksine, tüm mesajlar şifrelendiğinden posta kutunuz sizden başka kimse tarafından okunamaz."
+      },
+      "don’t-connect-third-party-apps-to-your-email-account": {
+        "point": "Üçüncü taraf uygulamalarını e-posta hesabınıza bağlamayın",
+        "details": "Bir üçüncü taraf uygulamasına veya eklentisine gelen kutunuza tam erişim izni verirseniz, bunlar tüm e-postalarınıza ve içeriklerine etkili bir şekilde engelsiz tam erişime sahip olur ve bu da önemli güvenlik ve gizlilik riskleri oluşturur."
+      },
+      "don't-share-sensitive-data-via-email": {
+        "point": "Hassas Verileri E-postayla Paylaşmayın",
+        "details": "E-postalar çok kolay bir şekilde ele geçirilir. Ayrıca alıcınızın ortamının ne kadar güvenli olduğundan emin olamazsınız. Bu nedenle, şifrelenmediği sürece e-postaların gizli bilgi alışverişi açısından güvenli olduğu düşünülemez."
+      },
+      "subaddressing": {
+        "point": "Alt adresleme",
+        "details": "Takma adın bir alternatifi, posta teslimi sırasında `+` sembolünden sonraki herhangi bir şeyin atlandığı alt adreslemedir. Bu, e-posta adresinizi kimin paylaştığını/sızdırdığını takip etmenizi sağlar ancak takma adların aksine, gerçek adresinizin açığa çıkmasına karşı koruma sağlamaz."
+      },
+      "use-smart-key": {
+        "point": "Akıllı Anahtarı Kullan",
+        "details": "OpenPGP İletim gizliliğini desteklemez; bu, sizin veya alıcının özel anahtarının çalınması durumunda onunla şifrelenen önceki tüm mesajların açığa çıkacağı anlamına gelir. Bu nedenle özel anahtarlarınızı güvende tutmaya büyük özen göstermelisiniz. Bunu yapmanın bir yöntemi, mesajları imzalamak veya şifresini çözmek için bir USB Akıllı Anahtar kullanmaktır; böylece özel anahtarınız USB cihazından ayrılmadan bunu yapabilirsiniz."
+      },
+      "use-aliasing-/-anonymous-forwarding": {
+        "point": "Takma Adlandırma / Anonim Yönlendirmeyi Kullan",
+        "details": "E-posta takma adı, iletilerin [herhangi bir şey]@alanadim.com adresine gönderilmesine ve yine de birincil gelen kutunuza gönderilmesine olanak tanır. Kaydolduğunuz her hizmet için farklı, benzersiz bir e-posta adresi kullanmanıza etkili bir şekilde olanak tanır. Bu, spam almaya başlarsanız bu takma adı engelleyebileceğiniz ve e-posta adresinizi hangi şirketin sızdırdığını belirleyebileceğiniz anlamına gelir."
+      },
+      "use-a-custom-domain": {
+        "point": "Özel Alan Adı Kullanın",
+        "details": "Özel bir alan adı kullanmak, posta sağlayıcınız tarafından atanan adrese bağımlı olmadığınız anlamına gelir. Böylece gelecekte sağlayıcıları kolayca değiştirebilirsiniz ve bir hizmetin durdurulması konusunda endişelenmenize gerek kalmaz."
+      },
+      "choose-the-right-mail-protocol": {
+        "point": "Doğru Posta Protokolünü Seçin",
+        "details": "Güncel olmayan protokolleri (IMAPv4 veya POPv3'ün altında) kullanmayın; her ikisinin de bilinen güvenlik açıkları ve güncelliği geçmiş güvenlikleri vardır."
+      },
+      "be-careful-with-auto-replies": {
+        "point": "Otomatik Yanıtlara Dikkat Edin",
+        "details": "Ofis dışında otomatik yanıtlar, insanları yanıtlamada gecikme olacağı konusunda bilgilendirmek açısından çok faydalıdır, ancak çoğu zaman insanlar çok fazla bilgi açığa çıkarır ve bu bilgiler sosyal mühendislik ve hedefli saldırılarda kullanılabilir."
+      },
+      "self-hosting": {
+        "point": "Kendi Kendine Barındırma",
+        "details": "Kendi posta sunucunuzun kendi kendine barındırılması, ileri düzey olmayan kullanıcılar için önerilmez; çünkü bunun doğru bir şekilde güvenliğinin sağlanması kritik öneme sahiptir ancak güçlü ağ oluşturma bilgisi gerektirir."
+      },
+      "sync-with-a-client-for-backup": {
+        "point": "Yedekleme için bir istemciyle senkronize edin",
+        "details": "Planlanmamış bir olay (kesinti veya hesap kilitlenmesi gibi) sırasında e-postalarınıza geçici veya kalıcı erişimi kaybetmemek için Thunderbird, IMAP aracılığıyla birden fazla hesaptaki mesajları senkronize edebilir/yedekleyebilir ve birincil cihazınızda yerel olarak depolayabilir."
+      },
+      "be-careful-with-mail-signatures": {
+        "point": "Posta İmzalarına Dikkat Edin",
+        "details": "Mesajınızın alıcısının e-posta ortamının ne kadar güvenli olabileceğini bilemezsiniz. İletileri otomatik olarak tarayan ve e-posta imzalarına dayalı olarak ayrıntılı bir iletişim bilgileri veritabanı oluşturan çeşitli uzantılar vardır."
+      },
+      "always-use-tls-ports": {
+        "point": "Her zaman TLS Bağlantı Noktalarını kullan",
+        "details": "Standart TCP/IP bağlantı noktaları olarak POP3, IMAP ve SMTP için SSL seçenekleri vardır. Kullanımı kolaydır ve geniş çapta desteklenirler; bu nedenle her zaman düz metin e-posta bağlantı noktaları yerine kullanılmalıdır."
+      },
+      "dns-availability": {
+        "point": "DNS Kullanılabilirliği",
+        "details": "Şirket içinde barındırılan posta sunucuları için, DNS sorunlarının kullanılabilirliği etkilemesini önlemek için, birincil MX kaydı başarısız olduğunda yedekleme için ikincil ve üçüncül MX kayıtları ile birlikte en az 2 MX kaydı kullanın."
+      },
+      "prevent-ddos-and-brute-force-attacks": {
+        "point": "DDoS ve Kaba Kuvvet Saldırılarını Önleyin",
+        "details": "Şirket içinde barındırılan posta sunucuları (özellikle SMTP) için, bot saldırılarının etkisini azaltmak amacıyla toplam eşzamanlı bağlantı sayınızı ve maksimum bağlantı hızınızı sınırlayın."
+      },
+      "maintain-ip-blacklist": {
+        "point": "IP Kara Listesini Koruyun",
+        "details": "Kendi kendine barındırılan posta sunucuları için, güncel bir yerel IP kara listesi ve kötü amaçlı köprüleri filtrelemek için bir spam URI gerçek zamanlı engelleme listeleri sağlayarak spam filtrelerini iyileştirebilir ve güvenliği güçlendirebilirsiniz."
+      }
+    }
+  },
+  "messaging": {
+    "items": {
+      "only-use-fully-end-to-end-encrypted-messengers": {
+        "point": "Yalnızca Tamamen Uçtan Uca Şifrelenmiş Habercileri Kullanın",
+        "details": "Uçtan uca şifreleme, mesajların cihazınızda şifrelendiği ve hedeflenen alıcıya ulaşana kadar şifresinin çözülmediği bir iletişim sistemidir. Bu, trafiği engelleyen herhangi bir aktörün veya verilerin depolandığı merkezi sunuculara erişimi olan hiç kimsenin mesaj içeriğini okuyamamasını sağlar."
+      },
+      "ensure-your-recipients-environment-is-secure": {
+        "point": "Alıcı Ortamınızın Güvenli Olmasını Sağlayın",
+        "details": "Konuşmanız ancak en zayıf halka kadar güvenli olabilir. Genellikle bir iletişim kanalına sızmanın en kolay yolu, en az korumaya sahip kişiyi veya düğümü hedeflemektir."
+      },
+      "disable-cloud-services": {
+        "point": "Bulut Hizmetlerini Devre Dışı Bırakın",
+        "details": "Bazı mobil mesajlaşma uygulamaları bir web veya masaüstü arkadaşı sunar. Bu yalnızca saldırı yüzeyini arttırmakla kalmaz, aynı zamanda birçok kritik güvenlik sorunuyla bağlantılıdır ve bu nedenle mümkünse bundan kaçınılmalıdır."
+      },
+      "check-security-settings": {
+        "point": "Güvenlik Ayarlarını Kontrol Edin",
+        "details": "Kişi doğrulama, güvenlik bildirimleri ve şifreleme dahil güvenlik ayarlarını etkinleştirin. Okundu bilgisi, son çevrimiçi bildirim ve yazma bildirimi gibi isteğe bağlı güvenlikle ilgili olmayan özellikleri devre dışı bırakın."
+      },
+      "secure-group-chats": {
+        "point": "Güvenli Grup Sohbetleri",
+        "details": "Saldırı yüzeyi arttıkça, bir grupta ne kadar çok katılımcı olursa, uzlaşma riski katlanarak artar. Tüm katılımcıların meşru olup olmadığını periyodik olarak kontrol edin."
+      },
+      "use-only-open-source-messaging-platforms": {
+        "point": "Yalnızca Açık Kaynak Mesajlaşma Platformlarını kullanın",
+        "details": "Kod açık kaynak ise, arka kapı, güvenlik açığı veya diğer güvenlik sorunlarının olmadığından emin olmak için bunu yapmaya yetkili herkes tarafından bağımsız olarak incelenebilir ve denetlenebilir."
+      },
+      "use-a-\"trustworthy\"-messaging-platform": {
+        "point": "\"Güvenilir\" Bir Mesajlaşma Platformu Kullanın",
+        "details": "Şifreli bir mesajlaşma uygulaması seçerken, uygulamanın tamamen açık kaynak olduğundan, kararlı olduğundan, aktif olarak korunduğundan ve ideal olarak saygın geliştiriciler tarafından desteklendiğinden emin olun."
+      },
+      "create-a-safe-environment-for-communication": {
+        "point": "İletişim için Güvenli Bir Ortam Yaratın",
+        "details": "Dijital iletişimlerinizin izlenebileceği veya ele geçirilebileceği birkaç aşama vardır. Buna şunlar dahildir: sizin veya katılımcılarınızın cihazı, İSS'niz, ulusal ağ geçidiniz veya hükümet günlüğü, mesajlaşma sağlayıcınız, sunucular."
+      },
+      "strip-meta-data-from-media": {
+        "point": "Meta Verileri Medyadan Çıkarın",
+        "details": "Meta veriler \"Verilerle İlgili Veriler\" veya bir dosyaya veya işleme eklenen ek bilgilerdir. Bir fotoğraf, ses kaydı, video veya belge gönderdiğinizde, düşündüğünüzden daha fazlasını açığa çıkarıyor olabilirsiniz."
+      },
+      "enable-ephemeral-messages": {
+        "point": "Geçici Mesajları Etkinleştir",
+        "details": "Kendini imha eden mesajlar, mesajlarınızın belirli bir süre sonra otomatik olarak silinmesine neden olan bir özelliktir. Bu, cihazınızın kaybolması, çalınması veya ele geçirilmesi durumunda saldırganın yalnızca en son iletişimlere erişebileceği anlamına gelir."
+      },
+      "agree-on-a-communication-plan": {
+        "point": "Bir İletişim Planı Üzerinde Anlaşın",
+        "details": "Bazı durumlarda bir iletişim planı yapmak faydalı olabilir. Bu, birbirleriyle güvenli bir şekilde iletişim kurmanın birincil ve yedek yöntemlerini içermelidir."
+      },
+      "avoid-sms": {
+        "point": "SMS'ten kaçının",
+        "details": "SMS kullanışlı olabilir ancak güvenli değildir. Müdahale, sim değiştirme, manipülasyon ve kötü amaçlı yazılım gibi tehditlere karşı hassastır."
+      },
+      "verify-your-recipient": {
+        "point": "Alıcınızı doğrulayın",
+        "details": "Daima hedeflenen alıcıyla konuştuğunuzdan ve onların gizliliğinin ihlal edilmediğinden emin olun. Bunu yapmanın bir yöntemi, kişi doğrulamayı destekleyen bir uygulama kullanmaktır."
+      },
+      "defang-urls": {
+        "point": "URL'lerin Defang'ı",
+        "details": "Çeşitli hizmetler aracılığıyla bağlantı göndermek, kişisel bilgilerinizin istemeden açığa çıkmasına neden olabilir. Bunun nedeni, bir küçük resim veya önizleme oluşturulduğunda bunun istemci tarafında gerçekleşmesidir."
+      },
+      "use-an-anonymous-platform": {
+        "point": "Anonim Bir Platform Kullanın",
+        "details": "Hedeflenebileceğinizi düşünüyorsanız, kaydolmak veya kullanmak için telefon numarası veya kişisel olarak tanımlanabilecek başka herhangi bir bilgi gerektirmeyen anonim bir mesajlaşma platformunu tercih etmelisiniz."
+      },
+      "consider-jurisdiction": {
+        "point": "Yargı Yetkisini Göz önünde bulundurun",
+        "details": "Kuruluşun bulunduğu ve verilerin barındırıldığı yetki alanları da dikkate alınmalıdır."
+      },
+      "consider-a-decentralized-platform": {
+        "point": "Merkezi Olmayan Bir Platform Düşünün",
+        "details": "Tüm veriler merkezi bir sağlayıcı üzerinden akıyorsa verileriniz ve meta verileriniz konusunda onlara güvenmeniz gerekir. Arka kapılar olmadan çalışan sistemin orijinal olduğunu doğrulayamazsınız."
+      },
+      "ensure-forward-secrecy-is-supported": {
+        "point": "İletim Gizliliğinin Desteklendiğinden Emin Olun",
+        "details": "İleriye yönelik gizlilik uygulayan bir platformu tercih edin. Burası uygulamanızın her mesaj için yeni bir şifreleme anahtarı oluşturduğu yerdir."
+      },
+      "watch-out-for-trackers": {
+        "point": "Takipçilere dikkat edin",
+        "details": "Takipçili mesajlaşma uygulamalarına karşı dikkatli olun; zira bu uygulamaların topladığı ayrıntılı kullanım istatistikleri genellikle çok müdahalecidir ve bazen kimliğinizin yanı sıra normalde paylaşmayı düşünmeyeceğiniz kişisel bilgilerinizi de açığa çıkarabilir."
+      }
+    }
+  },
+  "social-media": {
+    "items": {
+      "check-privacy-settings": {
+        "point": "Gizlilik Ayarlarını Kontrol Edin",
+        "details": "Çoğu sosyal ağ, gizlilik ayarlarınızı kontrol etmenize olanak tanır. Şu anda hangi verileri kime sunduğunuz konusunda rahat olduğunuzdan emin olun."
+      },
+      "secure-your-account": {
+        "point": "Hesabınızı Güvenceye Alın",
+        "details": "Sosyal medya profilleri çok sık çalınıyor veya ele geçiriliyor. Hesabınızı korumak için: benzersiz ve güçlü bir şifre kullanın ve 2 faktörlü kimlik doğrulamayı etkinleştirin."
+      },
+      "don't-reveal-too-much": {
+        "point": "Çok Fazla Açıklamayın",
+        "details": "Profil bilgileri, bilgisayar korsanları için kimlik avı dolandırıcılıklarını kişiselleştirmelerine yardımcı olacak türde bir bilgi altın madeni oluşturur. Çok fazla ayrıntı paylaşmaktan kaçının (DoB, Memleket, Okul vb.)."
+      },
+      "be-careful-what-you-upload": {
+        "point": "Ne Yüklediğinize Dikkat Edin",
+        "details": "Durum güncellemeleri, yorumlar, check-in'ler ve medya, istemeden de olsa, sizin amaçladığınızdan çok daha fazlasını ortaya çıkarabilir. Bu, özellikle arka planda bir şeyler gösterebilecek fotoğraf ve videolarla ilgilidir."
+      },
+      "think-of-all-interactions-as-public": {
+        "point": "Tüm Etkileşimleri Herkese Açık Olarak Düşünün",
+        "details": "Bir kullanıcının 'özel' içeriğini birçok sosyal ağda görüntülemenin hâlâ çok sayıda yöntemi vardır. Bu nedenle herhangi bir şeyi yüklemeden, paylaşmadan veya yorum yapmadan önce şunu düşünün: \"Bunun tamamen herkese açık olmasının bir sakıncası olur mu?\""
+      },
+      "be-careful-of-3rd-party-integrations": {
+        "point": "3. Parti Entegrasyonlarına Dikkat Edin",
+        "details": "Sosyal Ağ oturum açma bilgilerini kullanarak hesaplara kaydolmaktan kaçının, artık kullanmadığınız sosyal uygulamalara erişimi iptal edin."
+      },
+      "don't-grant-unnecessary-permissions": {
+        "point": "Gereksiz İzinler Vermeyin",
+        "details": "Popüler sosyal ağ uygulamalarının çoğu, varsayılan olarak kişilerinize, çağrı kaydınıza, konumunuza, mesajlaşma geçmişinize vb. erişmek için izin isteyecektir. Bu erişime ihtiyaçları yoksa izin vermeyin."
+      },
+      "think-of-all-interactions-as-permanent": {
+        "point": "Tüm Etkileşimleri Kalıcı Olarak Düşünün",
+        "details": "Hemen hemen her gönderi, yorum, fotoğraf vb., bu verileri arşivleyen ve neredeyse sonsuza kadar indekslenebilir ve kamuya açık hale getiren sayısız üçüncü taraf hizmet tarafından sürekli olarak yedeklenmektedir."
+      },
+      "don't-share-email-or-phone-number": {
+        "point": "E-posta veya Telefon Numarasını Paylaşmayın",
+        "details": "Gerçek e-posta adresinizi veya cep telefonu numaranızı yayınlamak, bilgisayar korsanlarına, trollere ve spam gönderenlere size karşı kullanmaları için daha fazla mühimmat sağlar ve ayrıca ayrı takma adların, profillerin veya veri noktalarının bağlanmasına da olanak tanır."
+      },
+      "avoid-publishing-geo-data-while-still-onsite": {
+        "point": "Halen Sahadayken Coğrafi Verileri Yayınlamaktan Kaçının",
+        "details": "Bir konumu ortaya çıkaran herhangi bir içeriği paylaşmayı planlıyorsanız o yerden ayrılana kadar bekleyin. Bu özellikle bir restorana, kampüse, otele/tatil köyüne, kamu binasına veya havaalanına seyahate çıktığınızda önemlidir."
+      },
+      "remove-metadata-before-uploading-media": {
+        "point": "Medyayı yüklemeden önce meta verileri kaldırın",
+        "details": "Çoğu akıllı telefon ve bazı kameralar, her fotoğrafa otomatik olarak kapsamlı bir dizi ek veri (EXIF verileri adı verilir) ekler. Yüklemeden önce bu verileri kaldırın."
+      },
+      "don’t-have-any-social-media-accounts": {
+        "point": "Herhangi bir sosyal medya hesabınız yok",
+        "details": "Sosyal medya temelde gizli değildir, bu nedenle maksimum çevrimiçi güvenlik ve gizlilik için ana akım sosyal ağları kullanmaktan kaçının."
+      },
+      "consider-false-information": {
+        "point": "Yanlış Bilgiyi Göz önünde bulundurun",
+        "details": "Sadece okumak istiyorsanız ve çok fazla gönderi paylaşmayı düşünmüyorsanız, takma ad ve yanlış iletişim bilgileri kullanmayı düşünün."
+      },
+      "consider-spoofing-gps-in-home-vicinity": {
+        "point": "Ev Yakınında GPS Sahteciliği Yapmayı Düşünün",
+        "details": "Siz sosyal medyayı hiç kullanmasanız bile, her zaman o kadar dikkatli olmayan ve konumunuzu açığa çıkarabilecek başkaları olacaktır."
+      },
+      "implement-image-cloaking": {
+        "point": "Görüntü Gizlemeyi Uygulayın",
+        "details": "Fawkes gibi araçlar, fotoğraflardaki yüzlerin yapısını insanlar tarafından algılanamayacak şekilde çok ince ve hafif bir şekilde değiştirmek için kullanılabilir, ancak yüz tanıma sistemlerinin belirli bir yüzü tanımasını engelleyecektir."
+      }
+    }
+  },
+  "networks": {
+    "items": {
+      "change-your-router-password": {
+        "point": "Yönlendirici Şifrenizi değiştirin",
+        "details": "Yeni bir yönlendirici aldıktan sonra şifreyi değiştirin. Varsayılan yönlendirici şifreleri herkese açıktır, bu da yakınlardaki herkesin bağlanabileceği anlamına gelir."
+      },
+      "use-a-vpn": {
+        "point": "VPN kullanın",
+        "details": "Saygın, ücretli bir VPN kullanın. Bu, ziyaret ettiğiniz sitelerin gerçek IP'nizi kaydetmesini engellemenize, İSS'nizin toplayabileceği veri miktarını azaltmanıza ve genel Wi-Fi üzerindeki korumayı artırmanıza yardımcı olabilir."
+      },
+      "use-wpa3-or-wpa2-with-a-strong-wifi-password": {
+        "point": "Güçlü bir WiFi şifresiyle WPA3 veya WPA2 kullanın",
+        "details": "Yönlendiricinizin ve cihazlarınızın desteklediği WPA3-Kişisel'i tercih edin. Değilse, WPA2-AES'i uzun, benzersiz bir WiFi şifresiyle kullanın ve güncelliğini yitirmiş WEP, WPA veya WPA2-TKIP modlarından kaçının. Tamamen güvenmediğiniz cihazlar için ayrı bir misafir ağı kullanın."
+      },
+      "protect-against-dns-leaks": {
+        "point": "DNS sızıntılarına karşı koruma",
+        "details": "VPN kullanırken, yalnızca VPN sağlayıcınızın veya güvenli hizmetinizin DNS sunucusunu kullanmanız son derece önemlidir."
+      },
+      "implement-a-network-wide-vpn": {
+        "point": "Ağ Genelinde VPN Uygulayın",
+        "details": "VPN'inizi yönlendiricinizde, güvenlik duvarınızda veya ev sunucunuzda yapılandırırsanız, tüm cihazlardan gelen trafik, ayrı VPN uygulamalarına ihtiyaç duymadan şifrelenecek ve bunun üzerinden yönlendirilecektir."
+      },
+      "keep-router-firmware-up-to-date": {
+        "point": "Yönlendirici ürün yazılımını güncel tutun",
+        "details": "Üreticiler, güvenlik açıklarını gideren, yeni standartlar uygulayan ve bazen özellikler ekleyen veya yönlendiricinizin performansını artıran ürün yazılımı güncellemeleri yayınlar."
+      },
+      "use-a-secure-vpn-protocol": {
+        "point": "Güvenli bir VPN Protokolü kullanın",
+        "details": "OpenVPN ve WireGuard açık kaynaklı, hafif ve güvenli tünel protokolleridir. PPTP veya SSTP kullanmaktan kaçının."
+      },
+      "secure-dns": {
+        "point": "Güvenli DNS",
+        "details": "DNS çözümlemesini HTTPS protokolü aracılığıyla gerçekleştiren ve sizinle DNS çözümleyiciniz arasındaki verileri şifreleyen HTTPS üzerinden DNS'yi kullanın."
+      },
+      "avoid-the-free-router-from-your-isp": {
+        "point": "İSS'nizin ücretsiz yönlendiricisinden kaçının",
+        "details": "Tipik olarak Çin'de toplu olarak ucuza üretilirler ve düzenli güvenlik güncellemeleri almayan, güvenli olmayan özel yazılımlarla üretilirler."
+      },
+      "change-the-router’s-local-ip-address": {
+        "point": "Yönlendiricinin Yerel IP Adresini Değiştirme",
+        "details": "Web tarayıcınızdaki kötü amaçlı bir komut dosyasının, siteler arası komut dosyası çalıştırma güvenlik açığından yararlanması, güvenlik açığı olduğu bilinen yönlendiricilere yerel IP adreslerinden erişmesi ve bunları kurcalaması mümkündür."
+      },
+      "whitelist-mac-addresses": {
+        "point": "MAC Adreslerini Beyaz Listeye Alın",
+        "details": "Yönlendirici ayarlarınızda MAC adreslerini beyaz listeye alarak, kimlik bilgilerinizi bilseler bile bilinmeyen cihazların ağınıza hemen bağlanmasını engelleyebilirsiniz."
+      },
+      "hide-your-ssid": {
+        "point": "SSID'nizi gizleyin",
+        "details": "Yönlendiricinizin Hizmet Seti Tanımlayıcısı yalnızca ağ adıdır. Görünür değilse daha az suistimal edilebilir."
+      },
+      "opt-out-router-listings": {
+        "point": "Devre Dışı Bırakılan Yönlendirici Listeleri",
+        "details": "WiFi SSID'ler taranır, günlüğe kaydedilir ve ardından çeşitli web sitelerinde yayınlanır; bu, bazıları için ciddi bir gizlilik endişesidir."
+      },
+      "disable-wps": {
+        "point": "WPS'yi devre dışı bırak",
+        "details": "Wi-Fi Korumalı Kurulum, uzun bir WiFi şifresi girmeden bağlanmak için daha kolay bir yöntem sağlar, ancak WPS bir dizi önemli güvenlik sorununu beraberinde getirir."
+      },
+      "don't-reveal-personal-info-in-ssid": {
+        "point": "SSID'de Kişisel Bilgilerinizi Göstermeyin",
+        "details": "Sizi tanımlamayan, daire numaranızı/adresinizi içeren ve cihaz markasını/modelini belirtmeyen bir SSID seçerek ağ adınızı güncellemelisiniz."
+      },
+      "change-your-router's-default-ip": {
+        "point": "Yönlendiricinizin Varsayılan IP'sini değiştirin",
+        "details": "Yönlendirici yönetici panelinizin varsayılan IP adresini değiştirmek, yerel IP adreslerini hedefleyen kötü amaçlı komut dosyalarının çalışmasını zorlaştıracaktır."
+      },
+      "use-a-guest-network-for-guests": {
+        "point": "Misafirler için Misafir Ağı Kullanın",
+        "details": "Ziyaretçilerin birincil Wi-Fi ağınıza erişmesine izin vermeyin, çünkü bu onların ağdaki diğer cihazlarla etkileşime girmesine olanak tanır."
+      },
+      "disable-unused-remote-access-protocols": {
+        "point": "Kullanılmayan Uzaktan Erişim Protokollerini Devre Dışı Bırakın",
+        "details": "PING, Telnet, SSH, UPnP ve HNAP vb. protokoller etkinleştirildiğinde yönlendiricinizin dünyanın her yerinden incelenmesine olanak tanır."
+      },
+      "don't-have-open-ports": {
+        "point": "Açık Bağlantı Noktalarınız yok",
+        "details": "Yönlendiricinizde gerekmeyen tüm açık bağlantı noktalarını kapatın. Açık bağlantı noktaları bilgisayar korsanları için kolay bir giriş sağlar."
+      },
+      "kill-unused-processes-and-services-on-your-router": {
+        "point": "Yönlendiricinizde kullanılmayan işlemleri ve hizmetleri sonlandırın",
+        "details": "Cihazlara komut satırı erişimi sağlayan Telnet ve SSH gibi hizmetler hiçbir zaman internete maruz bırakılmamalı ve gerçekten ihtiyaç duyulmadıkça yerel ağda da devre dışı bırakılmalıdır."
+      },
+      "disable-upnp": {
+        "point": "UPnP'yi devre dışı bırak",
+        "details": "Evrensel Tak ve Çalıştır, uygulamaların yönlendiricinizdeki bir bağlantı noktasını otomatik olarak iletmesine olanak tanır, ancak ciddi güvenlik sorunlarıyla dolu uzun bir geçmişi vardır."
+      },
+      "disable-cloud-based-management": {
+        "point": "Bulut Tabanlı Yönetimi Devre Dışı Bırak",
+        "details": "Bir saldırganın erişim sağlaması durumunda ciddi hasar meydana gelebileceğinden, yönlendiricinizin yönetici paneline son derece dikkatli davranmalısınız."
+      },
+      "manage-range-correctly": {
+        "point": "Aralığı Doğru Yönetin",
+        "details": "Yönlendiricinizin menzilini maksimuma çıkarmak istemeniz yaygındır, ancak daha küçük bir dairede yaşıyorsanız, Wi-Fi ağınız caddenin karşısından alınabildiğinde saldırı yüzeyiniz artar."
+      },
+      "route-all-traffic-through-[tor](https://awesome-privacy.xyz/networking/mix-networks/tor)": {
+        "point": "Tüm trafiği [Tor](https://awesome-privacy.xyz/networking/mix-networks/tor) üzerinden yönlendir",
+        "details": "VPN'lerin zayıf yönleri vardır. Daha fazla güvenlik için tüm internet trafiğinizi [Tor](https://awesome-privacy.xyz/networking/mix-networks/tor) ağı üzerinden yönlendirin."
+      },
+      "disable-wifi-on-all-devices": {
+        "point": "Tüm Cihazlarda WiFi'yi devre dışı bırakın",
+        "details": "Güvenli bir Wi-Fi ağına bağlanmak bile saldırı yüzeyinizi artırır. Evinizdeki WiFi'yi devre dışı bırakın ve her cihazı Ethernet üzerinden bağlayın."
+      }
+    }
+  },
+  "mobile-devices": {
+    "items": {
+      "keep-os-and-apps-updated": {
+        "point": "İşletim Sistemini ve Uygulamaları Güncel Tutun",
+        "details": "Mobil işletim sisteminiz ve uygulamalarınız için otomatik güncellemeleri etkinleştirin ve güvenlik yamalarını hemen yükleyin. Güncellemeler genellikle halihazırda istismar edilmekte olan güvenlik açıklarını giderir. Telefonunuz artık satıcıdan güvenlik güncellemeleri almıyorsa, onu değiştirmeyi veya bakımı yapılan bir işletim sistemi kurmayı planlayın."
+      },
+      "turn-off-connectivity-features-that-aren’t-being-used": {
+        "point": "Kullanılmayan bağlantı özelliklerini kapatın",
+        "details": "WiFi, Bluetooth, NFC vb. kullanmadığınızda bu özellikleri kapatın. Bu özellikleri kullanan çeşitli yaygın tehditler vardır."
+      },
+      "encrypt-your-device": {
+        "point": "Cihazınızı Şifreleyin",
+        "details": "Verilerinizi fiziksel erişime karşı korumak için dosya şifrelemeyi kullanın. Bu, cihazınızın kaybolması veya çalınması durumunda hiç kimsenin verilerinize erişemeyeceği anlamına gelir."
+      },
+      "keep-app-count-to-a-minimum": {
+        "point": "Uygulama sayısını minimumda tutun",
+        "details": "İhtiyaç duymadığınız veya düzenli olarak kullanmadığınız uygulamaları kaldırın. Uygulamalar sıklıkla arka planda çalıştığı için cihazınızı yavaşlatır, ancak aynı zamanda veri de toplar."
+      },
+      "only-install-apps-from-official-source": {
+        "point": "Uygulamaları yalnızca resmi kaynaktan yükleyin",
+        "details": "Apple App Store ve Google Play Store'daki uygulamalar taranır ve kriptografik olarak imzalanır, böylece kötü amaçlı olma olasılıkları azalır."
+      },
+      "app-permissions": {
+        "point": "Uygulama İzinleri",
+        "details": "Uygulamalara ihtiyaç duymadıkları izinleri vermeyin. Android için, [Bouncer](https://awesome-privacy.xyz/security-tools/mobile-apps/bouncer) geçici/tek seferlik izinler vermenizi sağlayan bir uygulamadır."
+      },
+      "set-up-a-mobile-carrier-pin": {
+        "point": "Mobil operatör PIN'i ayarlama",
+        "details": "SIM ele geçirme, bir bilgisayar korsanının cep telefonu numaranızı kendi SIM'ine aktarabilmesidir. Bundan korunmanın en kolay yolu mobil sağlayıcınız üzerinden PIN ayarlamaktır."
+      },
+      "opt-out-of-caller-id-listings": {
+        "point": "Arayan Kimliği Listelerinden Çıkma",
+        "details": "Bilgilerinizi gizli tutmak için numaranızı TrueCaller, CallApp, SyncMe ve Hiya gibi arayan kimliği uygulamalarından kaldırabilirsiniz."
+      },
+      "be-careful-of-phone-charging-threats": {
+        "point": "Telefon Şarj Tehditlerine Dikkat Edin",
+        "details": "Juice Jacking, bilgisayar korsanlarının, güvenliği ihlal edilmiş bir USB bağlantı noktası aracılığıyla akıllı telefonunuza veya tabletinize kötü amaçlı yazılım yüklemek için halka açık şarj istasyonlarını kullanmasıdır."
+      },
+      "reduce-background-activity": {
+        "point": "Arka Plan Etkinliğini Azaltın",
+        "details": "Android için SuperFreeze, uygulama bazında tüm arka plan etkinliklerinin tamamen dondurulmasını mümkün kılar."
+      },
+      "monitor-trackers": {
+        "point": "İzleyicileri İzle",
+        "details": "[εxodus](https://awesome-privacy.xyz/security-tools/online-tools/εxodus) herhangi bir uygulamayı aramanıza ve hangi izleyicilerin bu uygulamaya gömülü olduğunu görmenize olanak tanıyan harika bir hizmettir."
+      },
+      "erase-after-too-many-login-attempts": {
+        "point": "Çok fazla giriş denemesinden sonra sil",
+        "details": "Bir saldırganın pin kodunuzu kaba bir şekilde zorlamasına karşı korunmak için, cihazınızı çok sayıda başarısız giriş denemesinden sonra silinecek şekilde ayarlayın."
+      },
+      "use-offline-maps": {
+        "point": "Çevrimdışı Haritaları Kullan",
+        "details": "Harita uygulamalarından kaynaklanan veri sızıntılarını azaltmak için OsmAnd veya Organic Maps gibi bir çevrimdışı harita uygulaması kullanmayı düşünün."
+      },
+      "opt-out-of-personalized-ads": {
+        "point": "Kişiselleştirilmiş reklamları devre dışı bırakın",
+        "details": "Kişiselleştirilmiş reklamları görmeyi devre dışı bırakarak toplanan veri miktarını bir miktar azaltabilirsiniz."
+      },
+      "use-a-mobile-firewall": {
+        "point": "Mobil Güvenlik Duvarı Kullanın",
+        "details": "Uygulamaların gizliliğe duyarlı verileri sızdırmasını önlemek için bir güvenlik duvarı uygulaması yükleyebilirsiniz."
+      },
+      "avoid-sms": {
+        "point": "SMS'ten kaçının",
+        "details": "SMS, 2FA kodlarını almak veya iletişim için kullanılmamalıdır; bunun yerine [Signal](https://awesome-privacy.xyz/communication/encrypted-messaging/signal) gibi şifreli bir mesajlaşma uygulaması kullanılmalıdır."
+      },
+      "avoid-custom-virtual-keyboards": {
+        "point": "Özel Sanal Klavyelerden Kaçının",
+        "details": "Cihazınızın stok klavyesine bağlı kalmanız önerilir. Üçüncü taraf bir klavye uygulaması kullanmayı seçerseniz bunun saygın olduğundan emin olun."
+      },
+      "tor-traffic": {
+        "point": "Tor Trafiği",
+        "details": "[Orbot](https://awesome-privacy.xyz/security-tools/mobile-apps/orbot), sistem çapında bir Tor bağlantısı sağlar ve bu da sizi gözetleme ve genel Wi-Fi tehditlerinden korumanıza yardımcı olur."
+      },
+      "sandbox-mobile-apps": {
+        "point": "Sandbox Mobil Uygulamaları",
+        "details": "Korumalı alan ortamı olan [Island](https://awesome-privacy.xyz/security-tools/mobile-apps/island) ile izne ihtiyaç duyan uygulamaların özel verilerinize erişmesini engelleyin."
+      },
+      "restart-device-regularly": {
+        "point": "Cihazı Düzenli Olarak Yeniden Başlatın",
+        "details": "Telefonunuzu en az haftada bir kez yeniden başlatmak, bellekte önbelleğe alınan uygulama durumunu temizleyecektir ve yeniden başlatmanın ardından daha sorunsuz çalışabilir."
+      },
+      "watch-out-for-stalkerware": {
+        "point": "Stalkerware'e dikkat edin",
+        "details": "Stalkerware, tanıdığınız biri tarafından doğrudan cihazınıza yüklenen kötü amaçlı yazılımdır. Ondan kurtulmanın en iyi yolu fabrika ayarlarına sıfırlamadır."
+      },
+      "keep-your-number-private": {
+        "point": "Numaranızı Gizli Tutun",
+        "details": "[MySudo](https://awesome-privacy.xyz/finance/virtual-credit-cards/mysudo) farklı kişiler veya gruplar için sanal telefon numaraları oluşturmanıza ve kullanmanıza olanak tanır. Bu bölümlendirme için harikadır."
+      },
+      "consider-running-a-custom-rom-(android)": {
+        "point": "Özel bir ROM çalıştırmayı düşünün (Android)",
+        "details": "Cihaz üreticinizin çok fazla kişisel bilgi toplamasından endişeleniyorsanız gizlilik odaklı özel bir ROM kullanmayı düşünün."
+      },
+      "favor-the-browser,-over-dedicated-app": {
+        "point": "Özel Uygulama yerine Tarayıcıyı Tercih Edin",
+        "details": "Mümkün olduğunda sitelere erişmek için özel uygulamalar yüklemek yerine güvenli bir tarayıcı kullanmayı düşünün."
+      }
+    }
+  },
+  "personal-computers": {
+    "items": {
+      "encrypt-your-device": {
+        "point": "Cihazınızı Şifreleyin",
+        "details": "Tam disk şifrelemesini etkinleştirmek için Windows için BitLocker'ı, MacOS'ta FileVault'u veya Linux'ta LUKS'u kullanın. Bu, bilgisayarınızın kaybolması veya çalınması durumunda yetkisiz erişimi önler."
+      },
+      "keep-your-system-up-to-date": {
+        "point": "Sisteminizi güncel tutun",
+        "details": "Sistem güncellemeleri güvenlik sorunlarına yönelik düzeltmeler/yamalar içerir, performansı artırır ve bazen yeni özellikler ekler. İstendiğinde yeni güncellemeleri yükleyin."
+      },
+      "backup-important-data": {
+        "point": "Önemli Verileri Yedekle",
+        "details": "Şifreli yedeklemelerin sürdürülmesi, fidye yazılımı, hırsızlık veya hasardan kaynaklanan kayıpları önler. Bulut dosyaları için [Cryptomator](https://awesome-privacy.xyz/security-tools/mobile-apps/cryptomator) veya USB sürücüleri için [VeraCrypt](https://awesome-privacy.xyz/essentials/file-encryption/veracrypt) kullanmayı düşünün."
+      },
+      "manage-permissions": {
+        "point": "İzinleri Yönet",
+        "details": "Hangi uygulamaların konumunuza, kameranıza, mikrofonunuza, kişilerinize ve diğer hassas bilgilerinize erişebileceğini kontrol edin."
+      },
+      "be-careful-plugging-usb-devices-into-your-computer": {
+        "point": "USB Cihazlarını Bilgisayarınıza Takarken Dikkatli Olun",
+        "details": "USB aygıtları ciddi tehditler oluşturabilir. USB cihazlarını güvenli bir şekilde kontrol etmek için CIRCLean ile bir USB temizleyici yapmayı düşünün."
+      },
+      "activate-screen-lock-when-idle": {
+        "point": "Boştayken Ekran Kilidini Etkinleştir",
+        "details": "Uzaktayken bilgisayarınızı kilitleyin ve yetkisiz erişimi önlemek için ekran koruyucudan veya uykudan devam ederken parola gerektirecek şekilde ayarlayın."
+      },
+      "review-your-installed-apps": {
+        "point": "Yüklü Uygulamalarınızı inceleyin",
+        "details": "Güvenlik açıklarına maruz kalmayı azaltmak ve uygulama önbelleklerini düzenli olarak temizlemek için yüklü uygulamaları minimumda tutun."
+      },
+      "test-restores-and-keep-an-offline-backup": {
+        "point": "Geri Yüklemeleri Test Edin ve Çevrimdışı Yedekleme Tutun",
+        "details": "Yedekleme yalnızca onu geri yükleyebiliyorsanız kullanışlıdır. En az bir şifrelenmiş yedeği bilgisayarınızla bağlantısını kesin veya otomatik üzerine yazmaya karşı koruyun ve birkaç önemli dosyayı geri yüklemeyi düzenli aralıklarla test edin. Bu, fidye yazılımlarına, yanlışlıkla silinmeye, bulut senkronizasyon hatalarına ve cihaz arızalarına karşı korunmaya yardımcı olur."
+      },
+      "disable-cortana-or-siri": {
+        "point": "Cortana veya Siri'yi devre dışı bırakın",
+        "details": "Sesle kontrol edilen asistanların, işlenmek üzere geri gönderilen veriler nedeniyle gizlilik açısından etkileri olabilir. Dinleme yeteneklerini devre dışı bırakın veya sınırlayın."
+      },
+      "don't-link-your-pc-with-your-microsoft-or-apple-account": {
+        "point": "Bilgisayarınızı Microsoft veya Apple Hesabınıza bağlamayın",
+        "details": "Veri senkronizasyonunu ve açığa çıkmasını önlemek için yalnızca yerel bir hesap kullanın. Gizliliği tehlikeye atan senkronizasyon hizmetlerini kullanmaktan kaçının."
+      },
+      "don't-use-root/admin-account-for-non-admin-tasks": {
+        "point": "Yönetici Dışı Görevler için Kök/Yönetici Hesabını kullanmayın",
+        "details": "Günlük görevler için ayrıcalığı olmayan bir kullanıcı hesabı kullanın ve güvenlik açıklarını azaltmak için yalnızca yönetimsel değişikliklere ilişkin izinleri yükseltin."
+      },
+      "disallow-usage-data-from-being-sent-to-the-cloud": {
+        "point": "Kullanım Verilerinin Buluta gönderilmesine izin verme",
+        "details": "Gizliliğinizi korumak için buluta gönderilen kullanım bilgilerinin veya geri bildirimlerin miktarını sınırlayın."
+      },
+      "power-off-computer,-instead-of-standby": {
+        "point": "Bekleme Yerine Bilgisayarı Kapatın",
+        "details": "Verilerinizi güvende tutmak için, özellikle diskiniz şifrelenmişse, kullanmadığınız zamanlarda cihazınızı kapatın."
+      },
+      "avoid-quick-unlock": {
+        "point": "Hızlı Kilit Açmayı Önleyin",
+        "details": "Güvenliği artırmak amacıyla bilgisayarınızın kilidini açarken biyometri veya kısa PIN'ler yerine güçlü bir parola kullanın."
+      },
+      "check-which-sharing-services-are-enabled": {
+        "point": "Hangi Paylaşım Hizmetlerinin Etkin Olduğunu Kontrol Edin",
+        "details": "Ağ geçitlerini yaygın tehditlere kapatmak için kullanmadığınız ağ paylaşımı özelliklerini devre dışı bırakın."
+      },
+      "don't-charge-devices-from-your-pc": {
+        "point": "Cihazları PC'nizden Şarj Etmeyin",
+        "details": "USB bağlantılarıyla ilişkili güvenlik risklerini önlemek için bilgisayarınız yerine bir güç bankası veya AC duvar şarj cihazı kullanın."
+      },
+      "randomize-your-hardware-address-on-wi-fi": {
+        "point": "Wi-Fi'de donanım adresinizi rastgele seçin",
+        "details": "Farklı WiFi ağlarında izlemeye karşı koruma sağlamak için MAC adresinizi değiştirin veya rastgele hale getirin."
+      },
+      "block-webcam-+-microphone": {
+        "point": "Web Kamerasını + Mikrofonu Engelle",
+        "details": "Kullanılmadığı zaman web kameranızı örtün ve gizliliği korumak için yetkisiz ses kaydını engellemeyi düşünün."
+      },
+      "use-a-privacy-filter": {
+        "point": "Gizlilik Filtresi Kullanın",
+        "details": "Omuz sörfünü önlemek ve hassas bilgileri korumak için halka açık alanlarda bir ekran gizlilik filtresi kullanın."
+      },
+      "physically-secure-device": {
+        "point": "Fiziksel Olarak Güvenli Cihaz",
+        "details": "Dizüstü bilgisayarınızı halka açık alanlarda korumak için Kensington Kilidi kullanın ve yetkisiz fiziksel erişimi önlemek için bağlantı noktası kilitlerini göz önünde bulundurun."
+      },
+      "prevent-keystroke-injection-attacks": {
+        "point": "Tuş Vuruşu Enjeksiyon Saldırılarını Önleyin",
+        "details": "Uzakta olduğunuzda bilgisayarınızı kilitleyin ve tuş vuruşu enjeksiyon saldırılarına karşı koruma sağlamak için USBGuard veya benzer araçları kullanmayı düşünün."
+      },
+      "check-keyboard-connection": {
+        "point": "Klavye Bağlantısını Kontrol Edin",
+        "details": "Herkese açık veya tanımadığınız bilgisayarları kullanırken klavye bağlantılarını kontrol ederek donanım tuş kaydedicilerine karşı dikkatli olun."
+      },
+      "protect-against-software-keyloggers": {
+        "point": "Yazılım Tuş Kaydedicilerine Karşı Koruyun",
+        "details": "Tuş vuruşlarınızı kaydeden yazılım tuş kaydedicilerine karşı koruma sağlamak için tuş vuruşu şifreleme araçlarını kullanın."
+      },
+      "use-a-firewall": {
+        "point": "Güvenlik Duvarı Kullanın",
+        "details": "Belirli uygulamalar tarafından istenmeyen internet erişimini izlemek ve engellemek, uzaktan erişim saldırılarına ve gizlilik ihlallerine karşı koruma sağlamak için bir güvenlik duvarı uygulaması yükleyin."
+      },
+      "periodically-check-for-rootkits": {
+        "point": "Rootkit'leri periyodik olarak kontrol edin",
+        "details": "[chkrootkit](https://awesome-privacy.xyz/operating-systems/linux-defenses/chkrootkit) gibi araçları kullanarak tam sistem kontrolü tehditlerini tespit etmek ve azaltmak için rootkit'leri düzenli olarak kontrol edin."
+      },
+      "don't-use-commercial-\"free\"-anti-virus": {
+        "point": "Ticari \"Ücretsiz\" Anti-Virüs kullanmayın",
+        "details": "Yerleşik güvenlik araçlarına güvenin ve gizlilik ihlali ve veri toplama potansiyeli nedeniyle ücretsiz anti-virüs uygulamalarından kaçının."
+      },
+      "use-a-security-focused-operating-system": {
+        "point": "Güvenlik Odaklı Bir İşletim Sistemi Kullanın",
+        "details": "Gelişmiş gizlilik ve güvenlik için Linux'a veya QubeOS veya [Tails](https://awesome-privacy.xyz/operating-systems/desktop-operating-systems/tails) gibi güvenlik odaklı bir dağıtıma geçmeyi düşünün."
+      },
+      "make-use-of-vms": {
+        "point": "VM'lerden Faydalanın",
+        "details": "Potansiyel tehditleri birincil sisteminizden yalıtmak amacıyla riskli etkinlikler veya şüpheli yazılımları test etmek için sanal makineleri kullanın."
+      },
+      "bios-boot-password": {
+        "point": "BIOS Önyükleme Şifresi",
+        "details": "Önyükleme sırasında ek bir güvenlik katmanı eklemek için BIOS veya UEFI şifresini etkinleştirin ancak sınırlamalarının farkında olun."
+      },
+      "compartmentalize": {
+        "point": "Bölümlere ayır",
+        "details": "Potansiyel ihlallerin kapsamını sınırlamak için farklı programları ve veri kaynaklarını mümkün olduğunca birbirinden ayırın."
+      },
+      "disable-undesired-features-(windows)": {
+        "point": "İstenmeyen Özellikleri Devre Dışı Bırakma (Windows)",
+        "details": "Veri toplamayı ve kaynak kullanımını azaltmak için gereksiz Windows \"özelliklerini\" ve arka planda çalışan hizmetleri devre dışı bırakın."
+      },
+      "secure-boot": {
+        "point": "Güvenli Önyükleme",
+        "details": "Kötü amaçlı yazılımların önyükleyicinizi ve diğer kritik yazılımlarınızı değiştirmesini önlemek için Güvenli Önyüklemenin etkinleştirildiğinden emin olun."
+      },
+      "secure-ssh-access": {
+        "point": "Güvenli SSH Erişimi",
+        "details": "Varsayılan bağlantı noktasını değiştirerek, SSH anahtarlarını kullanarak ve güvenlik duvarlarını yapılandırarak SSH erişimini saldırılara karşı korumak için gerekli adımları atın."
+      },
+      "implement-mandatory-access-control": {
+        "point": "Zorunlu Erişim Denetimini Uygulayın",
+        "details": "Bir sistemin güvenliği ihlal edildiğinde oluşabilecek hasarı sınırlamak için ayrıcalıklı erişimi kısıtlayın."
+      },
+      "close-un-used-open-ports": {
+        "point": "Kullanılmayan Açık Bağlantı Noktalarını Kapatın",
+        "details": "Uzaktan erişime karşı koruma sağlamak ve güvenliği artırmak için gerekli olmayan harici bağlantı noktalarını dinleyen hizmetleri kapatın."
+      },
+      "use-canary-tokens": {
+        "point": "Kanarya Jetonlarını Kullan",
+        "details": "Dosyalarınıza veya e-postalarınıza yetkisiz erişimi daha hızlı tespit etmek ve davetsiz misafir hakkında bilgi toplamak için canary token'ları kullanın."
+      }
+    }
+  },
+  "smart-home": {
+    "items": {
+      "rename-devices-to-not-specify-brand/model": {
+        "point": "Cihazları marka/model belirtmeyecek şekilde yeniden adlandırın",
+        "details": "Marka veya model bilgilerini gizleyerek hedefli saldırıları önlemek için varsayılan cihaz adlarını genel bir adla değiştirin."
+      },
+      "disable-microphone-and-camera-when-not-in-use": {
+        "point": "Kullanılmadığı zaman mikrofonu ve kamerayı devre dışı bırakın",
+        "details": "Yanlışlıkla yapılan kayıtlara veya hedeflenen erişime karşı koruma sağlamak amacıyla akıllı cihazlardaki mikrofonları ve kameraları kapatmak için donanım anahtarlarını kullanın."
+      },
+      "set-privacy-settings,-and-opt-out-of-sharing-data-with-third-parties": {
+        "point": "Gizlilik ayarlarını belirleyin ve verilerin üçüncü taraflarla paylaşılmasını devre dışı bırakın",
+        "details": "Uygulama ayarlarını en katı gizlilik kontrolleri için düzenleyin ve mümkün olan her yerde üçüncü taraflarla veri paylaşımını devre dışı bırakın."
+      },
+      "protect-your-network": {
+        "point": "Ağınızı koruyun",
+        "details": "Akıllı cihazlara yetkisiz erişimi önlemek için evinizdeki WiFi ve ağınızı güvence altına alın."
+      },
+      "keep-firmware-up-to-date": {
+        "point": "Ürün yazılımını güncel tutun",
+        "details": "Güvenlik yamalarını ve geliştirmeleri uygulamak için akıllı cihazın donanım yazılımını düzenli olarak güncelleyin."
+      },
+      "don't-link-your-smart-home-devices-to-your-real-identity": {
+        "point": "Akıllı ev cihazlarınızı gerçek kimliğinize bağlamayın",
+        "details": "Gizliliği korumak için sosyal medya veya diğer üçüncü taraf hizmetleri aracılığıyla kaydolmaktan/giriş yapmaktan kaçınarak anonim kullanıcı adları ve şifreler kullanın."
+      },
+      "understand-what-data-is-collected,-stored-and-transmitted": {
+        "point": "Hangi verilerin toplandığını, saklandığını ve iletildiğini anlayın",
+        "details": "Satın almadan önce akıllı ev cihazlarının veri işleme uygulamalarını araştırın ve rahatlığı sağlayın, verileri üçüncü taraflarla paylaşan cihazlardan kaçının."
+      },
+      "be-wary-of-wearables": {
+        "point": "Giyilebilir ürünlere karşı dikkatli olun",
+        "details": "Giyilebilir cihazların kapsamlı veri toplama yeteneklerini ve bunların gizlilik açısından etkilerini göz önünde bulundurun."
+      },
+      "don't-connect-your-home's-critical-infrastructure-to-the-internet": {
+        "point": "Evinizin kritik altyapısını internete bağlamayın",
+        "details": "Bilgisayar korsanlarının olası uzaktan erişimi nedeniyle internete bağlı termostatların, alarmların ve dedektörlerin risklerini değerlendirin."
+      },
+      "deny-internet-access-where-possible": {
+        "point": "Mümkün olduğunda İnternet erişimini reddet",
+        "details": "İhtiyaç duymayan cihazların internet erişimini engellemek için güvenlik duvarları kullanın ve işlemi yerel ağ kullanımıyla sınırlandırın."
+      },
+      "monitor-your-home-network-closely": {
+        "point": "Ev ağınızı yakından izleyin",
+        "details": "Olağandışı ağ etkinliğini izlemek için FingBox gibi araçları veya yönlendirici özelliklerini kullanın."
+      },
+      "assess-risks": {
+        "point": "Riskleri değerlendirin",
+        "details": "Tüm hane üyeleri için gizlilik sonuçlarını göz önünde bulundurun ve cihazları belirli zamanlarda devre dışı bırakmak gibi güvenlik ve gizlilik için cihaz ayarlarını yapın."
+      },
+      "mitigate-alexa/-google-home-risks": {
+        "point": "Alexa/Google Home Risklerini Azaltın",
+        "details": "[Mycroft](https://awesome-privacy.xyz/smart-home-and-iot/voice-assistants/mycroft) gibi gizlilik odaklı alternatifleri düşünün veya sesle etkinleştirilen asistanların boşta dinlemesini önlemek için Proje Takma Adını kullanın."
+      }
+    }
+  },
+  "personal-finance": {
+    "items": {
+      "sign-up-for-fraud-alerts-and-credit-monitoring": {
+        "point": "Dolandırıcılık Uyarıları ve Kredi İzleme için kaydolun",
+        "details": "Şüpheli etkinliklere karşı uyarı almak için Experian, TransUnion veya Equifax aracılığıyla dolandırıcılık uyarılarını ve kredi izlemeyi etkinleştirin."
+      },
+      "use-virtual-cards": {
+        "point": "Sanal Kartları Kullan",
+        "details": "Gerçek bankacılık bilgilerinizi korumak için çevrimiçi işlemlerde sanal kart numaralarını kullanın. [Privacy.com](https://awesome-privacy.xyz/finance/virtual-credit-cards/privacy.com) ve [MySudo](https://awesome-privacy.xyz/finance/virtual-credit-cards/mysudo) gibi hizmetler bu tür özellikler sunar."
+      },
+      "use-cash-for-local-transactions": {
+        "point": "Yerel İşlemler için Nakit Kullanın",
+        "details": "Kurumların finansal profil oluşturmasını önlemek amacıyla yerel ve günlük satın alımlarda [Nakit](https://awesome-privacy.xyz/finance/other-payment-methods/cash) ile ödeme yapın."
+      },
+      "apply-a-credit-freeze": {
+        "point": "Kredi Dondurma Uygula",
+        "details": "Experian, TransUnion ve Equifax aracılığıyla kredinizi dondurarak yetkisiz kredi sorgulamalarını önleyin."
+      },
+      "store-crypto-securely": {
+        "point": "Kriptoyu Güvenli Bir Şekilde Saklayın",
+        "details": "Çevrimdışı cüzdan oluşturmayı ve [Trezor](https://awesome-privacy.xyz/finance/crypto-wallets/trezor) veya [ColdCard](https://awesome-privacy.xyz/finance/crypto-wallets/coldcard) gibi donanım cüzdanlarını kullanarak kripto para birimlerini güvenli bir şekilde saklayın veya [CryptoSteel](https://awesome-privacy.xyz/finance/crypto-wallets/cryptosteel) gibi uzun vadeli depolama çözümlerini düşünün."
+      },
+      "buy-crypto-anonymously": {
+        "point": "Anonim Olarak Kripto Satın Alın",
+        "details": "[LocalBitcoins](https://awesome-privacy.xyz/finance/crypto-exchanges/localbitcoins), [Bisq](https://awesome-privacy.xyz/finance/crypto-exchanges/bisq) veya Bitcoin ATM'leri gibi hizmetler aracılığıyla kimliğinize bağlanmadan kripto para birimleri satın alın."
+      },
+      "tumble/-mix-coins": {
+        "point": "Paraları Takla/Karıştır",
+        "details": "İşlem izlerini gizlemek için Bitcoin'i para birimine dönüştürmeden önce bir bitcoin karıştırıcı veya CoinJoin kullanın."
+      },
+      "use-cryptocurrency-for-online-transactions": {
+        "point": "Çevrimiçi İşlemler için Kripto Para Birimi Kullanın",
+        "details": "Anonimliği korumak amacıyla çevrimiçi işlemlerde [Monero](https://awesome-privacy.xyz/finance/cryptocurrencies/monero) gibi gizlilik odaklı kripto para birimlerini tercih edin. Gizliliği sağlamak için kripto para birimlerini akıllıca kullanın."
+      },
+      "use-an-alias-details-for-online-shopping": {
+        "point": "Çevrimiçi Alışveriş için Takma Ad Ayrıntılarını Kullanın",
+        "details": "Çevrimiçi satın alımlarda kimliğinizi korumak için takma ad ayrıntılarını, iletme e-posta adreslerini, VOIP numaralarını ve güvenli teslimat yöntemlerini kullanmayı düşünün."
+      },
+      "use-alternate-delivery-address": {
+        "point": "Alternatif teslimat adresini kullan",
+        "details": "Satın alma işlemlerinin doğrudan sizinle ilişkilendirilmesini önlemek için Posta Kutuları, yönlendirme adresleri veya yerel teslim alma yerleri gibi kişisel olmayan adreslere teslimat yapmayı tercih edin."
+      }
+    }
+  },
+  "human-aspect": {
+    "items": {
+      "verify-urgent-requests-out-of-band": {
+        "point": "Bant Dışı Acil İstekleri Doğrulayın",
+        "details": "Arayanın kimliği, e-posta gönderenler ve hatta sesler bile taklit edilebilir. Para, kimlik bilgileri, hesap kurtarma veya hassas belgelerle ilgili acil talepler için, kayıtlı telefon numarası, şahsen onay veya önceden kararlaştırılan aile/ekip doğrulama ifadesi gibi iyi bilinen bir kanal aracılığıyla duraklatın ve doğrulayın."
+      },
+      "verify-recipients": {
+        "point": "Alıcıları Doğrulayın",
+        "details": "E-postalar kolayca taklit edilebilir. Özellikle hassas işlemlerde gönderenin gerçekliğini doğrulayın ve e-postalardaki bağlantılara tıklamak yerine URL'leri manuel olarak girmeyi tercih edin."
+      },
+      "treat-qr-codes-as-links": {
+        "point": "QR Kodlarını Bağlantı Olarak Kullanın",
+        "details": "Bir QR kodu sizi tıpkı kötü amaçlı bir bağlantı gibi bir kimlik avı sayfasına gönderebilir. Posterler, parkmetreler, paketler, e-postalar veya beklenmedik mesajlar üzerindeki QR kodlarına karşı dikkatli olun. URL'yi açmadan önce önizleyin, bilinmeyen kodları taradıktan sonra şifre girmekten kaçının ve ödemeler için resmi uygulamayı veya yazdığınız web sitesi adresini kullanın."
+      },
+      "never-leave-device-unattended": {
+        "point": "Cihazı Asla Gözetimsiz Bırakmayın",
+        "details": "Güçlü parolalarla bile gözetimsiz cihazların güvenliği ihlal edilebilir. Kayıp cihazlar için Telefonumu Bul gibi şifreleme ve uzaktan silme özelliklerini kullanın."
+      },
+      "stay-protected-from-shoulder-surfers": {
+        "point": "Omuz sörfçülerinden korunun",
+        "details": "Başkalarının halka açık alanlarda ekranınızı okumasını önlemek için dizüstü bilgisayarlar ve cep telefonlarındaki gizlilik ekranlarını kullanın."
+      },
+      "don't-trust-your-popup-notifications": {
+        "point": "Açılır Bildirimlerinize Güvenmeyin",
+        "details": "Sahte pop-up'lar kötü niyetli aktörler tarafından dağıtılabilir. Açılır pencereye herhangi bir bilgi girmeden önce daima URL'yi kontrol edin."
+      },
+      "prevent-camfecting": {
+        "point": "Camfecting'i önleyin",
+        "details": "Web kamerası kapaklarını ve mikrofon engelleyicileri kullanarak kamera bulaşmasına karşı koruma sağlayın. Kullanılmadığı zamanlarda veya hassas konuları tartışırken ev asistanlarının sesini kapatın."
+      },
+      "watch-out-for-stalkerware": {
+        "point": "Stalkerware'e dikkat edin",
+        "details": "Tanıdıklarınız tarafından casusluk amacıyla yüklenen takip yazılımlarından haberdar olun. Olağandışı pil kullanımı gibi işaretlere dikkat edin ve şüpheleniyorsanız fabrika ayarlarına sıfırlayın."
+      },
+      "obscure-personal-details-from-documents": {
+        "point": "Kişisel Ayrıntıları Belgelerden Gizleme",
+        "details": "Belgeleri paylaşırken, bilgi sızıntısını önlemek için kişisel ayrıntıları opak dikdörtgenlerle gizleyin."
+      },
+      "install-reputable-software-from-trusted-sources": {
+        "point": "Güvenilir Kaynaklardan Saygın Yazılımlar Kurun",
+        "details": "Yazılımı yalnızca yasal kaynaklardan indirin ve kurulumdan önce [Virüs Toplamı](https://awesome-privacy.xyz/security-tools/online-tools/virus-total) gibi araçlarla dosyaları kontrol edin."
+      },
+      "store-personal-data-securely": {
+        "point": "Kişisel verileri güvenli bir şekilde saklayın",
+        "details": "Yetkisiz erişime karşı koruma sağlamak için cihazlardaki veya buluttaki tüm kişisel verilerin şifrelendiğinden emin olun."
+      },
+      "educate-yourself-about-phishing-attacks": {
+        "point": "Kimlik avı saldırıları konusunda kendinizi eğitin",
+        "details": "Kimlik avı girişimlerine karşı dikkatli olun. URL'leri ve alınan mesajların içeriğini doğrulayın ve 2FA kullanmak ve şifreleri yeniden kullanmamak gibi iyi güvenlik uygulamalarını kullanın."
+      },
+      "use-virtual-cards-when-paying-online": {
+        "point": "Çevrimiçi ödeme yaparken Sanal Kartları kullanın",
+        "details": "Bankacılık bilgilerinizi korumak ve işlem risklerini sınırlamak için çevrimiçi ödemeler için sanal kartları kullanın."
+      },
+      "do-not-assume-a-site-is-secure,-just-because-it-is-`https`": {
+        "point": "Bir sitenin `HTTPS` olması nedeniyle güvenli olduğunu varsaymayın.",
+        "details": "HTTPS bir web sitesinin meşruiyetini garanti etmez. URL'leri doğrulayın ve kişisel veriler konusunda dikkatli olun."
+      },
+      "opt-out-of-data-sharing": {
+        "point": "Veri paylaşımını devre dışı bırakma",
+        "details": "Birçok uygulama ve hizmet varsayılan olarak veri paylaşım ayarlarını kullanır. Verilerinizin üçüncü taraflarla paylaşılmasını önlemek için devre dışı bırakın."
+      },
+      "opt-out-of-public-lists": {
+        "point": "Herkese açık listelerden çıkma",
+        "details": "İstenmeyen kişileri ve potansiyel riskleri azaltmak için kendinizi halka açık veritabanlarından ve pazarlama listelerinden çıkarın."
+      },
+      "never-provide-additional-pii-when-opting-out": {
+        "point": "Vazgeçerken Asla Ek Kişisel Bilgi Sağlamayın",
+        "details": "Daha fazla veri toplanmasını önlemek için veri hizmetlerinden çıkarken ek kişisel bilgi vermeyin."
+      },
+      "compartmentalize": {
+        "point": "Bölümlere ayır",
+        "details": "İhlal durumunda verilerin açığa çıkmasını sınırlamak için farklı dijital etkinlik alanlarını ayrı tutun."
+      },
+      "review-application-permissions": {
+        "point": "Uygulama izinlerini inceleyin",
+        "details": "Hassas cihaz özelliklerine gereksiz erişimin engellenmesini sağlamak için uygulama izinlerini düzenli olarak inceleyin ve yönetin."
+      },
+      "use-a-forwarding-address": {
+        "point": "Bir yönlendirme adresi kullanın",
+        "details": "Şirketlerin gerçek adresinizi bilmesini önlemek ve bir gizlilik koruması katmanı eklemek için posta için bir Posta Kutusu veya yönlendirme adresi kullanın."
+      },
+      "whois-privacy-guard": {
+        "point": "WhoI Gizlilik Koruması",
+        "details": "Kişisel bilgilerinizi herkese açık aramalardan korumak amacıyla alan adı kayıtları için WhoI Privacy Guard'ı kullanın."
+      },
+      "review-and-update-social-media-privacy": {
+        "point": "Sosyal medya gizliliğini inceleyin ve güncelleyin",
+        "details": "Gizlilik ayarlarınızı etkileyebilecek sık sık terim güncellemeleri nedeniyle sosyal medya ayarlarınızı düzenli olarak kontrol edin ve güncelleyin."
+      },
+      "use-anonymous-payment-methods": {
+        "point": "Anonim ödeme yöntemlerini kullanın",
+        "details": "Çevrimiçi olarak tanımlanabilir bilgiler girmekten kaçınmak için kripto para birimleri gibi anonim ödeme yöntemlerini tercih edin."
+      }
+    }
+  },
+  "physical-security": {
+    "items": {
+      "opt-out-of-public-records": {
+        "point": "Kamu Kayıtlarından Vazgeçme",
+        "details": "Kişiliği gösteren listelerden çıkmak için kişi arama web siteleriyle iletişime geçin\nMichael Bazzell'in Kişisel Verileri Kaldırma Çalışma Kitabı gibi kılavuzları kullanarak bilgi alabilirsiniz."
+      },
+      "destroy-sensitive-documents": {
+        "point": "Hassas Belgeleri İmha Edin",
+        "details": "Korumak için hassas belgeleri atmadan önce parçalayın veya çıkartın.\nkimlik hırsızlığı ve gizliliği korumak."
+      },
+      "stay-alert": {
+        "point": "Dikkatli Kalın",
+        "details": "Çevrenizden haberdar olun ve yeni ortamlardaki potansiyel riskleri değerlendirin."
+      },
+      "watermark-documents": {
+        "point": "Filigran Belgeleri",
+        "details": "Dijital kopyalarına alıcının adını ve tarihini içeren bir filigran ekleyin\nBir ihlalin kaynağını takip etmek için kişisel belgeler."
+      },
+      "don't-reveal-info-on-inbound-calls": {
+        "point": "Gelen Aramalarla İlgili Bilgileri Açıklamayın",
+        "details": "Kişisel verilerinizi yalnızca başlattığınız aramalarda paylaşın ve alıcının telefon numarasını doğrulayın."
+      },
+      "physically-secure-devices": {
+        "point": "Fiziksel Olarak Güvenli Cihazlar",
+        "details": "Cihazlar için Kensington kilitleri, web kamerası kapakları ve gizlilik ekranları gibi fiziksel güvenlik önlemlerini kullanın."
+      },
+      "secure-perimeter": {
+        "point": "Güvenli Çevre",
+        "details": "Kişisel bilgi cihazlarının saklandığı lokasyonların fiziksel güvenliğini sağlayın, harici erişimi en aza indirin ve izinsiz giriş tespit sistemlerini kullanın."
+      },
+      "check-for-skimmers": {
+        "point": "Skimmer'ları kontrol edin",
+        "details": "Kullanmadan önce ATM'leri ve halka açık cihazları, cihazları gözden geçirme ve kurcalama işaretleri açısından inceleyin."
+      },
+      "keep-devices-out-of-direct-sight": {
+        "point": "Cihazları Doğrudan Görüşten Uzak Tutun",
+        "details": "Lazerlerden ve hırsızlıktan kaynaklanan riskleri azaltmak için cihazların dışarıdan görünmesini önleyin."
+      },
+      "protect-your-pin": {
+        "point": "PIN'inizi koruyun",
+        "details": "PIN girişinizi izleyenlerden ve kameralardan koruyun ve kullanımdan sonra dokunmatik ekranları temizleyin."
+      },
+      "reduce-exposure-to-cctv": {
+        "point": "CCTV'ye maruz kalmayı azaltın",
+        "details": "Gözetimden kaçınmak için kılık değiştirin ve daha az kameranın olduğu rotaları seçin."
+      },
+      "protect-your-home-address": {
+        "point": "Ev Adresinizi Koruyun",
+        "details": "Ev adresinizi korumak için alternatif konumlar, yönlendirme adresleri ve anonim ödeme yöntemleri kullanın."
+      },
+      "use-a-pin,-not-biometrics": {
+        "point": "Biyometri Değil PIN Kullanın",
+        "details": "Cihazların kilidini açmak için yasal zorlamanın söz konusu olabileceği durumlarda cihaz güvenliği için biyometri yerine PIN'leri tercih edin."
+      },
+      "protect-your-dna": {
+        "point": "DNA'nızı koruyun",
+        "details": "DNA'yı miras web siteleriyle paylaşmaktan kaçının ve DNA izleri bırakma konusunda dikkatli olun."
+      },
+      "reduce-night-vision-exposure": {
+        "point": "Gece Görüşüne Maruz Kalmayı Azaltın",
+        "details": "Gece görüş kameralarını engellemek için IR ışık kaynakları veya yansıtıcı gözlük kullanın."
+      },
+      "anti-facial-recognition-clothing": {
+        "point": "Yüz Tanıma Önleyici Giysiler",
+        "details": "Yüz tanıma teknolojisini aldatan desenlere sahip giysiler giyin."
+      }
+    }
+  },
+  "passkeys-and-mfa": {
+    "items": {
+      "prefer-passkeys-for-critical-accounts": {
+        "point": "Kritik Hesaplar İçin Passkey'leri Tercih Edin",
+        "details": "Desteklendiği durumlarda birincil e-postanızda, şifre yöneticinizde, bankacılık, bulut, geliştirici ve sosyal hesaplarınızda passkey'leri etkinleştirin. Passkey, gerçek hizmete bağlı genel anahtar kimlik doğrulamasını kullanır; bu da sıradan kimlik bilgisi avını, parolalara veya SMS kodlarına göre çok daha zorlaştırır."
+      },
+      "register-two-strong-authenticators": {
+        "point": "İki Güçlü Kimlik Doğrulayıcıyı Kaydedin",
+        "details": "Kritik hesaplar için en az iki passkey'i veya güvenlik anahtarını kaydedin: bir günlük kullanım yöntemi ve güvenli bir şekilde saklanan bir yedek. Kaybolan bir telefonun, dizüstü bilgisayarın veya anahtarın hesabınızın kilitlenmesine neden olmaması için kayıttan sonra her ikisini de test edin."
+      },
+      "keep-passwords-unique-even-when-using-passkeys": {
+        "point": "Passkey'leri Kullanırken Bile Şifrelerinizi Benzersiz Tutun",
+        "details": "Passkey, parola kullanımını azaltır ancak çoğu hizmet, parolayla oturum açmayı veya kurtarmayı hâlâ kullanılabilir durumda tutar. Hizmet, parola girişini tamamen kaldırmanıza izin verene kadar parola yöneticinizde güçlü ve benzersiz bir parola bulundurun."
+      },
+      "avoid-sms-and-email-codes-when-better-options-exist": {
+        "point": "Daha İyi Seçenekler Mevcut Olduğunda SMS ve E-posta Kodlarından Kaçının",
+        "details": "SMS ve e-posta kodları, ikinci bir faktörün olmamasından daha iyidir, ancak SIM değişimlerine, posta kutusunun ele geçirilmesine, müdahaleye ve sosyal mühendisliğe daha fazla maruz kalırlar. Passkey'leri, güvenlik anahtarlarını veya uygulama tabanlı kimlik doğrulama kodlarını tercih edin."
+      },
+      "never-enter-device-codes-from-unexpected-messages": {
+        "point": "Beklenmeyen Mesajlardan Asla Cihaz Kodlarını Girmeyin",
+        "details": "Bazı kimlik avı saldırıları sizden gerçek bir Microsoft, Google veya benzeri bir giriş sayfasına cihaz kodunu girmenizi ister. Yalnızca önünüzdeki bir cihazda kişisel olarak başlattığınız oturum açma işlemi için cihaz kodlarını girin."
+      },
+      "use-hardware-security-keys-for-highest-risk-accounts": {
+        "point": "En Yüksek Riskli Hesaplar için Donanım Güvenliği Anahtarlarını Kullanın",
+        "details": "Parayı, altyapıyı, kimliği veya hassas dosyaları koruyan hesaplar için FIDO2/WebAuthn güvenlik anahtarlarını göz önünde bulundurun. Bunlar özellikle e-posta, şifre yöneticisi, bulut yöneticisi, etki alanı kayıt şirketi ve geliştirici hesapları için kullanışlıdır."
+      },
+      "review-active-sessions-monthly": {
+        "point": "Aktif Oturumları Aylık Olarak İnceleyin",
+        "details": "En önemli hesaplarınız için etkin oturumları ve oturum açılmış cihazları kontrol edin. Tanımadığınız cihazları kaldırın, eski uygulama şifrelerini iptal edin ve kaybolan, satılan veya paylaşılan cihazlardaki oturumları kapatın."
+      },
+      "document-your-authentication-map": {
+        "point": "Kimlik Doğrulama Haritanızı Belgeleyin",
+        "details": "Hangi hesapların passkey'leri, güvenlik anahtarlarını, kimlik doğrulama uygulamalarını, kurtarma e-postalarını ve yedek kodları kullandığını belirten özel bir not tutun. Notta sır saklamayın; Haritayı saklayın, böylece kaybolan bir telefondan veya şüphelenilen bir güvenlik ihlalinden sonra neyi döndüreceğinizi bilirsiniz."
+      }
+    }
+  },
+  "account-recovery": {
+    "items": {
+      "protect-your-primary-email-first": {
+        "point": "Önce Birincil E-postanızı Koruyun",
+        "details": "Birincil e-postanız diğer birçok hesabı sıfırlar. Benzersiz bir parola, parola veya güçlü bir MFA, temiz kurtarma yöntemleri ve oturum incelemesi kullanın. Bu hesap düşerse diğer birçok hesabın ele geçirilmesi kolaylaşır."
+      },
+      "store-backup-codes-offline": {
+        "point": "Yedekleme Kodlarını Çevrimdışı Depolama",
+        "details": "Yedekleme kodlarını kağıda veya şifrelenmiş bir çevrimdışı dosyaya kaydedin. Onları kilidini açtıkları hesaptan uzak tutun. Kodları kullandıktan sonra veya herhangi bir şüpheli maruziyetten sonra değiştirin."
+      },
+      "harden-your-password-manager-recovery": {
+        "point": "Parola Yöneticisi Kurtarmanızı Güçlendirin",
+        "details": "Şifre yöneticinizin tam olarak nasıl kurtarılabileceğini anlayın. Acil durum kitlerini, kurtarma kodlarını ve hesap kurtarma talimatlarını çevrimdışı olarak güvenli bir yerde saklayın ve zayıf veya güncelliğini yitirmiş kurtarma yöntemlerini kaldırın."
+      },
+      "remove-old-phone-numbers": {
+        "point": "Eski Telefon Numaralarını Kaldır",
+        "details": "Eski kurtarma telefon numaraları için her kritik hesabı inceleyin. Artık kontrol etmediğiniz numaraları kaldırın ve telefon numarasını önemli hesaplar için tek kurtarma yolu haline getirmekten kaçının."
+      },
+      "create-an-emergency-access-plan": {
+        "point": "Acil Durum Erişim Planı Oluşturun",
+        "details": "Siz müsait olmadığınızda güvenilir bir kişinin temel hesaplara veya belgelere nasıl erişebileceğine karar verin. Talimatları minimum düzeyde, çevrimdışı ve gerçekten ihtiyaç duydukları şeylerle sınırlı tutun."
+      },
+      "check-recovery-paths-after-major-breaches": {
+        "point": "Büyük İhlallerden Sonra Kurtarma Yollarını Kontrol Edin",
+        "details": "Kullandığınız bir hizmeti etkileyen büyük bir ihlalin ardından yalnızca şifreyi değiştirmeyin. Oturumları, bağlı uygulamaları, MFA cihazlarını, yedek kodları ve kurtarma e-postası veya telefon ayarlarını inceleyin."
+      },
+      "use-random-answers-for-security-questions": {
+        "point": "Güvenlik Soruları için Rastgele Yanıtlar Kullanın",
+        "details": "Güvenlik sorularına ekstra şifreler gibi davranın. Herkese açık kayıtlardan, sosyal medyadan veya veri komisyoncusu profillerinden tahmin edilebilecek gerçek yanıtlar yerine, şifre yöneticinizde saklanan rastgele yanıtları kullanın."
+      },
+      "revoke-lost-devices-immediately": {
+        "point": "Kayıp Cihazları Derhal İptal Edin",
+        "details": "Bir telefon, dizüstü bilgisayar, tablet veya güvenlik anahtarı kaybolursa bunu hesap güvenlik ayarlarından kaldırın, oturumları iptal edin, gerektiğinde şifreleri değiştirin ve değişiklikler için kurtarma yöntemlerini kontrol edin."
+      }
+    }
+  },
+  "scam-defense": {
+    "items": {
+      "verify-through-a-known-channel": {
+        "point": "Bilinen Bir Kanal Üzerinden Doğrulayın",
+        "details": "Bir istek para, kimlik bilgileri, hassas dosyalar veya kurtarma değişiklikleri içeriyorsa zaten güvendiğiniz bir telefon numarasını, uygulamayı veya iletişim yolunu kullanarak isteği doğrulayın. Şüpheli iletideki iletişim bilgilerini kullanmayın."
+      },
+      "slow-down-urgent-requests": {
+        "point": "Acil Talepleri Yavaşlatın",
+        "details": "Aciliyeti bir uyarı işareti olarak değerlendirin. Birisi bunun hemen gerçekleşmesi gerektiğini söylediği için para göndermeden, kod paylaşmadan, oturum açma işlemini onaylamadan, yazılım yüklemeden veya hesap kurtarma ayrıntılarını değiştirmeden önce duraklayın."
+      },
+      "never-share-one-time-codes": {
+        "point": "Tek Kullanımlık Kodları Asla Paylaşmayın",
+        "details": "Tek kullanımlık kodlar, push onayları, cihaz kodları ve şifre sıfırlama bağlantıları oturum açma araçlarıdır. Destek personeli, bankalar, teslimat şirketleri, işverenler ve kolluk kuvvetleri, bunları yüksek sesle okumanıza veya sohbete yapıştırmanıza ihtiyaç duymamalıdır."
+      },
+      "keep-a-scam-log": {
+        "point": "Dolandırıcılık Günlüğü Tutun",
+        "details": "Dolandırıcılık girişimlerinden ekran görüntülerini, telefon numaralarını, alan adlarını, ödeme ayrıntılarını ve zaman damgalarını kaydedin. Bu, daha sonra bir şeyin bağlantılı olduğu ortaya çıkarsa raporlama, engelleme, aile uyarıları ve hesap kurtarma işlemlerine yardımcı olur."
+      },
+      "use-a-family-or-team-verification-phrase": {
+        "point": "Aile veya Ekip Doğrulama İfadesi Kullanın",
+        "details": "Aile üyeleri veya ekiplerin acil durumlar için basit bir doğrulama cümlesi veya geri arama kuralı olduğunda, yapay zeka ses klonlama ve kimliğe bürünme dolandırıcılıklarına direnmek daha kolaydır."
+      },
+      "treat-qr-codes-like-links": {
+        "point": "QR Kodlarını Bağlantılar Gibi Kullanın",
+        "details": "QR hedeflerini açmadan önce önizleyin. Ödemeler, park etme, nakliye veya hesap girişi için poster, çıkartma, e-posta veya beklenmedik mesajdaki QR kodu yerine resmi uygulamayı veya yazılı adresi tercih edin."
+      },
+      "do-not-install-remote-access-tools-on-demand": {
+        "point": "Uzaktan Erişim Araçlarını İsteğe Bağlı Yüklemeyin",
+        "details": "Birisi sizden AnyDesk, TeamViewer, tarayıcı uzantıları, mobil cihaz yönetim profilleri veya ekran paylaşım araçlarını yüklemenizi isterse çok dikkatli olun. Resmi destek yollarını kullanın ve para veya kimlik bilgileri söz konusuysa oturumu sonlandırın."
+      },
+      "watch-for-copy-paste-command-scams": {
+        "point": "Kopyala-Yapıştır Komut Dolandırıcılıklarına Dikkat Edin",
+        "details": "Bazı sahte düzeltmeler sizden komutları bir terminale, Çalıştır iletişim kutusuna veya tarayıcı konsoluna kopyalamanızı ister. Tam olarak ne yaptıklarını anlamadığınız sürece açılır pencerelerden, videolardan, yorumlardan, sohbetlerden veya bilinmeyen web sitelerinden komut çalıştırmayın."
+      }
+    }
+  },
+  "incident-playbooks": {
+    "items": {
+      "email-account-compromised": {
+        "point": "E-posta Hesabının Güvenliği Tehlikeye Girdi",
+        "details": "Temiz bir cihazdan şifreyi değiştirin, tüm oturumları iptal edin, bilinmeyen iletim kurallarını ve uygulama şifrelerini kaldırın, kurtarma yöntemlerini kontrol edin, güçlü MFA'yı etkinleştirin ve ardından bu posta kutusunu kullanan hesapların şifrelerini sıfırlayın."
+      },
+      "malware-suspected-on-a-computer": {
+        "point": "Bilgisayarda Kötü Amaçlı Yazılımdan Şüpheleniliyor",
+        "details": "Aktif hırsızlıktan şüpheleniyorsanız ağ bağlantısını kesin, hassas hesaplarda oturum açmaktan kaçının, güvenilir bir araçtan tarama yapın veya işletim sistemini yeniden yükleyin, temiz bir cihazdaki şifreleri değiştirin ve yalnızca güvenilen dosyaları geri yükleyin."
+      },
+      "social-media-account-taken-over": {
+        "point": "Sosyal Medya Hesabı Devralındı",
+        "details": "Platform kurtarma akışını kullanın, bilinmeyen oturumları ve bağlı uygulamaları iptal edin, e-posta ve telefon ayarlarını geri yükleyin, kişileri son mesajlara güvenmemeleri konusunda uyarın ve aynı şifrenin başka bir yerde tekrar kullanılıp kullanılmadığını kontrol edin."
+      },
+      "password-manager-exposed": {
+        "point": "Şifre Yöneticisi Açığa Çıktı",
+        "details": "Kasa, ana parola veya kurtarma malzemesi açığa çıkma ihtimali varsa, ana parolayı temiz bir cihazdan değiştirin, oturumları iptal edin, önce kritik hesap parolalarını değiştirin, MFA yedek kodlarını değiştirin ve hesap değişikliklerini izleyin."
+      },
+      "identity-theft-suspected": {
+        "point": "Kimlik Hırsızlığından Şüpheleniliyor",
+        "details": "Mümkün olduğunda ulusal kimlik hırsızlığı raporlama hizmetinizle bir kurtarma planı oluşturun, ilgiliyse dolandırıcılık uyarıları veya kredi dondurmaları yapın, raporlar hazırlayın ve hesapların, mektupların, çağrıların ve vaka numaralarının zaman çizelgesini tutun."
+      },
+      "phone-lost-or-stolen": {
+        "point": "Telefon Kayboldu veya Çalındı",
+        "details": "Cihazı kilitlemek veya silmek, hesap oturumlarını iptal etmek, gerekirse SIM'i askıya almak, cihazı MFA ayarlarından kaldırmak ve ona bağlı hesapların yedek kodlarını değiştirmek için Cihazımı Bul veya iPhone'umu Bul'u kullanın."
+      },
+      "preserve-evidence-before-cleaning-up": {
+        "point": "Temizlemeden Önce Kanıtları Koruyun",
+        "details": "Mesajları silmeden veya cihazları silmeden önce e-postaları, başlıkları, URL'leri, ekran görüntülerini, işlem kimliklerini, hesap bildirimlerini ve zaman damgalarını kaydedin. Kanıtlar bankalar, platformlar, sigortacılar, işverenler veya kolluk kuvvetleri için faydalı olabilir."
+      },
+      "bank-or-card-fraud-suspected": {
+        "point": "Banka veya Kart Dolandırıcılığından Şüpheleniliyor",
+        "details": "Karttaki veya resmi uygulamadaki numara aracılığıyla bankayla iletişime geçin, kartı dondurun veya değiştirin, işlemlere itiraz edin, bankacılık şifrelerini değiştirin, cihazları ve oturumları inceleyin ve ekran görüntülerini veya mesajları koruyun."
+      }
+    }
+  },
+  "monthly-maintenance": {
+    "items": {
+      "check-cloud-sharing-links": {
+        "point": "Bulut Paylaşım Bağlantılarını Kontrol Edin",
+        "details": "Bulut depolama alanındaki paylaşılan dosyaları, genel bağlantıları, ortak çalışan listelerini ve eski klasörleri inceleyin. Artık ihtiyaç duyulmayan erişimi kaldırın ve kişisel belgelere yönelik genel bağlantılardan kaçının."
+      },
+      "review-password-manager-health": {
+        "point": "Şifre Yöneticisi Sağlığını İnceleyin",
+        "details": "Yeniden kullanılmış, zayıf, eski veya ihlal edilmiş şifreleri kontrol edin. Önce en hassas hesapları dönüşümlü kullanın ve yalnızca parolayla yapılan oturum açma bilgilerini, varsa parolalarla veya daha güçlü MFA ile değiştirin."
+      },
+      "update-devices-and-browsers": {
+        "point": "Cihazları ve Tarayıcıları Güncelleyin",
+        "details": "İşletim sistemi, tarayıcı, şifre yöneticisi, yönlendirici ve uygulama güncellemelerini yükleyin. Aktif olarak yararlanılan, kritik veya güvenlikle ilgili olarak tanımlanan her şeye öncelik verin."
+      },
+      "clean-browser-extensions": {
+        "point": "Tarayıcı Uzantılarını Temizleyin",
+        "details": "Artık kullanmadığınız uzantıları kaldırın. Uzantılar hassas sayfaları okuyabilir, zamanla değişebilir veya yeni sahiplere satılabilir; bu nedenle listeyi kısa tutun ve izinleri gözden geçirin."
+      },
+      "check-financial-and-identity-alerts": {
+        "point": "Mali ve Kimlik Uyarılarını Kontrol Edin",
+        "details": "Banka uyarılarını, kredi uyarılarını, işlem bildirimlerini ve hesap bildirimlerini inceleyin. Suçlular genellikle daha büyük dolandırıcılıklardan önce kartları test ettiğinden, alışılmadık küçük işlemleri araştırın."
+      },
+      "review-connected-apps": {
+        "point": "Bağlı Uygulamaları İnceleyin",
+        "details": "Google, Microsoft, Apple, GitHub, sosyal medya, bankacılık ve bulut hesaplarına bağlı üçüncü taraf uygulamalarını kontrol edin. Tanımadığınız veya artık kullanmadığınız her şeyi iptal edin."
+      },
+      "refresh-your-top-five-risks": {
+        "point": "İlk Beş Riskinizi Yenileyin",
+        "details": "En yüksek etkiye sahip, tamamlanmamış beş öğeyi tekrar ziyaret edin. Bir sonraki adım açık olduğunda ve bugün tamamlanacak kadar küçük olduğunda güvenlik işi daha kolaydır."
+      },
+      "test-backups": {
+        "point": "Yedeklemeleri Test Et",
+        "details": "Bir yedekleme yalnızca geri yüklenebildiği takdirde gerçektir. Küçük bir geri yüklemeyi test edin, en son dosyaların mevcut olduğunu doğrulayın, en az bir çevrimdışı veya korumalı kopyayı saklayın ve fidye yazılımının her yedeklemeyi kolayca silemeyeceğinden emin olun."
+      }
+    }
+  },
+  "identity-protection": {
+    "items": {
+      "separate-public-and-private-contact-details": {
+        "point": "Ayrı Genel ve Özel İletişim Bilgileri",
+        "details": "Alışveriş, genel profiller, alan adları, haber bültenleri ve yüksek değerli hesaplar için takma adlar, ikincil telefon numaraları veya ayrı e-posta adresleri kullanın. Bu, korelasyonu sınırlar ve hedeflenen dolandırıcılıkların fark edilmesini kolaylaştırır."
+      },
+      "enable-financial-alerts": {
+        "point": "Mali Uyarıları Etkinleştir",
+        "details": "Kartsız ödemeler, para çekme işlemleri, transferler, yeni alacaklılar, kredi sorguları ve profil değişiklikleri için uyarıları açın. Hızlı uyarılar suçluların siz farkına varmadan önce sahip oldukları süreyi azaltır."
+      },
+      "freeze-credit-where-available": {
+        "point": "Mümkün Olduğunda Krediyi Dondur",
+        "details": "Ülkeniz kredilerin dondurulmasını destekliyorsa, büyük kredi bürolarındaki raporları dondurmayı düşünün. Bu, suçluların sizin adınıza yeni kredi açmasını zorlaştırırken, gerektiğinde dondurmayı geçici olarak kaldırmanıza da olanak tanır."
+      },
+      "keep-an-identity-recovery-folder": {
+        "point": "Kimlik Kurtarma Klasörünü Tutun",
+        "details": "Kimliklerin, hesap destek numaralarının, kredi bürosu bağlantılarının, sigorta ayrıntılarının ve kurtarma talimatlarının kopyalarını çevrimdışı olarak saklayın. Cüzdanınızın, telefonunuzun veya belgelerinizin çalınması durumunda nelerin dondurulacağını, raporlanacağını ve değiştirileceğini ekleyin."
+      },
+      "protect-tax-and-government-accounts": {
+        "point": "Vergi ve Devlet Hesaplarını Koruyun",
+        "details": "Güçlü MFA ile vergi, sosyal yardımlar, sağlık hizmetleri, göçmenlik ve devlet kimlik portallarını güvence altına alın. Suçlular bu hesapları para iadesi, yardım dolandırıcılığı, adres değişikliği veya hassas belgelere erişim amacıyla kullanabilir."
+      },
+      "watermark-sensitive-document-uploads": {
+        "point": "Filigran Hassas Belge Yüklemeleri",
+        "details": "Kimlik, adres kanıtı veya mali belgeleri yüklerken, alıcıyı ve tarihi belirten görünür bir filigran ekleyin. Bu, yeniden kullanımı engelleyebilir ve sızdırılan kopyanın nereden geldiğinin izlenmesine yardımcı olabilir."
+      },
+      "remove-data-broker-profiles": {
+        "point": "Veri Aracısı Profillerini Kaldırma",
+        "details": "Kişi arama ve veri komisyoncu sitelerinde adınızı, telefonunuzu, e-posta adresinizi ve adresinizi arayın. Özellikle taciz, takip veya hedefli dolandırıcılıklarla karşı karşıyaysanız, girişleri manuel olarak veya saygın bir kaldırma hizmetiyle kaldırın."
+      },
+      "use-virtual-cards-for-risky-merchants": {
+        "point": "Riskli Tüccarlar için Sanal Kartları Kullanın",
+        "details": "Abonelikler, denemeler, daha az bilinen mağazalar ve seyahat için sanal veya satıcı kilitli kartları kullanın. Mümkün olduğunda harcama limitleri belirleyin ve kartları bir kerelik kullanımdan sonra kapatın."
+      }
+    }
+  }
+}

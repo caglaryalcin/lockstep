@@ -24,10 +24,12 @@ interface RadarSeries {
 
 const radarSize = 360;
 const radarCenter = radarSize / 2;
-const radarRadius = 148;
-const radarLabelRadius = 172;
-const radarViewBox = "-60 -22 480 404";
+const radarRadius = 162;
+const radarLabelRadius = 184;
+const radarViewBox = "-84 -28 528 416";
 const radarRings = [25, 50, 75, 100];
+const radarLabelMaxChars = 16;
+const radarLabelLineHeight = 11.5;
 
 const makeItemId = (point: string) => point.toLowerCase().replace(/\s+/g, '-');
 
@@ -112,6 +114,26 @@ const labelAnchor = (x: number) => {
   return 'middle';
 };
 
+const wrapRadarLabel = (label: string) => {
+  const words = label.split(/\s+/).filter(Boolean);
+  if (!words.length) {
+    return [label];
+  }
+
+  return words.reduce((lines, word) => {
+    const current = lines[lines.length - 1];
+    const next = current ? `${current} ${word}` : word;
+
+    if (current && next.length > radarLabelMaxChars) {
+      lines.push(word);
+    } else {
+      lines[lines.length - 1] = next;
+    }
+
+    return lines;
+  }, [''] as string[]);
+};
+
 /**
  * Component for client-side user progress metrics.
  */
@@ -163,6 +185,7 @@ export default component$(() => {
     const point = radarPoint(index, checklists.value.length, 100, radarLabelRadius);
     return {
       anchor: labelAnchor(point.x),
+      lines: wrapRadarLabel(section.title),
       section,
       x: point.x,
       y: point.y,
@@ -192,7 +215,7 @@ export default component$(() => {
     <div class="grid w-full grid-cols-1 items-stretch gap-5 lg:grid-cols-2">
       <div class="rounded-box flex min-h-[23rem] w-full min-w-0 flex-col justify-between border border-base-300/40 bg-front p-4 shadow-md">
         <svg
-          class="mx-auto h-[24rem] w-full max-w-none flex-none overflow-visible text-base-content lg:h-[28rem]"
+          class="mx-auto h-[27rem] w-full max-w-none flex-none overflow-visible text-base-content lg:h-[30rem]"
           viewBox={radarViewBox}
           role="img"
           aria-label={translate(language.value, "progress.chartLabel")}
@@ -227,7 +250,15 @@ export default component$(() => {
                   dominant-baseline="middle"
                   class="fill-current text-[10.5px] font-medium opacity-80"
                 >
-                  {label.section.title}
+                  {label.lines.map((line, lineIndex) => (
+                    <tspan
+                      key={`${label.section.slug}-label-${line}`}
+                      x={label.x}
+                      y={label.y + (lineIndex - (label.lines.length - 1) / 2) * radarLabelLineHeight}
+                    >
+                      {line}
+                    </tspan>
+                  ))}
                 </text>
               </g>
             );
@@ -243,11 +274,11 @@ export default component$(() => {
             />
           ))}
         </svg>
-        <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-xs sm:grid-cols-3 xl:grid-cols-5">
+        <div class={[styles.radarLegend, "grid gap-x-4 gap-y-2 text-xs"]}>
           {priorityDefinitions.map((priority) => (
-            <span key={`radar-legend-${priority.key}`} class="flex items-center gap-2">
-              <div class="h-2 w-8 rounded-full" style={`background: ${priority.radarColor};`}></div>
-              {translatePriority(language.value, priority.key)}
+            <span key={`radar-legend-${priority.key}`} class={[styles.radarLegendItem, "flex items-center gap-2"]}>
+              <div class="h-2 w-8 shrink-0 rounded-full" style={`background: ${priority.radarColor};`}></div>
+              <span class={styles.radarLegendLabel}>{translatePriority(language.value, priority.key)}</span>
             </span>
           ))}
         </div>

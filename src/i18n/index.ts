@@ -2,16 +2,10 @@ import { createContextId, useContext } from "@builder.io/qwik";
 import type { Signal } from "@builder.io/qwik";
 import type { PriorityKey } from "~/types/PSC";
 
-export type Language = "en" | "tr";
-
-export const defaultLanguage: Language = "en";
-
-export const languages: { code: Language; label: string; nativeLabel: string }[] = [
-  { code: "en", label: "English", nativeLabel: "English" },
-  { code: "tr", label: "Turkish", nativeLabel: "Türkçe" },
-];
-
-export const LanguageContext = createContextId<Signal<Language>>("lockstep.language");
+type LanguageMetadata = {
+  label: string;
+  nativeLabel: string;
+};
 
 const en = {
   "nav.checklists": "Checklists",
@@ -245,13 +239,37 @@ const tr = {
 
 export type TranslationKey = keyof typeof en;
 
-const dictionaries: Record<Language, Record<TranslationKey, string>> = {
-  en,
-  tr,
-};
+const languageRegistry = {
+  en: {
+    label: "English",
+    nativeLabel: "English",
+    dictionary: en,
+  },
+  tr: {
+    label: "Turkish",
+    nativeLabel: "Türkçe",
+    dictionary: tr,
+  },
+} as const satisfies Record<string, LanguageMetadata & { dictionary: Record<TranslationKey, string> }>;
+
+export type Language = keyof typeof languageRegistry;
+
+export const defaultLanguage: Language = "en";
+
+export const languages = Object.entries(languageRegistry).map(([code, definition]) => ({
+  code: code as Language,
+  label: definition.label,
+  nativeLabel: definition.nativeLabel,
+}));
+
+export const LanguageContext = createContextId<Signal<Language>>("lockstep.language");
+
+const dictionaries = Object.fromEntries(
+  Object.entries(languageRegistry).map(([code, definition]) => [code, definition.dictionary])
+) as Record<Language, Record<TranslationKey, string>>;
 
 export const isLanguage = (language: string | null | undefined): language is Language => {
-  return language === "en" || language === "tr";
+  return Boolean(language && language in languageRegistry);
 };
 
 export const translate = (
