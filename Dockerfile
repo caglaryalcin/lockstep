@@ -17,6 +17,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=4174
 ENV PSC_SETTINGS_FILE=/data/lockstep-users.json
+ENV LOCKSTEP_REGISTRATION_ENABLED=true
 
 RUN mkdir -p /data && chown -R node:node /data /app
 

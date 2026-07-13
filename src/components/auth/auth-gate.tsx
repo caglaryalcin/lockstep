@@ -15,6 +15,7 @@ export default component$(() => {
   const user = useSignal<LockstepUser | null>(null);
   const authReady = useSignal(false);
   const mode = useSignal<"login" | "register">("login");
+  const registrationEnabled = useSignal(true);
   const form = useStore({ username: "", password: "", name: "", error: "" });
   const summaryCards: { labelKey: TranslationKey; value: string }[] = [
     { labelKey: "auth.cardProgress", value: "312+" },
@@ -29,6 +30,16 @@ export default component$(() => {
       user.value = storedUser;
     }
     authReady.value = true;
+
+    void fetch("/api/auth")
+      .then((response) => response.ok ? response.json() : null)
+      .then((result) => {
+        if (result?.registrationEnabled === false) {
+          registrationEnabled.value = false;
+          mode.value = "login";
+        }
+      })
+      .catch(() => undefined);
   });
 
   const submit = $(async () => {
@@ -59,11 +70,13 @@ export default component$(() => {
 
     if (!response?.ok) {
       const result = await response?.json().catch(() => null);
-      form.error = mode.value === "register" && result?.error === "INVALID_INPUT"
-        ? translate(language.value, "auth.usernameError")
-        : mode.value === "register"
-          ? translate(language.value, "auth.registerError")
-          : translate(language.value, "auth.loginError");
+      form.error = mode.value === "register"
+        ? result?.error === "REGISTRATION_DISABLED"
+          ? translate(language.value, "auth.registrationDisabled")
+          : result?.error === "INVALID_INPUT"
+            ? translate(language.value, "auth.usernameError")
+            : translate(language.value, "auth.registerError")
+        : translate(language.value, "auth.loginError");
       return;
     }
 
@@ -123,7 +136,12 @@ export default component$(() => {
             <p class="mt-2 text-sm opacity-70">{translate(language.value, "auth.panelSubtitle")}</p>
           </div>
 
-          <div class="mx-auto mb-5 grid w-full max-w-md grid-cols-2 rounded-full border border-base-content/10 bg-base-100/60 p-1">
+          <div
+            class={[
+              "mx-auto mb-5 grid w-full max-w-md rounded-full border border-base-content/10 bg-base-100/60 p-1",
+              registrationEnabled.value ? "grid-cols-2" : "grid-cols-1",
+            ]}
+          >
             <button
               type="button"
               class={[
@@ -137,20 +155,28 @@ export default component$(() => {
             >
               {translate(language.value, "auth.loginTab")}
             </button>
-            <button
-              type="button"
-              class={[
-                "rounded-full px-4 py-2 text-sm font-semibold transition",
-                mode.value === "register" ? "bg-orange-400 text-slate-950 shadow" : "opacity-70"
-              ]}
-              onClick$={() => {
-                mode.value = "register";
-                form.error = "";
-              }}
-            >
-              {translate(language.value, "auth.registerTab")}
-            </button>
+            {registrationEnabled.value && (
+              <button
+                type="button"
+                class={[
+                  "rounded-full px-4 py-2 text-sm font-semibold transition",
+                  mode.value === "register" ? "bg-orange-400 text-slate-950 shadow" : "opacity-70"
+                ]}
+                onClick$={() => {
+                  mode.value = "register";
+                  form.error = "";
+                }}
+              >
+                {translate(language.value, "auth.registerTab")}
+              </button>
+            )}
           </div>
+
+          {!registrationEnabled.value && (
+            <p class="mx-auto mb-5 w-full max-w-md text-sm opacity-70">
+              {translate(language.value, "auth.registrationDisabled")}
+            </p>
+          )}
 
           <form
             preventdefault:submit

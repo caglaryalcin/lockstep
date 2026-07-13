@@ -60,6 +60,18 @@ docker build -t lockstep .
 docker run -d --name lockstep -p 4174:4174 -v lockstep-data:/data lockstep
 ```
 
+## Disable New Registrations
+
+New account registration is enabled by default. To make a public deployment login-only after setup, set `LOCKSTEP_REGISTRATION_ENABLED=false`. When there are no accounts yet, Lockstep still allows exactly one initial account to be created. Once an account exists, the server rejects all further registration requests; existing users can still sign in and manage their accounts.
+
+With Docker Compose:
+
+```bash
+LOCKSTEP_REGISTRATION_ENABLED=false docker compose up -d
+```
+
+The included `docker-compose.yml` reads this value and keeps it enabled when the variable is omitted. For `docker run`, add `-e LOCKSTEP_REGISTRATION_ENABLED=false`. The Docker image and Docker Stack deployments use the same environment variable.
+
 ## Docker Stack
 
 Example `stack.yml`:
@@ -75,6 +87,8 @@ services:
     environment:
       PORT: "4174"
       PSC_SETTINGS_FILE: /data/lockstep-users.json
+      # Set to "false" to allow only the first account to be created.
+      LOCKSTEP_REGISTRATION_ENABLED: "true"
     volumes:
       - lockstep-data:/data
     deploy:

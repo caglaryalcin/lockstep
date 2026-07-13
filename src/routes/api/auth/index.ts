@@ -3,12 +3,19 @@ import type { RequestHandler } from '@builder.io/qwik-city';
 import { sanitizeUsername } from '~/lib/account';
 import {
   authenticateUser,
+  hasRegisteredUsers,
+  registerInitialUser,
   registerUser,
   updateUserAccount,
 } from '~/lib/server/settings-store';
 
 const sendNoStore = (headers: Headers) => {
   headers.set('Cache-Control', 'no-store');
+};
+
+const registrationsEnabled = () => {
+  const value = process.env.LOCKSTEP_REGISTRATION_ENABLED?.trim().toLowerCase();
+  return !['false', '0', 'no', 'off'].includes(value ?? '');
 };
 
 const setUserCookie = (
@@ -20,6 +27,13 @@ const setUserCookie = (
     maxAge: 60 * 60 * 24 * 365,
     path: '/',
     sameSite: 'lax',
+  });
+};
+
+export const onGet: RequestHandler = async ({ headers, json }) => {
+  sendNoStore(headers);
+  json(200, {
+    registrationEnabled: registrationsEnabled() || !(await hasRegisteredUsers()),
   });
 };
 
@@ -39,7 +53,9 @@ export const onPost: RequestHandler = async ({ cookie, headers, json, request })
 
   try {
     const user = action === 'register'
-      ? await registerUser(username, password, name)
+      ? registrationsEnabled()
+        ? await registerUser(username, password, name)
+        : await registerInitialUser(username, password, name)
       : await authenticateUser(username, password);
 
     setUserCookie(cookie, user.id);
@@ -50,11 +66,15 @@ export const onPost: RequestHandler = async ({ cookie, headers, json, request })
       ? 409
       : message === 'Invalid credentials'
         ? 400
+        : message === 'Registration disabled'
+          ? 403
         : 500;
     const registerError = message === 'User already exists'
       ? 'USER_EXISTS'
       : message === 'Invalid credentials'
         ? 'INVALID_INPUT'
+        : message === 'Registration disabled'
+          ? 'REGISTRATION_DISABLED'
         : 'REGISTER_FAILED';
 
     json(action === 'register' ? registerStatus : 401, {

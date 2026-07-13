@@ -28,6 +28,7 @@ const SETTINGS_FILE =
   resolve(process.cwd(), '.data', 'settings.json');
 
 let writeQueue: Promise<void> = Promise.resolve();
+let initialRegistrationQueue: Promise<void> = Promise.resolve();
 const pbkdf2Async = promisify(pbkdf2);
 const passwordIterations = 210000;
 
@@ -162,7 +163,13 @@ export const readUserProfile = async (userId = 'guest'): Promise<LockstepUser | 
   return profile && typeof profile === 'object' ? profile as LockstepUser : null;
 };
 
-export const registerUser = async (
+export const hasRegisteredUsers = async (): Promise<boolean> => {
+  const document = await readSettingsDocument();
+  return Object.values(document.users).some((user) => Boolean(user.credentials));
+};
+
+const createUser = async (
+  document: SettingsDocument,
   username: string,
   password: string,
   name?: string
@@ -172,7 +179,6 @@ export const registerUser = async (
     throw new Error('Invalid credentials');
   }
 
-  const document = await readSettingsDocument();
   if (document.users[cleanUsername]?.credentials) {
     throw new Error('User already exists');
   }
@@ -187,8 +193,40 @@ export const registerUser = async (
     },
   };
 
+  return profile;
+};
+
+export const registerUser = async (
+  username: string,
+  password: string,
+  name?: string
+): Promise<LockstepUser> => {
+  const document = await readSettingsDocument();
+  const profile = await createUser(document, username, password, name);
+
   await writeSettingsDocument(document);
   return profile;
+};
+
+export const registerInitialUser = async (
+  username: string,
+  password: string,
+  name?: string
+): Promise<LockstepUser> => {
+  const register = async () => {
+    const document = await readSettingsDocument();
+    if (Object.values(document.users).some((user) => Boolean(user.credentials))) {
+      throw new Error('Registration disabled');
+    }
+
+    const profile = await createUser(document, username, password, name);
+    await writeSettingsDocument(document);
+    return profile;
+  };
+
+  const result = initialRegistrationQueue.then(register, register);
+  initialRegistrationQueue = result.then(() => undefined, () => undefined);
+  return result;
 };
 
 export const authenticateUser = async (

@@ -1,0 +1,15 @@
+services:
+  lockstep:
+    image: ghcr.io/caglaryalcin/lockstep:latest
+    ports:
+      - "4174:4174"
+    environment:
+      PORT: "4174"
+      PSC_SETTINGS_FILE: /data/lockstep-users.json
+      LOCKSTEP_REGISTRATION_ENABLED: ${LOCKSTEP_REGISTRATION_ENABLED:-true}
+    volumes:
+      - lockstep-data:/data
+    restart: unless-stopped
+
+volumes:
+  lockstep-data:
