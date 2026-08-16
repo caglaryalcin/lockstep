@@ -23,6 +23,12 @@ const readLocalValue = (storageKey: string, initialState: any) => {
 
 const getActiveUserId = () => getStoredUser()?.id || "guest";
 
+const reloadAfterUnauthorized = (response: Response) => {
+  if (response.status === 401 && typeof window !== "undefined") {
+    window.location.reload();
+  }
+};
+
 const fetchSettings = async (userId: string): Promise<StoredSettings> => {
   if (settingsCache[userId]) {
     return settingsCache[userId];
@@ -35,6 +41,7 @@ const fetchSettings = async (userId: string): Promise<StoredSettings> => {
     })
       .then((response) => {
         if (!response.ok) {
+          reloadAfterUnauthorized(response);
           throw new Error(`Settings request failed: ${response.status}`);
         }
         return response.json();
@@ -67,6 +74,7 @@ const persistSetting = async (userId: string, key: string, value: any) => {
     });
 
     if (!response.ok) {
+      reloadAfterUnauthorized(response);
       throw new Error(`Settings save failed: ${response.status}`);
     }
   });

@@ -9,6 +9,7 @@ import Navbar from "~/components/furniture/nav";
 import { defaultLanguage, isLanguage, LanguageContext, type Language } from "~/i18n";
 import { localizeSections } from "~/i18n/checklist";
 import { ChecklistContext } from "~/store/checklist-context";
+import { DemoModeContext } from "~/store/demo-context";
 import type { Sections } from "~/types/PSC";
 
 const checklistCache = new Map<Language, Sections>();
@@ -20,6 +21,11 @@ const getLanguage = (value: string | null | undefined): Language => {
 
 export const useLanguage = routeLoader$(({ cookie }) => {
   return getLanguage(cookie.get("PSC_LANGUAGE")?.value);
+});
+
+export const useDemoMode = routeLoader$(() => {
+  const value = process.env.LOCKSTEP_DEMO_MODE?.trim().toLowerCase();
+  return ["true", "1", "yes", "on"].includes(value ?? "");
 });
 
 export const useChecklists = routeLoader$(async ({ cookie }) => {
@@ -65,8 +71,10 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 
 export default component$(() => {
   const language = useLanguage();
+  const demoMode = useDemoMode();
   const checklists = useChecklists();
   useContextProvider(LanguageContext, language);
+  useContextProvider(DemoModeContext, demoMode);
   useContextProvider(ChecklistContext, checklists);
 
   return (

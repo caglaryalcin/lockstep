@@ -7,6 +7,7 @@ import { languages, translate, useI18n, type Language } from "~/i18n";
 import type { Section } from '~/types/PSC';
 import { useTheme } from '~/store/theme-store';
 import { ChecklistContext } from '~/store/checklist-context';
+import { useDemoModeContext } from '~/store/demo-context';
 import {
   clearCurrentUserLocalSettings,
   clearStoredUser,
@@ -23,6 +24,7 @@ export default component$(() => {
 
   const { theme, setTheme } = useTheme();
   const { language } = useI18n();
+  const demoMode = useDemoModeContext();
   const activeUser = useSignal<LockstepUser | null>(null);
   const deleteConfirmMessage = translate(language.value, 'settings.confirmDelete');
 
@@ -87,6 +89,11 @@ export default component$(() => {
               <BrandLogo class="mr-2" size={36} />
             </span>
             <h1>{brand.name}</h1>
+            {demoMode.value && (
+              <span class="badge badge-sm border-orange-400 bg-orange-400 font-semibold uppercase tracking-wide text-slate-950">
+                {translate(language.value, 'demo.badge')}
+              </span>
+            )}
           </a>
         </div>
         <div class="ml-auto flex-none hidden md:flex items-center gap-2">

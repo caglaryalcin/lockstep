@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, useTask$ } from "@builder.io/qwik";
 
 import { useLocalStorage } from "~/hooks/useLocalStorage";
 import { translate, useI18n } from "~/i18n";
@@ -11,27 +11,36 @@ export default component$((props: { sections: Section[] }) => {
   const [checked] = useLocalStorage('PSC_PROGRESS', {});
   const [ignored] = useLocalStorage('PSC_IGNORED', {});
 
-  const checkedItems = checked.value || {};
-  const ignoredItems = ignored.value || {};
-  const sectionStats = props.sections.map((section) => {
-    let total = 0;
-    let done = 0;
+  const sectionStats = useSignal(
+    props.sections.map(() => ({ done: 0, percent: 0 })),
+  );
 
-    section.checklist.forEach((item) => {
-      const id = item.id || item.point.toLowerCase().replace(/ /g, '-');
-      if (ignoredItems[id]) {
-        return;
-      }
-      total += 1;
-      if (checkedItems[id]) {
-        done += 1;
-      }
+  useTask$(({ track }) => {
+    track(() => checked.value);
+    track(() => ignored.value);
+
+    const checkedItems = checked.value || {};
+    const ignoredItems = ignored.value || {};
+    sectionStats.value = props.sections.map((section) => {
+      let total = 0;
+      let done = 0;
+
+      section.checklist.forEach((item) => {
+        const id = item.id || item.point.toLowerCase().replace(/ /g, '-');
+        if (ignoredItems[id]) {
+          return;
+        }
+        total += 1;
+        if (checkedItems[id]) {
+          done += 1;
+        }
+      });
+
+      return {
+        done,
+        percent: total ? Math.round((done / total) * 100) : 0,
+      };
     });
-
-    return {
-      done,
-      percent: total ? Math.round((done / total) * 100) : 0,
-    };
   });
 
   return (
@@ -50,9 +59,9 @@ export default component$((props: { sections: Section[] }) => {
         >
           <div class="flex-shrink-0 flex flex-col py-4 h-auto items-stretch justify-evenly">
             <Icon icon={section.icon || 'star'} color={section.color} />
-            {sectionStats[index].done ? (
+            {sectionStats.value[index].done ? (
               <p class={`text-${section.color}-400 pt-2 pb-0 px-0 mx-0 my-0`}>
-                {sectionStats[index].done}/{section.checklist.length} {translate(language.value, "common.done")}
+                {sectionStats.value[index].done}/{section.checklist.length} {translate(language.value, "common.done")}
               </p>
             ) : (
               <p class={`text-${section.color}-400 pt-2 pb-0 px-0 mx-0 my-0`}>
@@ -65,12 +74,12 @@ export default component$((props: { sections: Section[] }) => {
               <h2 class={`card-title min-w-0 flex-1 leading-tight text-${section.color}-400 transition-colors group-hover:text-${section.color}-500`}>
                 {section.title}
               </h2>
-              {sectionStats[index].percent ? (
+              {sectionStats.value[index].percent ? (
                 <div
                   class={['radial-progress shrink-0', `text-${section.color}-400`]}
-                  style={`--value:${sectionStats[index].percent}; --size: 2.25rem;`}
+                  style={`--value:${sectionStats.value[index].percent}; --size: 2.25rem;`}
                   role="progressbar">
-                    <span class="text-xs">{sectionStats[index].percent}%</span>
+                    <span class="text-xs">{sectionStats.value[index].percent}%</span>
                 </div>
               ) : (
                 <span class="shrink-0 opacity-30 text-xs leading-5">

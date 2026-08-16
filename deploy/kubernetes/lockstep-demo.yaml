@@ -1,0 +1,109 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lockstep-demo
+  labels:
+    app.kubernetes.io/name: lockstep
+    app.kubernetes.io/instance: lockstep-demo
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: lockstep
+      app.kubernetes.io/instance: lockstep-demo
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: lockstep
+        app.kubernetes.io/instance: lockstep-demo
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: lockstep-demo
+          image: ghcr.io/caglaryalcin/lockstep:v1.0.0
+          imagePullPolicy: IfNotPresent
+          command: ["node"]
+          args: ["demo-server.mjs"]
+          env:
+            - name: LOCKSTEP_DEMO_HOST
+              value: "0.0.0.0"
+            - name: LOCKSTEP_DEMO_PORT
+              value: "4175"
+            - name: LOCKSTEP_DEMO_RESET_TIMEZONE
+              value: "Europe/Istanbul"
+            - name: LOCKSTEP_DEMO_USER
+              valueFrom:
+                secretKeyRef:
+                  name: lockstep-demo-credentials
+                  key: username
+            - name: LOCKSTEP_DEMO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: lockstep-demo-credentials
+                  key: password
+          ports:
+            - name: http
+              containerPort: 4175
+              protocol: TCP
+          startupProbe:
+            httpGet:
+              path: /readyz
+              port: http
+            failureThreshold: 30
+            periodSeconds: 2
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 3
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
+            seccompProfile:
+              type: RuntimeDefault
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lockstep-demo
+  labels:
+    app.kubernetes.io/name: lockstep
+    app.kubernetes.io/instance: lockstep-demo
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: lockstep
+    app.kubernetes.io/instance: lockstep-demo
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

@@ -2,6 +2,10 @@
 
 Lockstep is a personal security checklist platform. It helps users track security habits, checklist progress, priorities, and profile-based progress from a clean web interface.
 
+## Türkçe
+
+Lockstep; kişisel güvenlik alışkanlıklarını, kontrol listesi ilerlemesini, öncelikli aksiyonları ve risk profillerini tek bir arayüzden takip etmeyi sağlayan açık kaynaklı bir güvenlik kontrol listesi platformudur. Türkçe ve İngilizce arayüz, kullanıcı bazlı ilerleme, Docker dağıtımı ve her gün başlangıç verilerine dönen izole bir demo modu sunar.
+
 ![](https://raw.githubusercontent.com/caglaryalcin/lockstep/refs/heads/main/ss/dashboard.gif)
 
 ## Features
@@ -33,7 +37,62 @@ Use `PORT` to run on a custom port:
 
 ```bash
 PORT=4174 npm run serve
-``r
+```
+
+## Demo
+
+Run the isolated demo with production build output:
+
+```bash
+npm run demo
+```
+
+Then open `http://127.0.0.1:4175` and sign in with `demo` / `demo`. The demo starts with a populated security profile and checklist progress and keeps changes only in memory. All mutable demo data is restored to its original seed every day at `00:00 Europe/Istanbul`; a process restart also restores it. Existing demo sessions are invalidated at the daily boundary, and open pages reload to the sign-in screen so stale browser data cannot be written back. The demo does not write to `PSC_SETTINGS_FILE` or enable account registration.
+
+Use `LOCKSTEP_DEMO_PORT` (or `DEMO_PORT`) to change the demo port. The demo binds to `127.0.0.1` by default; set `LOCKSTEP_DEMO_HOST` when it must listen on another interface. Set `LOCKSTEP_DEMO_RESET_TIMEZONE` to another valid IANA time zone when the daily boundary should not use `Europe/Istanbul`. Public demo deployments should replace the default credentials with a password of at least six characters:
+
+```bash
+LOCKSTEP_DEMO_PORT=4180 \
+LOCKSTEP_DEMO_USER=preview \
+LOCKSTEP_DEMO_PASSWORD='replace-this-password' \
+npm run demo
+```
+
+Run the build-backed HTTP smoke test with:
+
+```bash
+npm run demo:smoke
+```
+
+The Docker image includes the demo server and exposes port `4175`. Override the normal image command to launch it:
+
+```bash
+docker run --rm \
+  -p 127.0.0.1:4175:4175 \
+  -e LOCKSTEP_DEMO_HOST=0.0.0.0 \
+  ghcr.io/caglaryalcin/lockstep:v1.0.0 \
+  node demo-server.mjs
+```
+
+The normal `npm run serve` and Docker `CMD` paths remain production mode on port `4174`.
+
+### External Kubernetes demo pod
+
+The same image can run as a dedicated `lockstep-demo` pod, independently from the production deployment. Create its credentials as a Secret, then apply the included single-replica Deployment and Service:
+
+```bash
+kubectl create secret generic lockstep-demo-credentials \
+  --from-literal=username=preview \
+  --from-literal=password='replace-this-password'
+
+kubectl apply -f deploy/kubernetes/lockstep-demo.yaml
+kubectl rollout status deployment/lockstep-demo
+kubectl port-forward service/lockstep-demo 4175:80
+```
+
+Open `http://127.0.0.1:4175` after the port-forward starts. Point an HTTPS Ingress at the `lockstep-demo` Service when the demo should be public; the ingress must preserve `X-Forwarded-Proto` so the demo session cookie is marked secure.
+
+The manifest runs `node demo-server.mjs`, binds the pod to `0.0.0.0:4175`, and probes `/healthz` and `/readyz`. It intentionally uses `replicas: 1` with the `Recreate` strategy because both demo state and sessions are process-local. Do not attach a PVC or scale this deployment horizontally; use a shared store first if multi-replica demo service is ever required.
 
 ## Docker
 
@@ -134,6 +193,8 @@ After changing checklist content, rebuild the app so the updated checklist is in
 
 ```bash
 npm run build
+npm run demo
+npm run demo:smoke
 npm run serve
 npm run lint
 ```
@@ -141,4 +202,3 @@ npm run lint
 ## License
 
 See `LICENSE`.
-
