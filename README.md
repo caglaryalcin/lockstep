@@ -2,10 +2,6 @@
 
 Lockstep is a personal security checklist platform. It helps users track security habits, checklist progress, priorities, and profile-based progress from a clean web interface.
 
-## Türkçe
-
-Lockstep; kişisel güvenlik alışkanlıklarını, kontrol listesi ilerlemesini, öncelikli aksiyonları ve risk profillerini tek bir arayüzden takip etmeyi sağlayan açık kaynaklı bir güvenlik kontrol listesi platformudur. Türkçe ve İngilizce arayüz, kullanıcı bazlı ilerleme, Docker dağıtımı ve her gün başlangıç verilerine dönen izole bir demo modu sunar.
-
 ![](https://raw.githubusercontent.com/caglaryalcin/lockstep/refs/heads/main/ss/dashboard.gif)
 
 ## Features
