@@ -1,6 +1,5 @@
 import type { RequestHandler } from '@builder.io/qwik-city';
 
-import { isDemoMode } from '~/lib/server/demo-store';
 import { readSettings } from '~/lib/server/settings-store';
 
 export const onGet: RequestHandler = async ({ headers, json }) => {
@@ -9,12 +8,12 @@ export const onGet: RequestHandler = async ({ headers, json }) => {
   try {
     await readSettings('readiness-probe');
     json(200, {
-      mode: isDemoMode() ? 'demo' : 'production',
+      mode: 'production',
       status: 'ready',
     });
   } catch {
     json(503, {
-      mode: isDemoMode() ? 'demo' : 'production',
+      mode: 'production',
       status: 'unavailable',
     });
   }

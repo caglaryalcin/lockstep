@@ -4,14 +4,6 @@ import { dirname, resolve } from 'node:path';
 import { promisify } from 'node:util';
 
 import { sanitizeUsername } from '~/lib/account';
-import {
-  authenticateDemoUser,
-  clearDemoSettings,
-  isDemoMode,
-  readDemoSettings,
-  readDemoUserProfile,
-  setDemoSetting,
-} from '~/lib/server/demo-store';
 import type { LockstepUser } from '~/lib/user-session';
 
 export type SettingsStore = Record<string, unknown>;
@@ -159,23 +151,12 @@ const writeSettingsDocument = async (settings: SettingsDocument): Promise<void> 
   return writeQueue;
 };
 
-export const readSettings = async (
-  userId = 'guest',
-  demoEpoch?: string
-): Promise<SettingsStore> => {
-  if (isDemoMode()) {
-    return readDemoSettings(demoEpoch);
-  }
-
+export const readSettings = async (userId = 'guest'): Promise<SettingsStore> => {
   const settings = await readSettingsDocument();
   return settings.users[sanitizeUserId(userId)]?.settings || {};
 };
 
 export const readUserProfile = async (userId = 'guest'): Promise<LockstepUser | null> => {
-  if (isDemoMode()) {
-    return readDemoUserProfile();
-  }
-
   const settings = await readSettingsDocument();
   const profile = settings.users[sanitizeUserId(userId)]?.profile;
 
@@ -183,10 +164,6 @@ export const readUserProfile = async (userId = 'guest'): Promise<LockstepUser | 
 };
 
 export const hasRegisteredUsers = async (): Promise<boolean> => {
-  if (isDemoMode()) {
-    return true;
-  }
-
   const document = await readSettingsDocument();
   return Object.values(document.users).some((user) => Boolean(user.credentials));
 };
@@ -224,10 +201,6 @@ export const registerUser = async (
   password: string,
   name?: string
 ): Promise<LockstepUser> => {
-  if (isDemoMode()) {
-    throw new Error('Registration disabled');
-  }
-
   const document = await readSettingsDocument();
   const profile = await createUser(document, username, password, name);
 
@@ -240,10 +213,6 @@ export const registerInitialUser = async (
   password: string,
   name?: string
 ): Promise<LockstepUser> => {
-  if (isDemoMode()) {
-    throw new Error('Registration disabled');
-  }
-
   const register = async () => {
     const document = await readSettingsDocument();
     if (Object.values(document.users).some((user) => Boolean(user.credentials))) {
@@ -264,10 +233,6 @@ export const authenticateUser = async (
   username: string,
   password: string
 ): Promise<LockstepUser> => {
-  if (isDemoMode()) {
-    return authenticateDemoUser(username, password);
-  }
-
   const cleanUsername = sanitizeUsername(username);
   const document = await readSettingsDocument();
   const userSettings = document.users[cleanUsername];
@@ -308,10 +273,6 @@ export const updateUserAccount = async (
     username?: string;
   }
 ): Promise<LockstepUser> => {
-  if (isDemoMode()) {
-    throw new Error('Account updates disabled');
-  }
-
   const currentUserId = sanitizeUsername(userId);
   const nextUsername = updates.username ? sanitizeUsername(updates.username) : currentUserId;
 
@@ -372,13 +333,8 @@ export const updateUserAccount = async (
 export const setSetting = async (
   userId: string,
   key: string,
-  value: unknown,
-  demoEpoch?: string
+  value: unknown
 ): Promise<SettingsStore> => {
-  if (isDemoMode()) {
-    return setDemoSetting(key, value, demoEpoch || '');
-  }
-
   const document = await readSettingsDocument();
   const cleanUserId = sanitizeUserId(userId);
   const userSettings = document.users[cleanUserId] || { settings: {} };
@@ -393,14 +349,7 @@ export const setSetting = async (
   return userSettings.settings;
 };
 
-export const clearSettings = async (
-  userId = 'guest',
-  demoEpoch?: string
-): Promise<void> => {
-  if (isDemoMode()) {
-    return clearDemoSettings(demoEpoch || '');
-  }
-
+export const clearSettings = async (userId = 'guest'): Promise<void> => {
   const document = await readSettingsDocument();
   const cleanUserId = sanitizeUserId(userId);
 

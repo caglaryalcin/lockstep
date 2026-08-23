@@ -13,7 +13,6 @@ import {
   type LockstepUser,
 } from "~/lib/user-session";
 import { ChecklistContext } from "~/store/checklist-context";
-import { useDemoModeContext } from "~/store/demo-context";
 import type { Section } from "~/types/PSC";
 
 type StoredItems = Record<string, boolean>;
@@ -68,7 +67,6 @@ const calculateProgress = (
 
 export default component$(() => {
   const { language } = useI18n();
-  const demoMode = useDemoModeContext();
   const checklists = useContext(ChecklistContext);
   const [checked] = useLocalStorage("PSC_PROGRESS", {});
   const [ignored] = useLocalStorage("PSC_IGNORED", {});
@@ -90,10 +88,6 @@ export default component$(() => {
   });
 
   const updateAccount = $(async () => {
-    if (demoMode.value) {
-      return;
-    }
-
     accountForm.error = "";
     accountForm.success = "";
     const username = sanitizeUsername(accountForm.username);
@@ -202,37 +196,12 @@ export default component$(() => {
 
           <div class="rounded-box border border-base-300/40 bg-front p-5 shadow-md">
             <h2 class="text-2xl font-bold">{translate(language.value, "userProfile.accountSettings")}</h2>
-            {!demoMode.value && (
-              <p class="mt-1 text-sm opacity-70">
-                {translate(language.value, "userProfile.accountSettingsBody")}
-              </p>
-            )}
-
-            {demoMode.value && (
-              <div
-                id="demo-account-notice"
-                class="mt-5 rounded-box border border-orange-400/35 bg-orange-400/10 p-4"
-                role="note"
-              >
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="badge badge-sm border-orange-400 bg-orange-400 font-semibold uppercase tracking-wide text-slate-950">
-                    {translate(language.value, "demo.badge")}
-                  </span>
-                  <h3 class="font-semibold">{translate(language.value, "demo.profileTitle")}</h3>
-                </div>
-                <p class="mt-2 text-sm opacity-75">{translate(language.value, "demo.profileBody")}</p>
-              </div>
-            )}
+            <p class="mt-1 text-sm opacity-70">
+              {translate(language.value, "userProfile.accountSettingsBody")}
+            </p>
 
             <form preventdefault:submit class="mt-5" onSubmit$={updateAccount}>
-              <fieldset
-                aria-describedby={demoMode.value ? "demo-account-notice" : undefined}
-                class={[
-                  "grid min-w-0 gap-4 border-0 p-0 transition-opacity",
-                  demoMode.value ? "opacity-55" : "",
-                ]}
-                disabled={demoMode.value}
-              >
+              <fieldset class="grid min-w-0 gap-4 border-0 p-0 transition-opacity">
               <label class="block">
                 <span class="mb-2 block text-sm font-semibold">{translate(language.value, "auth.usernameLabel")}</span>
                 <input

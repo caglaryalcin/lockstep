@@ -8,12 +8,11 @@
     "build.client": "vite build",
     "build.server": "vite build -c adapters/node-server/vite.config.mts",
     "build.types": "tsc --incremental --noEmit",
-    "demo": "npm run build && node demo-server.mjs",
-    "demo:smoke": "npm run build && node scripts/ci-smoke-demo.mjs",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
     "serve": "node serve.mjs",
+    "smoke": "npm run build && node scripts/ci-smoke-production.mjs",
     "qwik": "qwik"
   },
   "devDependencies": {

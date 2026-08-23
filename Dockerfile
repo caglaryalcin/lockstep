@@ -22,11 +22,11 @@ ENV LOCKSTEP_REGISTRATION_ENABLED=true
 RUN mkdir -p /data && chown -R node:node /data /app
 
 COPY --from=build --chown=node:node /app/node_modules ./node_modules
-COPY --from=build --chown=node:node /app/package.json /app/serve.mjs /app/demo-server.mjs /app/personal-security-checklist.yml ./
+COPY --from=build --chown=node:node /app/package.json /app/serve.mjs /app/personal-security-checklist.yml ./
 COPY --from=build --chown=node:node /app/dist ./dist
 COPY --from=build --chown=node:node /app/server ./server
 
 USER node
-EXPOSE 4174 4175
+EXPOSE 4174
 
 CMD ["node", "serve.mjs"]

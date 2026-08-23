@@ -5,37 +5,25 @@ import BrandLogo from "~/components/furniture/brand-logo";
 import { translate, useI18n, type TranslationKey } from "~/i18n";
 import { sanitizeUsername } from "~/lib/account";
 import {
-  clearCurrentUserLocalSettings,
-  clearStoredUser,
   getStoredUser,
   saveStoredUser,
   type LockstepUser,
 } from "~/lib/user-session";
-import { useDemoModeContext } from "~/store/demo-context";
-
-const demoEpochStorageKey = "LOCKSTEP_DEMO_EPOCH";
-const demoRefreshNoticeKey = "LOCKSTEP_DEMO_REFRESHED";
 
 export default component$(() => {
   const { language } = useI18n();
-  const demoMode = useDemoModeContext();
   const user = useSignal<LockstepUser | null>(null);
   const authReady = useSignal(false);
   const mode = useSignal<"login" | "register">("login");
-  const registrationEnabled = useSignal(!demoMode.value);
-  const demoDefaultCredentials = useSignal(false);
-  const demoRefreshNotice = useSignal(false);
-  const demoSessionExpiredNotice = useSignal(false);
+  const registrationEnabled = useSignal(true);
   const username = useSignal("");
   const password = useSignal("");
   const form = useStore({ name: "", error: "" });
   const summaryCards: { labelKey: TranslationKey; value: string }[] = [
     { labelKey: "auth.cardProgress", value: "312+" },
     {
-      labelKey: demoMode.value ? "demo.cardMemory" : "auth.cardPrivate",
-      value: demoMode.value
-        ? "RAM"
-        : translate(language.value, "auth.cardPrivateValue"),
+      labelKey: "auth.cardPrivate",
+      value: translate(language.value, "auth.cardPrivateValue"),
     },
     {
       labelKey: "auth.cardProfile",
@@ -43,80 +31,23 @@ export default component$(() => {
     },
   ];
 
-  useVisibleTask$(({ cleanup }) => {
-    let resetTimer: ReturnType<typeof setTimeout> | undefined;
+  useVisibleTask$(() => {
     const storedUser = getStoredUser();
-    if (storedUser && !demoMode.value) {
+    if (storedUser) {
       saveStoredUser(storedUser);
       user.value = storedUser;
     }
-    if (!demoMode.value) {
-      authReady.value = true;
-    }
+    authReady.value = true;
 
     void fetch("/api/auth")
       .then((response) => response.ok ? response.json() : null)
       .then((result) => {
-        if (result?.demo === true) {
-          const epoch = typeof result.demoEpoch === "string" ? result.demoEpoch : "";
-          const previousEpoch = localStorage.getItem(demoEpochStorageKey);
-          if (epoch && previousEpoch && epoch !== previousEpoch) {
-            clearCurrentUserLocalSettings();
-            document.cookie = "PSC_LANGUAGE=; path=/; max-age=0; SameSite=Lax";
-            sessionStorage.setItem(demoRefreshNoticeKey, "true");
-          }
-          if (epoch) {
-            localStorage.setItem(demoEpochStorageKey, epoch);
-          }
-
-          if (sessionStorage.getItem(demoRefreshNoticeKey) === "true") {
-            demoRefreshNotice.value = true;
-            sessionStorage.removeItem(demoRefreshNoticeKey);
-          }
-
-          const nextResetAt = Date.parse(result.demoNextResetAt);
-          const serverTime = Date.parse(result.demoServerTime);
-          if (Number.isFinite(nextResetAt) && Number.isFinite(serverTime)) {
-            resetTimer = setTimeout(() => {
-              sessionStorage.setItem(demoRefreshNoticeKey, "true");
-              location.reload();
-            }, Math.max(nextResetAt - serverTime + 250, 1));
-          }
-
-          if (result.authenticated === true && storedUser) {
-            saveStoredUser(storedUser);
-            user.value = storedUser;
-          } else {
-            if (storedUser && epoch && previousEpoch === epoch) {
-              demoSessionExpiredNotice.value = true;
-            }
-            clearStoredUser();
-            user.value = null;
-          }
-        }
-
         if (result?.registrationEnabled === false) {
           registrationEnabled.value = false;
           mode.value = "login";
         }
-
-        if (result?.demoDefaultCredentials === true) {
-          demoDefaultCredentials.value = true;
-          mode.value = "login";
-          if (!username.value && !password.value) {
-            username.value = "demo";
-            password.value = "demo";
-          }
-        }
       })
-      .catch(() => undefined)
-      .finally(() => {
-        authReady.value = true;
-      });
-
-    cleanup(() => {
-      if (resetTimer) clearTimeout(resetTimer);
-    });
+      .catch(() => undefined);
   });
 
   const submit = $(async () => {
@@ -129,14 +60,8 @@ export default component$(() => {
       return;
     }
 
-    const minimumPasswordLength = demoMode.value && mode.value === "login" ? 1 : 6;
-    if (submittedPassword.length < minimumPasswordLength) {
-      form.error = translate(
-        language.value,
-        demoMode.value && mode.value === "login"
-          ? "auth.demoPasswordError"
-          : "auth.passwordError"
-      );
+    if (submittedPassword.length < 6) {
+      form.error = translate(language.value, "auth.passwordError");
       return;
     }
 
@@ -185,10 +110,7 @@ export default component$(() => {
   return (
     <main class="min-h-screen bg-base-100 px-4 py-6 text-base-content">
       <div class="mx-auto grid min-h-[calc(100vh-3rem)] w-full max-w-6xl items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <section class={[
-          "space-y-8",
-          demoMode.value ? "order-2 lg:order-1" : "",
-        ]}>
+        <section class="space-y-8">
           <a href="/" class="inline-flex items-center gap-3 rounded-full border border-base-content/10 bg-front px-4 py-3 shadow-md">
             <BrandLogo size={38} />
             <span class="text-2xl font-bold">{brand.name}</span>
@@ -199,16 +121,10 @@ export default component$(() => {
               {translate(language.value, "auth.eyebrow")}
             </p>
             <h1 class="text-5xl font-bold leading-none sm:text-6xl">
-              {translate(
-                language.value,
-                demoMode.value ? "demo.heroTitle" : "auth.title"
-              )}
+              {translate(language.value, "auth.title")}
             </h1>
             <p class="mt-5 max-w-xl text-lg opacity-75">
-              {translate(
-                language.value,
-                demoMode.value ? "demo.heroBody" : "auth.subtitle"
-              )}
+              {translate(language.value, "auth.subtitle")}
             </p>
           </div>
 
@@ -222,55 +138,11 @@ export default component$(() => {
           </div>
         </section>
 
-        <section class={[
-          "rounded-box border border-base-300/40 bg-front p-6 shadow-xl",
-          demoMode.value ? "order-1 lg:order-2" : "",
-        ]}>
+        <section class="rounded-box border border-base-300/40 bg-front p-6 shadow-xl">
           <div class="mx-auto mb-6 w-full max-w-md">
-            <h2 class="text-3xl font-bold">
-              {translate(
-                language.value,
-                demoMode.value ? "demo.panelTitle" : "auth.panelTitle"
-              )}
-            </h2>
-            <p class="mt-2 text-sm opacity-70">
-              {translate(
-                language.value,
-                demoMode.value ? "demo.panelBody" : "auth.panelSubtitle"
-              )}
-            </p>
+            <h2 class="text-3xl font-bold">{translate(language.value, "auth.panelTitle")}</h2>
+            <p class="mt-2 text-sm opacity-70">{translate(language.value, "auth.panelSubtitle")}</p>
           </div>
-
-          {demoMode.value && (
-            <div
-              class="mx-auto mb-5 w-full max-w-md rounded-box border border-orange-400/35 bg-orange-400/10 p-4"
-              role="note"
-            >
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="badge border-orange-400 bg-orange-400 font-semibold uppercase tracking-wide text-slate-950">
-                  {translate(language.value, "demo.badge")}
-                </span>
-                <p class="font-semibold">{translate(language.value, "demo.authTitle")}</p>
-              </div>
-              <p class="mt-2 text-sm opacity-75">{translate(language.value, "demo.authBody")}</p>
-              {demoRefreshNotice.value && (
-                <p class="mt-3 rounded-md bg-success/15 px-3 py-2 text-sm font-semibold" role="status">
-                  {translate(language.value, "demo.refreshComplete")}
-                </p>
-              )}
-              {demoSessionExpiredNotice.value && (
-                <p class="mt-3 rounded-md bg-warning/15 px-3 py-2 text-sm font-semibold" role="status">
-                  {translate(language.value, "demo.sessionExpired")}
-                </p>
-              )}
-              {demoDefaultCredentials.value && (
-                <p class="mt-3 text-sm font-semibold">
-                  {translate(language.value, "demo.defaultCredentials")}{" "}
-                  <code class="rounded bg-base-100/70 px-2 py-1 text-xs">demo / demo</code>
-                </p>
-              )}
-            </div>
-          )}
 
           {registrationEnabled.value && (
             <div class="mx-auto mb-5 grid w-full max-w-md grid-cols-2 rounded-full border border-base-content/10 bg-base-100/60 p-1">
@@ -305,7 +177,7 @@ export default component$(() => {
             </div>
           )}
 
-          {!registrationEnabled.value && !demoMode.value && (
+          {!registrationEnabled.value && (
             <p class="mx-auto mb-5 w-full max-w-md text-sm opacity-70">
               {translate(language.value, "auth.registrationDisabled")}
             </p>
@@ -354,12 +226,7 @@ export default component$(() => {
                 class="input input-bordered h-12 w-full bg-base-100"
                 type="password"
                 autocomplete={mode.value === "login" ? "current-password" : "new-password"}
-                placeholder={translate(
-                  language.value,
-                  demoMode.value && mode.value === "login"
-                    ? "auth.demoPasswordPlaceholder"
-                    : "auth.passwordPlaceholder"
-                )}
+                placeholder={translate(language.value, "auth.passwordPlaceholder")}
                 value={password.value}
                 onInput$={(event) => {
                   password.value = (event.target as HTMLInputElement).value;
@@ -383,20 +250,10 @@ export default component$(() => {
 
           <div class="mx-auto mt-6 w-full max-w-md rounded-box border border-base-content/10 bg-base-100/45 p-4">
             <p class="text-sm font-semibold">
-              {translate(
-                language.value,
-                demoMode.value
-                  ? "demo.afterLoginTitle"
-                  : "auth.afterLoginTitle"
-              )}
+              {translate(language.value, "auth.afterLoginTitle")}
             </p>
             <p class="mt-1 text-sm opacity-70">
-              {translate(
-                language.value,
-                demoMode.value
-                  ? "demo.afterLoginBody"
-                  : "auth.afterLoginBody"
-              )}
+              {translate(language.value, "auth.afterLoginBody")}
             </p>
           </div>
         </section>
