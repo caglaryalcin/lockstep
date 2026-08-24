@@ -16,72 +16,111 @@
 @source inline("{checked:,hover:}checkbox-{info,success,neutral,warning,error}");
 @source inline("hover:bg-{info,success,neutral,warning,error}");
 
+/*
+ * --color-front/--color-back are registered in the @theme block above, which
+ * Tailwind v4 evaluates at :root (<html>). data-theme, however, is only ever
+ * set on <body> (see root.tsx / theme-store.ts), so :root never sees a
+ * matching [data-theme="..."] rule and --color-front/--color-back permanently
+ * resolve to their @theme fallback (the dark values) no matter which theme is
+ * active. That's invisible in dark mode, since the fallback happens to match
+ * it, but every other theme silently keeps a dark bg-back/text-front. Each
+ * block below redeclares --color-front/--color-back at the same element the
+ * attribute selector actually matches, so they pick up that theme's colors.
+ */
 [data-theme="light"] {
   --front: 237 9% 86% / 0.75;
   --back: 237 9% 86% / 1;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="dark"] {
   --front: 217 14% 17%;
   --back: 212 14% 10%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="night"] {
   --front: 220 45% 9%;
   --back: 219 38% 13%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="cupcake"] {
   --front: 297 77% 90%;
   --back: 303 60% 94%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="bumblebee"] {
   --front: 76 40% 87%;
   --back: 60 23% 92%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="corporate"] {
   --front: 212 44% 84%;
   --back: 212 26% 90%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="synthwave"] {
   --front: 253 58% 12%;
   --back: 254 48% 17%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="retro"] {
   --front: 42 37% 72%;
   --back: 43 36% 87%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="valentine"] {
   --front: 320 71% 85%;
   --back: 322 61% 94%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="halloween"] {
   --front: 0 0% 9%;
   --back: 0 0% 17%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="aqua"] {
   --front: 231 41% 27%;
   --back: 231 34% 23%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="lofi"] {
   --front: 228 12% 92%;
   --back: 228 12% 92% / 0.75;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="fantasy"] {
   --front: 231 34% 23%;
   --back: 210 2% 83%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
 
 [data-theme="dracula"] {
   --front: 210 2% 83% / 0.03;
   --back: 228 20% 15%;
+  --color-front: hsl(var(--front));
+  --color-back: hsl(var(--back));
 }
