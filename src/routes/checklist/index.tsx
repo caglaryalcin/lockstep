@@ -20,20 +20,22 @@ export default component$(() => {
           <section
             key={index}
             class={[
-              'soft-hover rounded-box border border-base-300/60 bg-front shadow-md transition-all',
-              openPanel.value === index ? 'shadow-xl' : 'hover:border-base-content/20'
+              'soft-hover group rounded-box border border-base-300/60 bg-front shadow-md transition-all duration-200',
+              openPanel.value === index
+                ? 'border-orange-400/40 shadow-xl'
+                : 'hover:-translate-y-0.5 hover:border-orange-400/40 hover:shadow-xl'
             ]}
           >
             <button
               type="button"
-              class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition"
+              class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors group-hover:bg-base-100/35"
               aria-expanded={openPanel.value === index}
               onClick$={() => {
                 openPanel.value = openPanel.value === index ? null : index;
               }}
             >
               <span class="flex min-w-0 items-center gap-3">
-                <Icon icon={section.icon} color={section.color} width={22} height={22} />
+                <Icon icon={section.icon} color={section.color} class="transition-transform duration-200 group-hover:scale-110" width={22} height={22} />
                 <span class={`text-xl font-semibold text-${section.color}-400`}>{section.title}</span>
               </span>
               <span
@@ -54,7 +56,10 @@ export default component$(() => {
                   const pointId = item.id || item.point.toLowerCase().replace(/ /g, '-');
                   const inputId = `check-${section.slug}-${index}`;
                   return (
-                  <div key={pointId} class="flex justify-between border-t border-base-content/10 py-3 first:border-t-0">
+                  <div
+                    key={pointId}
+                    class="checklist-item-hover group -mx-2 flex justify-between rounded-md border border-transparent border-t-base-content/10 px-2 py-3 first:border-t-transparent"
+                  >
                     <label class="flex items-start gap-3" for={inputId}>
                       <input
                         class="checkbox checkbox-sm mt-1"
@@ -68,7 +73,7 @@ export default component$(() => {
                           });
                         }}
                       />
-                      <span class="tooltip tooltip-bottom text-sm" data-tip={item.details}>{item.point}</span>
+                      <span class="tooltip tooltip-bottom text-sm transition-colors group-hover:text-primary" data-tip={item.details}>{item.point}</span>
                     </label>
                   </div>
                 )

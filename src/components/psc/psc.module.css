@@ -9,6 +9,26 @@
   }
 }
 
+.checklistRow {
+  transition:
+    background-color 160ms ease,
+    outline-color 160ms ease,
+    box-shadow 160ms ease;
+  outline: 1px solid transparent;
+  outline-offset: -1px;
+}
+
+.checklistRow:hover {
+  outline-color: var(--interactive-hover-outline);
+}
+
+.checklistRowInteractive:hover {
+  background: var(--interactive-hover-bg) !important;
+  box-shadow:
+    inset 3px 0 0 var(--interactive-hover-outline),
+    0 6px 14px rgb(0 0 0 / 8%);
+}
+
 .priorityBadge {
   height: auto !important;
   min-height: 1.75rem !important;

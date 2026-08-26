@@ -16,6 +16,8 @@ html {
 
 body {
   background: var(--color-base-100, #1a2028) !important;
+  caret-color: transparent;
+  cursor: default;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,6 +26,94 @@ h1, h2, h3, h4, h5, h6 {
 
 p, a, li, span {
   font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --interactive-hover-bg: rgb(107 114 128 / 8%);
+  --interactive-hover-border: rgb(107 114 128 / 16%);
+  --interactive-hover-outline: rgb(251 146 60 / 38%);
+  --interactive-hover-shadow:
+    0 12px 30px rgb(107 114 128 / 14%),
+    inset 0 1px 0 rgb(255 255 255 / 6%);
+  --checklist-item-hover-bg: rgb(31 41 55 / 10%);
+  --checklist-item-hover-border: rgb(31 41 55 / 14%);
+  --checklist-item-hover-shadow:
+    0 16px 34px rgb(31 41 55 / 10%),
+    inset 0 1px 0 rgb(255 255 255 / 65%);
+}
+
+[data-theme="light"],
+[data-theme="cupcake"],
+[data-theme="bumblebee"],
+[data-theme="corporate"],
+[data-theme="retro"],
+[data-theme="valentine"],
+[data-theme="lofi"],
+[data-theme="fantasy"] {
+  --interactive-hover-bg: rgb(107 114 128 / 8%);
+  --interactive-hover-border: rgb(107 114 128 / 16%);
+  --interactive-hover-outline: rgb(251 146 60 / 38%);
+  --interactive-hover-shadow:
+    0 10px 24px rgb(107 114 128 / 16%),
+    inset 0 1px 0 rgb(255 255 255 / 70%);
+  --checklist-item-hover-bg: rgb(31 41 55 / 10%);
+  --checklist-item-hover-border: rgb(31 41 55 / 14%);
+  --checklist-item-hover-shadow:
+    0 16px 34px rgb(31 41 55 / 10%),
+    inset 0 1px 0 rgb(255 255 255 / 65%);
+}
+
+[data-theme="dark"],
+[data-theme="night"],
+[data-theme="synthwave"],
+[data-theme="halloween"],
+[data-theme="aqua"],
+[data-theme="dracula"] {
+  --interactive-hover-bg: rgb(255 255 255 / 8%);
+  --interactive-hover-border: rgb(255 255 255 / 18%);
+  --interactive-hover-outline: rgb(251 146 60 / 42%);
+  --interactive-hover-shadow:
+    0 12px 28px rgb(0 0 0 / 24%),
+    inset 0 1px 0 rgb(255 255 255 / 9%);
+  --checklist-item-hover-bg: rgb(255 255 255 / 12%);
+  --checklist-item-hover-border: rgb(255 255 255 / 20%);
+  --checklist-item-hover-shadow:
+    0 12px 28px rgb(0 0 0 / 20%),
+    inset 0 1px 0 rgb(255 255 255 / 9%);
+}
+
+:where(input, textarea, [contenteditable="true"], [contenteditable="true"] *) {
+  caret-color: auto;
+}
+
+:where(
+  input:not([type]),
+  input[type="email"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="url"],
+  textarea,
+  [contenteditable="true"]
+) {
+  cursor: text;
+}
+
+:where(
+  a,
+  button,
+  label,
+  select,
+  summary,
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="range"],
+  [role="button"],
+  .btn
+) {
+  cursor: pointer;
 }
 
 .soft-hover {
@@ -40,11 +130,9 @@ p, a, li, span {
 :where(.btn-ghost):focus-visible,
 :where(.menu li > a):hover,
 :where(.menu li > details > summary):hover {
-  background-color: color-mix(in oklab, var(--color-base-content, #e5eef8) 7%, transparent) !important;
-  border-color: color-mix(in oklab, var(--color-base-content, #e5eef8) 13%, transparent) !important;
-  box-shadow:
-    0 12px 30px rgb(0 0 0 / 14%),
-    inset 0 1px 0 rgb(255 255 255 / 6%);
+  background-color: var(--interactive-hover-bg) !important;
+  border-color: var(--interactive-hover-border) !important;
+  box-shadow: var(--interactive-hover-shadow);
 }
 
 .soft-hover:focus-visible,
@@ -55,3 +143,81 @@ p, a, li, span {
   outline-offset: 3px;
 }
 
+.checklist-item-hover {
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.checklist-item-hover:hover,
+.checklist-item-hover:focus-visible {
+  background-color: var(--checklist-item-hover-bg) !important;
+  border-color: var(--checklist-item-hover-border) !important;
+  color: inherit !important;
+  box-shadow: var(--checklist-item-hover-shadow);
+}
+
+:where(
+  [data-theme="light"],
+  [data-theme="cupcake"],
+  [data-theme="bumblebee"],
+  [data-theme="corporate"],
+  [data-theme="retro"],
+  [data-theme="valentine"],
+  [data-theme="lofi"],
+  [data-theme="fantasy"]
+) .checklist-item-hover:hover,
+:where(
+  [data-theme="light"],
+  [data-theme="cupcake"],
+  [data-theme="bumblebee"],
+  [data-theme="corporate"],
+  [data-theme="retro"],
+  [data-theme="valentine"],
+  [data-theme="lofi"],
+  [data-theme="fantasy"]
+) .checklist-item-hover:focus-visible {
+  background-color: rgb(31 41 55 / 10%) !important;
+  border-color: rgb(31 41 55 / 14%) !important;
+  color: inherit !important;
+  box-shadow:
+    0 16px 34px rgb(31 41 55 / 10%),
+    inset 0 1px 0 rgb(255 255 255 / 65%);
+}
+
+.top-nav-action {
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.top-nav-action:hover,
+.top-nav-action:focus-visible {
+  transform: translateY(-0.125rem);
+  border-color: color-mix(in oklab, #fb923c 50%, transparent) !important;
+  background-color: var(--color-front, color-mix(in oklab, var(--color-base-content, #e5eef8) 7%, transparent)) !important;
+  color: #f97316 !important;
+  box-shadow:
+    0 8px 18px rgb(0 0 0 / 14%),
+    inset 0 1px 0 rgb(255 255 255 / 7%) !important;
+}
+
+.top-nav-action:focus-visible {
+  outline: 2px solid color-mix(in oklab, #fb923c 45%, transparent);
+  outline-offset: 3px;
+}
+
+.top-nav-action :where(svg, .top-nav-action-mark) {
+  transition: transform 160ms ease;
+}
+
+.top-nav-action:hover :where(svg, .top-nav-action-mark),
+.top-nav-action:focus-visible :where(svg, .top-nav-action-mark) {
+  transform: scale(1.1);
+}

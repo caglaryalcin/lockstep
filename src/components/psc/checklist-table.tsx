@@ -308,9 +308,10 @@ export default component$((props: { section: Section }) => {
               <tr
                 key={item.id}
                 class={[
-                  "border-t border-base-content/10 transition-colors",
+                  styles.checklistRow,
+                  "group border-t border-base-content/10",
                   itemIgnored ? "opacity-60" : "",
-                  !itemIgnored && !itemCompleted ? "hover:bg-front" : "",
+                  !itemIgnored && !itemCompleted ? styles.checklistRowInteractive : "",
                 ]}
                 style={
                   itemCompleted
@@ -360,9 +361,10 @@ export default component$((props: { section: Section }) => {
                 <td>
                   <label
                     for={`done-${item.id}`}
-                    class={`text-base font-bold ${
-                      itemIgnored ? "line-through" : "cursor-pointer"
-                    }`}
+                    class={[
+                      "text-base font-bold transition-colors",
+                      itemIgnored ? "line-through" : "cursor-pointer group-hover:text-primary",
+                    ]}
                   >
                     {item.point}
                   </label>
