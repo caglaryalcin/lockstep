@@ -1,6 +1,7 @@
 import type { RequestHandler } from '@builder.io/qwik-city';
 
 import { sanitizeUsername } from '~/lib/account';
+import { REMEMBER_USER_MAX_AGE_SECONDS } from '~/lib/user-session';
 import {
   authenticateUser,
   hasRegisteredUsers,
@@ -20,13 +21,14 @@ const registrationsEnabled = () => {
 
 const setUserCookie = (
   cookie: Parameters<RequestHandler>[0]['cookie'],
-  userId: string
+  userId: string,
+  remember = false
 ) => {
   cookie.set('LOCKSTEP_USER', userId, {
     httpOnly: false,
-    maxAge: 60 * 60 * 24 * 365,
     path: '/',
     sameSite: 'lax',
+    ...(remember ? { maxAge: REMEMBER_USER_MAX_AGE_SECONDS } : {}),
   });
 };
 
@@ -45,6 +47,7 @@ export const onPost: RequestHandler = async ({ cookie, headers, json, request })
   const username = sanitizeUsername(body?.username);
   const password = typeof body?.password === 'string' ? body.password : '';
   const name = typeof body?.name === 'string' ? body.name : username;
+  const remember = body?.remember === true;
 
   if ((action !== 'login' && action !== 'register') || username.length < 3 || password.length < 6) {
     json(400, { error: 'INVALID_INPUT' });
@@ -58,7 +61,7 @@ export const onPost: RequestHandler = async ({ cookie, headers, json, request })
         : await registerInitialUser(username, password, name)
       : await authenticateUser(username, password);
 
-    setUserCookie(cookie, user.id);
+    setUserCookie(cookie, user.id, remember);
     json(200, { user });
   } catch (error) {
     const message = error instanceof Error ? error.message : '';

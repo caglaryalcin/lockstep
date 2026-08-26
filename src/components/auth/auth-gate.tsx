@@ -18,6 +18,7 @@ export default component$(() => {
   const registrationEnabled = useSignal(true);
   const username = useSignal("");
   const password = useSignal("");
+  const rememberUser = useSignal(false);
   const form = useStore({ name: "", error: "" });
   const summaryCards: { labelKey: TranslationKey; value: string }[] = [
     { labelKey: "auth.cardProgress", value: "312+" },
@@ -40,7 +41,7 @@ export default component$(() => {
     authReady.value = true;
 
     void fetch("/api/auth")
-      .then((response) => response.ok ? response.json() : null)
+      .then((response) => (response.ok ? response.json() : null))
       .then((result) => {
         if (result?.registrationEnabled === false) {
           registrationEnabled.value = false;
@@ -73,6 +74,7 @@ export default component$(() => {
         username: cleanUsername,
         password: submittedPassword,
         name,
+        remember: rememberUser.value,
       }),
     }).catch(() => null);
 
@@ -94,7 +96,7 @@ export default component$(() => {
       return;
     }
 
-    saveStoredUser(result.user);
+    saveStoredUser(result.user, { remember: rememberUser.value });
 
     location.reload();
   });
@@ -233,6 +235,18 @@ export default component$(() => {
                   form.error = "";
                 }}
               />
+            </label>
+
+            <label class="flex cursor-pointer items-center gap-3 text-sm">
+              <input
+                class="checkbox checkbox-sm"
+                type="checkbox"
+                checked={rememberUser.value}
+                onChange$={(event) => {
+                  rememberUser.value = (event.target as HTMLInputElement).checked;
+                }}
+              />
+              <span>{translate(language.value, "auth.rememberDevice")}</span>
             </label>
 
             {form.error && (

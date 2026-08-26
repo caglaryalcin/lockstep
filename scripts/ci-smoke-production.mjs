@@ -27,6 +27,8 @@ const findSetCookie = (headers, name) =>
 const findCookie = (headers, name) =>
   findSetCookie(headers, name).split(";", 1)[0] || "";
 
+const rememberMaxAgeSeconds = 60 * 60 * 24 * 30;
+
 const previousSettingsFile = process.env.PSC_SETTINGS_FILE;
 const previousRegistrationSetting = process.env.LOCKSTEP_REGISTRATION_ENABLED;
 const temporaryDirectory = await mkdtemp(
@@ -123,6 +125,10 @@ try {
   assert.equal(registration.user?.name, "Smoke User");
   const userCookie = findCookie(registrationResponse.headers, "LOCKSTEP_USER");
   assert.equal(userCookie, "LOCKSTEP_USER=smoke-user");
+  assert.doesNotMatch(
+    findSetCookie(registrationResponse.headers, "LOCKSTEP_USER"),
+    /(?:^|;\s*)Max-Age=/i,
+  );
 
   const lockedAuthResponse = await request("/api/auth");
   assert.equal(lockedAuthResponse.status, 200);
@@ -193,6 +199,10 @@ try {
   assert.equal((await readJson(loginResponse)).user?.id, "smoke-user");
   const loginCookie = findCookie(loginResponse.headers, "LOCKSTEP_USER");
   assert.equal(loginCookie, "LOCKSTEP_USER=smoke-user");
+  assert.doesNotMatch(
+    findSetCookie(loginResponse.headers, "LOCKSTEP_USER"),
+    /(?:^|;\s*)Max-Age=/i,
+  );
 
   const initialSettingsResponse = await request("/api/settings", {
     headers: { Cookie: loginCookie },
@@ -264,11 +274,16 @@ try {
     {
       action: "login",
       password: "new-correct-password",
+      remember: true,
       username: "updated-user",
     },
     { method: "POST" },
   );
   assert.equal(updatedLoginResponse.status, 200);
+  assert.match(
+    findSetCookie(updatedLoginResponse.headers, "LOCKSTEP_USER"),
+    new RegExp(`(?:^|;\\s*)Max-Age=${rememberMaxAgeSeconds}(?:;|$)`, "i"),
+  );
 
   const updatedSettingsResponse = await request("/api/settings", {
     headers: { Cookie: updatedCookie },

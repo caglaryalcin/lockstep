@@ -10,8 +10,14 @@ export type LockstepUser = {
 export const USER_STORAGE_KEY = "LOCKSTEP_USER";
 export const USER_COOKIE_KEY = "LOCKSTEP_USER";
 export const USER_HEADER = "X-Lockstep-User";
+export const REMEMBER_USER_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
 
 const userScopedPrefix = "LOCKSTEP_USER";
+
+type StoredUserSession = {
+  remember: boolean;
+  user: LockstepUser;
+};
 
 const normalizeName = (name: string) => name.trim().replace(/\s+/g, " ");
 
@@ -86,18 +92,74 @@ export const parseStoredUser = (value: string | null): LockstepUser | null => {
   return null;
 };
 
-export const getStoredUser = (): LockstepUser | null => {
+const hasExpired = (value: string | null) => {
+  if (!value) {
+    return false;
+  }
+
+  try {
+    const parsed = JSON.parse(value);
+    if (typeof parsed?.expiresAt !== "string") {
+      return false;
+    }
+
+    const expiresAt = Date.parse(parsed.expiresAt);
+    return Number.isNaN(expiresAt) || expiresAt <= Date.now();
+  } catch {
+    return false;
+  }
+};
+
+const getStoredUserSession = (): StoredUserSession | null => {
   if (typeof window === "undefined") {
     return null;
   }
 
-  return parseStoredUser(window.localStorage.getItem(USER_STORAGE_KEY));
+  const persistentValue = window.localStorage.getItem(USER_STORAGE_KEY);
+  if (hasExpired(persistentValue)) {
+    window.localStorage.removeItem(USER_STORAGE_KEY);
+    document.cookie = `${USER_COOKIE_KEY}=; path=/; max-age=0; SameSite=Lax`;
+  } else {
+    const persistentUser = parseStoredUser(persistentValue);
+    if (persistentUser) {
+      return {
+        remember: true,
+        user: persistentUser,
+      };
+    }
+  }
+
+  const sessionUser = parseStoredUser(
+    window.sessionStorage.getItem(USER_STORAGE_KEY)
+  );
+  return sessionUser
+    ? {
+        remember: false,
+        user: sessionUser,
+      }
+    : null;
 };
 
-export const saveStoredUser = (user: LockstepUser) => {
+const writeUserCookie = (userId: string, remember: boolean) => {
+  const maxAge = remember ? ` max-age=${REMEMBER_USER_MAX_AGE_SECONDS};` : "";
+  document.cookie = `${USER_COOKIE_KEY}=${userId}; path=/;${maxAge} SameSite=Lax`;
+};
+
+export const getStoredUser = (): LockstepUser | null => {
+  return getStoredUserSession()?.user || null;
+};
+
+export const saveStoredUser = (
+  user: LockstepUser,
+  options: { remember?: boolean } = {}
+) => {
   if (typeof window === "undefined") {
     return;
   }
+
+  const remember = options.remember ?? getStoredUserSession()?.remember ?? false;
+  const storage = remember ? window.localStorage : window.sessionStorage;
+  const otherStorage = remember ? window.sessionStorage : window.localStorage;
 
   const nextUser = {
     ...user,
@@ -106,10 +168,18 @@ export const saveStoredUser = (user: LockstepUser) => {
     initials: user.initials || makeInitials(user.name),
     username: user.username || safeUserId(user.id),
     lastSeen: new Date().toISOString(),
+    ...(remember
+      ? {
+          expiresAt: new Date(
+            Date.now() + REMEMBER_USER_MAX_AGE_SECONDS * 1000
+          ).toISOString(),
+        }
+      : {}),
   };
 
-  window.localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(nextUser));
-  document.cookie = `${USER_COOKIE_KEY}=${nextUser.id}; path=/; max-age=31536000; SameSite=Lax`;
+  storage.setItem(USER_STORAGE_KEY, JSON.stringify(nextUser));
+  otherStorage.removeItem(USER_STORAGE_KEY);
+  writeUserCookie(nextUser.id, remember);
 };
 
 export const clearStoredUser = () => {
@@ -118,6 +188,7 @@ export const clearStoredUser = () => {
   }
 
   window.localStorage.removeItem(USER_STORAGE_KEY);
+  window.sessionStorage.removeItem(USER_STORAGE_KEY);
   document.cookie = `${USER_COOKIE_KEY}=; path=/; max-age=0; SameSite=Lax`;
 };
 
