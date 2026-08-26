@@ -250,7 +250,7 @@ export default component$(() => {
                       value={someLanguage.code}
                       selected={someLanguage.code === language.value}
                     >
-                      {someLanguage.nativeLabel}
+                      {`${someLanguage.flag} ${someLanguage.nativeLabel}`}
                     </option>
                   ))}
                 </select>

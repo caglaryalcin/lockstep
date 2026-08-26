@@ -5,6 +5,7 @@ import type { PriorityKey } from "~/types/PSC";
 type LanguageMetadata = {
   label: string;
   nativeLabel: string;
+  flag: string;
 };
 
 const en = {
@@ -367,16 +368,19 @@ const languageRegistry = {
   en: {
     label: "English",
     nativeLabel: "English",
+    flag: "🇬🇧",
     dictionary: en,
   },
   de: {
     label: "German",
     nativeLabel: "Deutsch",
+    flag: "🇩🇪",
     dictionary: de,
   },
   tr: {
     label: "Turkish",
     nativeLabel: "Türkçe",
+    flag: "🇹🇷",
     dictionary: tr,
   },
 } as const satisfies Record<string, LanguageMetadata & { dictionary: Record<TranslationKey, string> }>;
@@ -389,6 +393,7 @@ export const languages = Object.entries(languageRegistry).map(([code, definition
   code: code as Language,
   label: definition.label,
   nativeLabel: definition.nativeLabel,
+  flag: definition.flag,
 }));
 
 export const LanguageContext = createContextId<Signal<Language>>("lockstep.language");
