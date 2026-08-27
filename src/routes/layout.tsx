@@ -5,6 +5,7 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 import AuthGate from "~/components/auth/auth-gate";
+import AppFooter from "~/components/furniture/footer";
 import Navbar from "~/components/furniture/nav";
 import { defaultLanguage, isLanguage, LanguageContext, type Language } from "~/i18n";
 import { localizeSections } from "~/i18n/checklist";
@@ -71,10 +72,13 @@ export default component$(() => {
 
   return (
     <AuthGate>
-      <Navbar />
-      <main class="bg-base-100 min-h-full pb-16 md:pb-24">
-        <Slot />
-      </main>
+      <div class="flex min-h-screen flex-col bg-base-100 text-base-content">
+        <Navbar />
+        <main class="flex-1 bg-base-100 pb-14 md:pb-16">
+          <Slot />
+        </main>
+        <AppFooter />
+      </div>
     </AuthGate>
   );
 });

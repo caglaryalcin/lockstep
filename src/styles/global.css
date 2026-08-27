@@ -69,7 +69,7 @@ p, a, li, span {
 [data-theme="halloween"],
 [data-theme="aqua"],
 [data-theme="dracula"] {
-  --interactive-hover-bg: rgb(255 255 255 / 8%);
+  --interactive-hover-bg: rgb(255 255 255 / 13%);
   --interactive-hover-border: rgb(255 255 255 / 18%);
   --interactive-hover-outline: rgb(251 146 60 / 42%);
   --interactive-hover-shadow:
