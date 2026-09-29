@@ -1,5 +1,7 @@
 # Lockstep
 
+<img src="./public/banner.png" width="512" alt="Lockstep social preview" />
+
 Lockstep is a personal security checklist platform. It helps users track security habits, checklist progress, priorities, and profile-based progress from a clean web interface.
 
 ![](https://raw.githubusercontent.com/caglaryalcin/lockstep/refs/heads/main/ss/dashboard.gif)
