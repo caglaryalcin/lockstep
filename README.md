@@ -39,7 +39,16 @@ PORT=4174 npm run serve
 
 ## Docker
 
-Run directly from the published image:
+The workflow publishes the same image and tags to both registries:
+
+| Registry                  | Image                                  |
+| ------------------------- | -------------------------------------- |
+| GitHub Container Registry | `ghcr.io/caglaryalcin/lockstep:latest`   |
+| Docker Hub                | `caglaryalcin/lockstep:latest`           |
+
+Choose one of the following commands.
+
+From GitHub Container Registry:
 
 ```bash
 docker run -d \
@@ -47,6 +56,16 @@ docker run -d \
   -p 4174:4174 \
   -v lockstep-data:/data \
   ghcr.io/caglaryalcin/lockstep:latest
+```
+
+From Docker Hub:
+
+```bash
+docker run -d \
+  --name lockstep \
+  -p 4174:4174 \
+  -v lockstep-data:/data \
+  caglaryalcin/lockstep:latest
 ```
 
 Then open:
@@ -62,6 +81,14 @@ docker build -t lockstep .
 docker run -d --name lockstep -p 4174:4174 -v lockstep-data:/data lockstep
 ```
 
+The included `docker-compose.yml` uses the GHCR image. To use Docker Hub instead,
+change its `image` value to `caglaryalcin/lockstep:latest`, then run
+`docker compose up -d`.
+
+The GitHub Actions workflow publishes branch, version-tag, and commit-SHA tags to
+both registries, plus `latest` for the default branch. Docker Hub publishing uses
+the repository secrets `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN`.
+
 ## Disable New Registrations
 
 New account registration is enabled by default. To make a public deployment login-only after setup, set `LOCKSTEP_REGISTRATION_ENABLED=false`. When there are no accounts yet, Lockstep still allows exactly one initial account to be created. Once an account exists, the server rejects all further registration requests; existing users can still sign in and manage their accounts.
@@ -76,7 +103,8 @@ The included `docker-compose.yml` reads this value and keeps it enabled when the
 
 ## Docker Stack
 
-Example `stack.yml`:
+Example `stack.yml` using GHCR. To use Docker Hub instead, set `image` to
+`caglaryalcin/lockstep:latest`.
 
 ```yaml
 version: "3.8"

@@ -1,4 +1,4 @@
-name: Build Docker image
+name: Build and publish Docker image
 
 on:
   workflow_dispatch:
@@ -41,6 +41,9 @@ permissions:
   contents: read
   packages: write
 
+env:
+  DOCKERHUB_IMAGE: caglaryalcin/lockstep
+
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -64,11 +67,20 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Log in to Docker Hub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ steps.image.outputs.name }}
+          images: |
+            ${{ steps.image.outputs.name }}
+            ${{ env.DOCKERHUB_IMAGE }}
           tags: |
             type=ref,event=branch
             type=ref,event=tag
