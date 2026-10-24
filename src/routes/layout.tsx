@@ -72,7 +72,7 @@ export default component$(() => {
 
   return (
     <AuthGate>
-      <div class="flex min-h-screen flex-col bg-base-100 text-base-content">
+      <div lang={language.value} class="flex min-h-screen flex-col bg-base-100 text-base-content">
         <Navbar />
         <main class="flex-1 bg-base-100 pb-14 md:pb-16">
           <Slot />

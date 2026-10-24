@@ -2,6 +2,7 @@ import type { Language } from "~/i18n";
 import type { Checklist, Section, Sections } from "~/types/PSC";
 import trGeneratedSections from "./checklist.tr.generated.json";
 import deGeneratedSections from "./checklist.de.generated.json";
+import bgGeneratedSections from "./checklist.bg.generated.json";
 
 export type ChecklistTranslation = {
   point?: string;
@@ -258,6 +259,9 @@ const checklistTranslationBundles: Partial<Record<Language, ChecklistTranslation
   },
   de: {
     generated: deGeneratedSections as Record<string, SectionTranslation>,
+  },
+  bg: {
+    generated: bgGeneratedSections as Record<string, SectionTranslation>,
   },
 };
 

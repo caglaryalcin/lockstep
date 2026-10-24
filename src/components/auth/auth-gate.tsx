@@ -110,7 +110,7 @@ export default component$(() => {
   }
 
   return (
-    <main class="min-h-screen bg-base-100 px-4 py-6 text-base-content">
+    <main lang={language.value} class="min-h-screen bg-base-100 px-4 py-6 text-base-content">
       <div class="mx-auto grid min-h-[calc(100vh-3rem)] w-full max-w-6xl items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
         <section class="space-y-8">
           <a href="/" class="inline-flex items-center gap-3 rounded-full border border-base-content/10 bg-front px-4 py-3 shadow-md">

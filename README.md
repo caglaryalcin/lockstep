@@ -9,7 +9,7 @@ Lockstep is a personal security checklist platform. It helps users track securit
 ## Features
 
 - User login and profile-based progress tracking
-- Turkish language support
+- English, German, Turkish, and Bulgarian language support
 - Dark and light mode
 - Security progress dashboard
 - Checklist categories, priority levels, filters, and completion tracking

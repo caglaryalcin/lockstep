@@ -351,7 +351,10 @@ export default component$(() => {
               id={item.id}
               class="h-16 w-full max-w-36 overflow-visible text-base-content"
               viewBox="0 0 100 60"
-              aria-label={`${item.label} ${percent}% complete`}
+              aria-label={translate(language.value, "progress.priorityAria", {
+                priority: item.label,
+                percent,
+              })}
             >
               <path
                 d="M 10 50 A 40 40 0 0 1 90 50"
